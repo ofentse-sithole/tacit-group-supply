@@ -1,9 +1,10 @@
 import '../../App.css'
+import HeroSection from '../HeroSection/HeroSection'
 
 function Home() {
   return (
     <div>
-
+        <HeroSection />
     </div>
   )
 }
