@@ -9,10 +9,10 @@
 }
 
 :root {
-    --mainColor: #29335c;
+    --mainColor: #d6d6d6;
     --mainColorLight: #5767aa;
-    --secondaryColor: #db2b39;
-    --textColor: #eee;
+    --secondaryColor: #195308;
+    --textColor: #000000;
 }
 
 header {
@@ -31,7 +31,7 @@ header {
 }
 
 .logo-image {
-    height: 50px;
+    height: 100px;
     width: auto;
     object-fit: contain;
 }
@@ -105,6 +105,6 @@ nav {
     }
 
     .logo-image {
-        height: 40px; /* Slightly smaller logo on mobile */
+        height: 70px; 
     }
 }
