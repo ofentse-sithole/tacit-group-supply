@@ -1,7 +1,9 @@
 // Navbar.jsx
 import { useRef } from 'react';
 import { Link } from 'react-router-dom';
+import { Menu, X } from 'lucide-react';
 import './Navbar.css';
+import logo from '../../../public/image/Logo.png';  
 
 function Navbar() {
     const navRef = useRef();
@@ -12,7 +14,9 @@ function Navbar() {
 
     return (
         <header className="header">
-            <Link to="/" className="logo">Logo</Link>
+            <Link to="/" className="logo">
+                <img src={logo} alt="Company Logo" className="logo-image" />
+            </Link>
             <nav ref={navRef}>
                 <Link to="/home">Home</Link>
                 <Link to="/contact">Contact</Link>
