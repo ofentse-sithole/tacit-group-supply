@@ -6,41 +6,10 @@ const Container = styled.div`
   max-width: 1200px;
   margin: 0 auto;
   padding: 2rem;
-  background-color: #f5f5f5;
+  background-color:white;
   position: relative;
 `;
 
-const Header = styled.div`
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-bottom: 2rem;
-`;
-
-const Logo = styled.div`
-  font-family: serif;
-  font-size: 1.5rem;
-  color: #00896F;
-  border: 2px solid #00896F;
-  border-radius: 50%;
-  width: 50px;
-  height: 50px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  
-  &:after {
-    content: "DB";
-  }
-`;
-
-const MenuButton = styled.button`
-  background: none;
-  border: none;
-  color: #00896F;
-  font-size: 1.5rem;
-  cursor: pointer;
-`;
 
 const ContentWrapper = styled.div`
   display: grid;
@@ -54,7 +23,7 @@ const TextContent = styled.div`
 `;
 
 const Title = styled.h1`
-  color: #00896F;
+  color:rgb(0, 137, 7);
   font-size: 3.5rem;
   font-weight: 500;
   line-height: 1.2;
@@ -68,7 +37,7 @@ const Title = styled.h1`
 `;
 
 const Description = styled.p`
-  color: #00896F;
+  color:rgb(0, 0, 0);
   font-size: 1rem;
   line-height: 1.6;
   margin-bottom: 1rem;
@@ -86,7 +55,7 @@ const BackgroundImage = styled.div`
   top: 0;
   width: 120%;
   height: 100%;
-  background-image: url('/api/placeholder/600/400');
+  background-image: url('/public/image/gadgets-1.jpg');
   background-size: cover;
   background-position: center;
   z-index: 1;
@@ -96,7 +65,7 @@ const TeamImage = styled.div`
   position: relative;
   width: 80%;
   height: 300px;
-  background-image: url('/api/placeholder/400/300');
+  background-image: url('/public/image/gadgets.jpg');;
   background-color: #f0f0f0;
   background-size: cover;
   background-position: center;
@@ -128,15 +97,16 @@ const About = () => {
             <span>Our Vision</span>
           </Title>
           <Description>
-          At Tacit Group Supply Co., our values are centered around quality, 
-          trust, and customer satisfaction. We believe in delivering only 
-          the best products, carefully curated for their performance, 
-          durability, and design. Integrity guides everything we do—from 
-          honest product sourcing to transparent communication with our 
-          customers. We are committed to providing exceptional service and 
-          building lasting relationships by always putting our customers’ 
-          needs first. Above all, we strive to foster innovation and reliability, 
-          ensuring that every purchase enhances the tech experience of our customers.
+          At Tacit Group Supply Co., our core values are rooted in excellence, 
+          trust, and a commitment to customer satisfaction. We are dedicated 
+          to offering only the finest gadgets and smartphones, thoughtfully 
+          selected for their superior performance, lasting durability, and 
+          sleek design. Guided by integrity, we ensure transparent communication 
+          and honest sourcing in every step of our process. Our focus is on 
+          delivering outstanding service and cultivating strong, long-term 
+          relationships with our customers, always prioritizing their needs. 
+          Above all, we aim to inspire innovation and provide dependable products 
+          that elevate the tech experience for everyone we serve.
           </Description>
         </TextContent>
 

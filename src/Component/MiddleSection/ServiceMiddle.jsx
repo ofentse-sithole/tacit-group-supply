@@ -1,11 +1,11 @@
 // ServicesSection.jsx
 import React from 'react';
 import styled from 'styled-components';
-import { Camera, Code, Smartphone, Play, Search, Palette } from 'lucide-react';
+import { Wrench, SmartphoneCharging, Smartphone, Unplug, Search, UserRoundCog } from 'lucide-react';
 
 const Container = styled.div`
   min-height: 100vh;
-  background-color: #1a1f2e;
+  background-color:white;
   padding: 2rem;
 `;
 
@@ -25,16 +25,16 @@ const Title = styled.h2`
   margin-bottom: 1rem;
 
   span.highlight {
-    color: #6366f1;
+    color:rgb(38, 173, 4);
   }
 
   span.normal {
-    color: white;
+    color: black;
   }
 `;
 
 const Subtitle = styled.p`
-  color: #94a3b8;
+  color:rgb(17, 23, 31);
   margin-top: 1rem;
 `;
 
@@ -49,7 +49,7 @@ const Card = styled.div`
   padding: 1.5rem;
   border-radius: 0.5rem;
   border: 1px solid #2d3748;
-  background-color: rgba(30, 41, 59, 0.5);
+  background-color: rgba(1, 117, 49, 0.5);
   transition: all 0.3s ease;
   display: flex;
   flex-direction: column;
@@ -57,7 +57,7 @@ const Card = styled.div`
   text-align: center;
 
   &:hover {
-    background-color: rgba(30, 41, 59, 0.8);
+    background-color: rgba(0, 187, 25, 0.8);
     transform: translateY(-5px);
   }
 `;
@@ -69,8 +69,8 @@ const IconWrapper = styled.div`
   align-items: center;
   justify-content: center;
   border-radius: 50%;
-  background-color: rgba(99, 102, 241, 0.1);
-  color: #6366f1;
+  background-color: rgba(2, 36, 4, 0.86);
+  color:rgb(34, 117, 9);
   margin-bottom: 1rem;
 `;
 
@@ -82,41 +82,37 @@ const ServiceTitle = styled.h3`
 `;
 
 const Description = styled.p`
-  color: #94a3b8;
+  color:rgb(10, 21, 36);
   font-size: 0.875rem;
 `;
 
 const ServicesSection = () => {
   const services = [
     {
-      icon: <Code size={24} />,
-      title: "WEB DEVELOPMENT",
-      description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed venenatis tortor turpism."
-    },
-    {
-      icon: <Camera size={24} />,
-      title: "PHOTOGRAPHY",
-      description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed venenatis tortor turpism."
-    },
-    {
-      icon: <Palette size={24} />,
-      title: "WEB DESIGN",
-      description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed venenatis tortor turpism."
+      icon: <SmartphoneCharging size={24} />,
+      title: "IPhone Premium Reselling",
+      description: "High-quality iPhones at competitive prices."
     },
     {
       icon: <Smartphone size={24} />,
-      title: "APP DEVELOPING",
-      description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed venenatis tortor turpism."
+      title: "Gadgets",
+      description: "A range of premium gadgets and accessories."
     },
     {
-      icon: <Play size={24} />,
-      title: "VIDEO EDITING",
-      description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed venenatis tortor turpism."
+      icon: <Wrench size={24} />,
+      title: "Repair Services",
+      description: "Expert repair services for all gadgets, specializing in iPhones."
     },
     {
-      icon: <Search size={24} />,
-      title: "SEO EXPERT",
-      description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed venenatis tortor turpism."
+      icon: <UserRoundCog size={24} />,
+      title: "Professional Procurement Services",
+      description: "Assisting businesses and individuals in sourcing tech products."
+    },
+    
+    {
+      icon: <Unplug size={24} />,
+      title: "Consignor Services",
+      description: "Streamlined solutions for consigning your products with us."
     }
   ];
 
