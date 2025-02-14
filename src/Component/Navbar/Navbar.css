@@ -9,10 +9,10 @@
 }
 
 :root {
-    --mainColor: #d6d6d6;
+    --mainColor: #030202;
     --mainColorLight: #5767aa;
-    --secondaryColor: #195308;
-    --textColor: #000000;
+    --secondaryColor: #41e20f;
+    --textColor: #ffffff;
 }
 
 header {
@@ -38,7 +38,7 @@ header {
 
 nav {
     display: flex;
-    align-items: center;
+    align-items: right;
 }
 
 nav a {
@@ -96,6 +96,7 @@ nav {
 
     nav .nav-close-btn {
         position: absolute;
+        color: red;
         top: 2rem;
         right: 2rem;
     }
