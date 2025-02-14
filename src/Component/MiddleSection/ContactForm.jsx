@@ -1,0 +1,201 @@
+import React, { useState } from 'react';
+import styled from 'styled-components';
+import { MapPin, Phone, Mail, Globe } from 'lucide-react';
+
+const Container = styled.div`
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem;
+`;
+
+const Title = styled.h1`
+  text-align: center;
+  font-size: 2rem;
+  margin-bottom: 2rem;
+  color: #333;
+`;
+
+const FormCard = styled.div`
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  background: #1e2126;
+  border-radius: 15px;
+  overflow: hidden;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+`;
+
+const FormSection = styled.div`
+  padding: 3rem;
+`;
+
+const ContactSection = styled(FormSection)`
+  background: #17191c;
+`;
+
+const SectionTitle = styled.h2`
+  color: white;
+  font-size: 1.8rem;
+  margin-bottom: 2rem;
+`;
+
+const Input = styled.input`
+  width: 100%;
+  padding: 0.8rem 0;
+  margin-bottom: 1.5rem;
+  background: transparent;
+  border: none;
+  border-bottom: 1px solid #333;
+  color: white;
+  outline: none;
+  transition: border-color 0.3s;
+
+  &::placeholder {
+    color: #666;
+  }
+
+  &:focus {
+    border-bottom-color:rgb(90, 230, 34);
+  }
+`;
+
+const TextArea = styled.textarea`
+  width: 100%;
+  padding: 0.8rem 0;
+  margin-bottom: 1.5rem;
+  background: transparent;
+  border: none;
+  border-bottom: 1px solid #333;
+  color: white;
+  outline: none;
+  resize: vertical;
+  min-height: 100px;
+  transition: border-color 0.3s;
+
+  &::placeholder {
+    color: #666;
+  }
+
+  &:focus {
+    border-bottom-color:rgb(34, 230, 34);
+  }
+`;
+
+const SubmitButton = styled.button`
+  background:rgb(15, 95, 8);
+  color: white;
+  padding: 0.8rem 2rem;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background 0.3s;
+
+  &:hover {
+    background:rgb(34, 206, 12);
+  }
+`;
+
+const ContactInfo = styled.div`
+  margin-top: 2rem;
+  color: #999;
+`;
+
+const InfoTitle = styled.h3`
+  color: white;
+  margin-bottom: 1rem;
+`;
+
+const InfoText = styled.p`
+  margin: 1rem 0;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  color: #666;
+`;
+
+const ContactForm = () => {
+  const [formData, setFormData] = useState({
+    name: '',
+    email: '',
+    subject: '',
+    message: ''
+  });
+
+  const handleChange = (e) => {
+    setFormData({
+      ...formData,
+      [e.target.name]: e.target.value
+    });
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    console.log('Form submitted:', formData);
+    // Add your form submission logic here
+  };
+
+  return (
+    <Container>
+      <Title>Contact Us</Title>
+      <FormCard>
+        <FormSection>
+          <SectionTitle>Write us</SectionTitle>
+          <form onSubmit={handleSubmit}>
+            <Input
+              type="text"
+              name="name"
+              placeholder="Name"
+              value={formData.name}
+              onChange={handleChange}
+            />
+            <Input
+              type="email"
+              name="email"
+              placeholder="Email"
+              value={formData.email}
+              onChange={handleChange}
+            />
+            <Input
+              type="text"
+              name="subject"
+              placeholder="Subject"
+              value={formData.subject}
+              onChange={handleChange}
+            />
+            <TextArea
+              name="message"
+              placeholder="Message"
+              value={formData.message}
+              onChange={handleChange}
+            />
+            <SubmitButton type="submit">Send Message</SubmitButton>
+          </form>
+        </FormSection>
+
+        <ContactSection>
+          <SectionTitle>Contact information</SectionTitle>
+          <ContactInfo>
+            <InfoText>We're open for any suggestion or just to have a chat</InfoText>
+            
+            <InfoText>
+              <MapPin size={20} />
+              <span>Address: 1905 Xaba Street, Tokoza, Gauteng, 1426</span>
+            </InfoText>
+            
+            <InfoText>
+              <Phone size={20} />
+              <span>Phone: 062 749 6008</span>
+            </InfoText>
+            
+            <InfoText>
+              <Mail size={20} />
+              <span>Email: tacitgroupza@gmail.com</span>
+            </InfoText>
+            
+          </ContactInfo>
+        </ContactSection>
+      </FormCard>
+    </Container>
+  );
+};
+
+export default ContactForm;
