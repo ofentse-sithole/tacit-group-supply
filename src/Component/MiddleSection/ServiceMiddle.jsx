@@ -1,4 +1,3 @@
-// ServicesSection.jsx
 import React from 'react';
 import styled from 'styled-components';
 import { Wrench, SmartphoneCharging, Smartphone, Unplug, Search, UserRoundCog } from 'lucide-react';
@@ -7,6 +6,8 @@ const Container = styled.div`
   min-height: 100vh;
   background-color: white;
   padding: 2rem;
+  position: relative; /* Ensure section is placed in proper stacking context */
+  z-index: 1; /* Avoid overlap with navbar */
 `;
 
 const Wrapper = styled.div`
@@ -98,28 +99,28 @@ const ServicesSection = () => {
     {
       icon: <SmartphoneCharging size={24} />,
       title: 'IPhone Premium Reselling',
-      description: 'High-quality iPhones at competitive prices.'
+      description: 'High-quality iPhones at competitive prices.',
     },
     {
       icon: <Smartphone size={24} />,
       title: 'Gadgets',
-      description: 'A range of premium gadgets and accessories.'
+      description: 'A range of premium gadgets and accessories.',
     },
     {
       icon: <Wrench size={24} />,
       title: 'Repair Services',
-      description: 'Expert repair services for all gadgets, specializing in iPhones.'
+      description: 'Expert repair services for all gadgets, specializing in iPhones.',
     },
     {
       icon: <UserRoundCog size={24} />,
       title: 'Professional Procurement Services',
-      description: 'Assisting businesses and individuals in sourcing tech products.'
+      description: 'Assisting businesses and individuals in sourcing tech products.',
     },
     {
       icon: <Unplug size={24} />,
       title: 'Consignor Services',
-      description: 'Streamlined solutions for consigning your products with us.'
-    }
+      description: 'Streamlined solutions for consigning your products with us.',
+    },
   ];
 
   return (
