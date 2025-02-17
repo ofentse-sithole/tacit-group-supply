@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
-import { MapPin, Phone, Mail, Globe } from 'lucide-react';
+import { MapPin, Phone, Mail } from 'lucide-react';
 
 const Container = styled.div`
   max-width: 1200px;
@@ -22,6 +22,10 @@ const FormCard = styled.div`
   border-radius: 15px;
   overflow: hidden;
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+
+  @media (max-width: 768px) {
+    grid-template-columns: 1fr; /* Stack sections on small screens */
+  }
 `;
 
 const FormSection = styled.div`
@@ -54,7 +58,7 @@ const Input = styled.input`
   }
 
   &:focus {
-    border-bottom-color:rgb(90, 230, 34);
+    border-bottom-color: rgb(90, 230, 34);
   }
 `;
 
@@ -76,12 +80,12 @@ const TextArea = styled.textarea`
   }
 
   &:focus {
-    border-bottom-color:rgb(34, 230, 34);
+    border-bottom-color: rgb(34, 230, 34);
   }
 `;
 
 const SubmitButton = styled.button`
-  background:rgb(15, 95, 8);
+  background: rgb(15, 95, 8);
   color: white;
   padding: 0.8rem 2rem;
   border: none;
@@ -90,7 +94,7 @@ const SubmitButton = styled.button`
   transition: background 0.3s;
 
   &:hover {
-    background:rgb(34, 206, 12);
+    background: rgb(34, 206, 12);
   }
 `;
 
@@ -137,6 +141,30 @@ const ContactForm = () => {
     <Container>
       <Title>Contact Us</Title>
       <FormCard>
+
+      <ContactSection>
+          <SectionTitle>Contact information</SectionTitle>
+          <ContactInfo>
+            <InfoText>We're open for any suggestion or just to have a chat</InfoText>
+
+            <InfoText>
+              <MapPin size={20} />
+              <span>Address: 1905 Xaba Street, Tokoza, Gauteng, 1426</span>
+            </InfoText>
+
+            <InfoText>
+              <Phone size={20} />
+              <span>Phone: 062 749 6008</span>
+            </InfoText>
+
+            <InfoText>
+              <Mail size={20} />
+              <span>Email: tacitgroupza@gmail.com</span>
+            </InfoText>
+
+          </ContactInfo>
+        </ContactSection>
+
         <FormSection>
           <SectionTitle>Write us</SectionTitle>
           <form onSubmit={handleSubmit}>
@@ -171,28 +199,7 @@ const ContactForm = () => {
           </form>
         </FormSection>
 
-        <ContactSection>
-          <SectionTitle>Contact information</SectionTitle>
-          <ContactInfo>
-            <InfoText>We're open for any suggestion or just to have a chat</InfoText>
-            
-            <InfoText>
-              <MapPin size={20} />
-              <span>Address: 1905 Xaba Street, Tokoza, Gauteng, 1426</span>
-            </InfoText>
-            
-            <InfoText>
-              <Phone size={20} />
-              <span>Phone: 062 749 6008</span>
-            </InfoText>
-            
-            <InfoText>
-              <Mail size={20} />
-              <span>Email: tacitgroupza@gmail.com</span>
-            </InfoText>
-            
-          </ContactInfo>
-        </ContactSection>
+        
       </FormCard>
     </Container>
   );

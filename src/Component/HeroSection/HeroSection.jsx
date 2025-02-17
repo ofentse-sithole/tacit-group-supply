@@ -23,7 +23,7 @@ const HomeHeroSection = () => {
         <HeroContainer>
             <Content>
                 <Title>
-                    <Highlight> </Highlight> <Moving> </Moving>
+                    <Highlight> Your One-Stop Shop for Quality Products </Highlight> <Moving> </Moving>
                 </Title>
             </Content>
         </HeroContainer>
@@ -52,7 +52,7 @@ const Title = styled.h1`
 `;
 
 const Highlight = styled.span`
-  color:rgb(24, 108, 244);
+  color:rgb(27, 109, 11);
 `;
 
 const Moving = styled.span`
