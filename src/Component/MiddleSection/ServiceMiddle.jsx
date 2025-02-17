@@ -1,12 +1,13 @@
-// ServicesSection.jsx
 import React from 'react';
 import styled from 'styled-components';
 import { Wrench, SmartphoneCharging, Smartphone, Unplug, Search, UserRoundCog } from 'lucide-react';
 
 const Container = styled.div`
   min-height: 100vh;
-  background-color:white;
+  background-color: white;
   padding: 2rem;
+  position: relative; /* Ensure section is placed in proper stacking context */
+  z-index: 1; /* Avoid overlap with navbar */
 `;
 
 const Wrapper = styled.div`
@@ -25,7 +26,7 @@ const Title = styled.h2`
   margin-bottom: 1rem;
 
   span.highlight {
-    color:rgb(38, 173, 4);
+    color: rgb(38, 173, 4);
   }
 
   span.normal {
@@ -34,8 +35,10 @@ const Title = styled.h2`
 `;
 
 const Subtitle = styled.p`
-  color:rgb(17, 23, 31);
+  color: rgb(17, 23, 31);
   margin-top: 1rem;
+  font-size: 1rem;
+  line-height: 1.5;
 `;
 
 const Grid = styled.div`
@@ -43,6 +46,10 @@ const Grid = styled.div`
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   gap: 1.5rem;
   padding: 1rem;
+
+  @media (max-width: 768px) {
+    grid-template-columns: 1fr; /* Stack the cards vertically on small screens */
+  }
 `;
 
 const Card = styled.div`
@@ -70,7 +77,7 @@ const IconWrapper = styled.div`
   justify-content: center;
   border-radius: 50%;
   background-color: rgba(2, 36, 4, 0.86);
-  color:rgb(34, 117, 9);
+  color: rgb(34, 117, 9);
   margin-bottom: 1rem;
 `;
 
@@ -82,38 +89,38 @@ const ServiceTitle = styled.h3`
 `;
 
 const Description = styled.p`
-  color:rgb(10, 21, 36);
+  color: rgb(10, 21, 36);
   font-size: 0.875rem;
+  line-height: 1.5;
 `;
 
 const ServicesSection = () => {
   const services = [
     {
       icon: <SmartphoneCharging size={24} />,
-      title: "IPhone Premium Reselling",
-      description: "High-quality iPhones at competitive prices."
+      title: 'IPhone Premium Reselling',
+      description: 'High-quality iPhones at competitive prices.',
     },
     {
       icon: <Smartphone size={24} />,
-      title: "Gadgets",
-      description: "A range of premium gadgets and accessories."
+      title: 'Gadgets',
+      description: 'A range of premium gadgets and accessories.',
     },
     {
       icon: <Wrench size={24} />,
-      title: "Repair Services",
-      description: "Expert repair services for all gadgets, specializing in iPhones."
+      title: 'Repair Services',
+      description: 'Expert repair services for all gadgets, specializing in iPhones.',
     },
     {
       icon: <UserRoundCog size={24} />,
-      title: "Professional Procurement Services",
-      description: "Assisting businesses and individuals in sourcing tech products."
+      title: 'Professional Procurement Services',
+      description: 'Assisting businesses and individuals in sourcing tech products.',
     },
-    
     {
       icon: <Unplug size={24} />,
-      title: "Consignor Services",
-      description: "Streamlined solutions for consigning your products with us."
-    }
+      title: 'Consignor Services',
+      description: 'Streamlined solutions for consigning your products with us.',
+    },
   ];
 
   return (
