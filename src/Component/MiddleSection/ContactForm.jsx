@@ -1,6 +1,7 @@
-import React, { useState } from 'react';
+import React, { useState, useRef } from 'react';
 import styled from 'styled-components';
 import { MapPin, Phone, Mail } from 'lucide-react';
+import emailJS from 'emailjs-com';
 
 const Container = styled.div`
   max-width: 1200px;
@@ -117,32 +118,49 @@ const InfoText = styled.p`
 `;
 
 const ContactForm = () => {
+  const form = useRef(null);
   const [formData, setFormData] = useState({
     name: '',
     email: '',
     subject: '',
-    message: ''
+    message: '',
   });
 
+  // Handle input change for controlled form
   const handleChange = (e) => {
     setFormData({
       ...formData,
-      [e.target.name]: e.target.value
+      [e.target.name]: e.target.value,
     });
   };
 
+  // Handle form submission
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log('Form submitted:', formData);
-    // Add your form submission logic here
+
+    // Send email with emailJS
+    emailJS.sendForm('service_ahljxiv', 'template_imifcmg', form.current, 't1cogETF_-3uCWd8O')
+      .then(
+        (result) => {
+          alert('Message sent successfully!');
+          console.log(result.text); // Log success
+        },
+        (error) => {
+          alert('An error occurred, please try again.');
+          console.error('EmailJS Error:', error); // Log error
+        }
+      );
+
+    // Reset form data after submission
+    setFormData({ name: '', email: '', subject: '', message: '' });
+    e.target.reset();
   };
 
   return (
     <Container>
       <Title>Contact Us</Title>
       <FormCard>
-
-      <ContactSection>
+        <ContactSection>
           <SectionTitle>Contact information</SectionTitle>
           <ContactInfo>
             <InfoText>We're open for any suggestion or just to have a chat</InfoText>
@@ -161,13 +179,12 @@ const ContactForm = () => {
               <Mail size={20} />
               <span>Email: tacitgroupza@gmail.com</span>
             </InfoText>
-
           </ContactInfo>
         </ContactSection>
 
         <FormSection>
           <SectionTitle>Write us</SectionTitle>
-          <form onSubmit={handleSubmit}>
+          <form ref={form} onSubmit={handleSubmit}>
             <Input
               type="text"
               name="name"
@@ -198,8 +215,6 @@ const ContactForm = () => {
             <SubmitButton type="submit">Send Message</SubmitButton>
           </form>
         </FormSection>
-
-        
       </FormCard>
     </Container>
   );
