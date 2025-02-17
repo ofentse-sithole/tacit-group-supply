@@ -1,5 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
+import backkground1 from "/public/image/gadgets-1.jpg";
+import backkground2 from "/public/image/gadgets.jpg";
 
 // Styled Components
 const Container = styled.div`
@@ -76,7 +78,7 @@ const BackgroundImage = styled.div`
   top: 0;
   width: 120%;
   height: 100%;
-  background-image: url('/public/image/gadgets-1.jpg');
+  background-image: url(${backkground1});
   background-size: cover;
   background-position: center;
   z-index: 1;
@@ -92,7 +94,7 @@ const TeamImage = styled.div`
   position: relative;
   width: 80%;
   height: 300px;
-  background-image: url('/public/image/gadgets.jpg');
+  background-image: url(${backkground2});
   background-color: #f0f0f0;
   background-size: cover;
   background-position: center;
