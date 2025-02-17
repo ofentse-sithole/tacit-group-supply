@@ -22,8 +22,8 @@ header {
     height: 80px;
     padding: 0 2rem;
     background-color: var(--mainColor);
-    color: var(--textColor);
-    position: sticky; /* Keep navbar sticky */
+    color: var(--textColor); 
+    position: fixed;
     top: 0; /* Stick at the top */
     z-index: 1000; /* Ensure navbar stays on top of other content */
     width: 100%;
