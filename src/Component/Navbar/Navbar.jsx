@@ -22,6 +22,7 @@ function Navbar() {
       </Link>
       <nav ref={navRef}>
         <Link to="/home" onClick={closeNavbar}>Home</Link>
+        <Link to="/product" onClick={closeNavbar}>Products</Link>
         <Link to="/contact" onClick={closeNavbar}>Contact</Link>
 
         <button className="nav-btn nav-close-btn" onClick={showNavbar}>
