@@ -1,5 +1,10 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
+// Import just the one image we know works'
+import iPhone12Image from '../../assets/ProMax/iPhone_12_Pro_Max_Front&Back_View.png'
+import iPhone13Image from '../../assets/ProMax/13_Pro_Max_F&B_Blue.jpg'
+import iPhone14Image from '../../assets/ProMax/14_Pro_Max_F&B.jpeg'
+import iPhone15Image from '../../assets/ProMax/15_Pro_Max_F&B.jpg';
 
 // Styled Components
 const ShowcaseContainer = styled.div`
@@ -45,10 +50,13 @@ const ImageContainer = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
+  background-color: #f7f7f7;
+  border-radius: 4px;
 `;
 
 const ProductImage = styled.img`
   max-height: 100%;
+  max-width: 100%;
   object-fit: contain;
 `;
 
@@ -93,7 +101,7 @@ const ProductCard = ({ image, title, price, colors }) => {
   return (
     <Card>
       <ImageContainer>
-        <ProductImage src="/api/placeholder/160/160" alt={title} />
+        {image && <ProductImage src={image} alt={title} />}
       </ImageContainer>
       <ProductTitle>{title}</ProductTitle>
       
@@ -109,7 +117,7 @@ const ProductCard = ({ image, title, price, colors }) => {
         ))}
       </ColorOptions>
       
-      <Price>${price}</Price>
+      <Price>R {price}</Price>
     </Card>
   );
 };
@@ -117,31 +125,31 @@ const ProductCard = ({ image, title, price, colors }) => {
 const ProductShowcase = () => {
   const products = [
     {
+      id: 4,
+      image: iPhone15Image,
+      title: "iPhone 15 Pro Max 64/256/512GB",
+      price: "8,800.00",
+      colors: ["#000000", "#D4AF37", "#F4F4F4", "#F8C8C8", "#FFFFFF"]
+    },
+    {
       id: 1,
-      image: "galaxy-protector.jpg",
-      title: "Galaxy S7 Edge Screen Protector Curved Crystal HD",
-      price: "24.99",
+      image: iPhone12Image,
+      title: "iPhone 12 Pro Max",
+      price: "399.99",
       colors: ["#000000", "#D4AF37", "#4F4F4F", "#F8C8C8", "#FFFFFF"]
     },
     {
       id: 2,
-      image: "style-ring.jpg",
-      title: "Style Ring",
-      price: "24.99",
-      colors: ["#000000", "#D4AF37", "#4F4F4F", "#F8C8C8", "#FFFFFF"]
-    },
-    {
-      id: 3,
-      image: "apple-watch-case.jpg",
-      title: "Rugged Armor Apple Watch 1 & 2 (42mm) Case",
-      price: "14.99",
+      image: iPhone13Image,
+      title: "iPhone 13 Pro Max",
+      price: "249.99",
       colors: ["#000000", "#FFFFFF"]
     },
     {
-      id: 4,
-      image: "iphone-case.jpg",
-      title: "iPhone 6s Case Tough Armor",
-      price: "34.99",
+      id: 3,
+      image: iPhone14Image,
+      title: "iPhone 14 Pro Max",
+      price: "599.99",
       colors: ["#000000", "#D4AF37", "#4F4F4F", "#F8C8C8"]
     }
   ];
