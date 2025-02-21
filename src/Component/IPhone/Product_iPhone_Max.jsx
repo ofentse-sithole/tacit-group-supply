@@ -1,10 +1,25 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
 // Import just the one image we know works'
-import iPhone12Image from '../../assets/ProMax/iPhone_12_Pro_Max_Front&Back_View.png'
-import iPhone13Image from '../../assets/ProMax/13_Pro_Max_F&B_Blue.jpg'
-import iPhone14Image from '../../assets/ProMax/14_Pro_Max_F&B.jpeg'
-import iPhone15Image from '../../assets/ProMax/15_Pro_Max_F&B.jpg';
+import iPhone12ImageBlack from '../../assets/ProMax/iPhone_12_Pro_Max_Black.png';
+import iPhone12ImageGold from '../../assets/ProMax/iPhone_12_Pro_Max_Gold.png';
+import iPhone12ImageGray from '../../assets/ProMax/iPhone_12_Pro_Max_Gray.png';
+import iPhone12ImagePink from '../../assets/ProMax/iPhone_12_Pro_Max_Pink.png';
+import iPhone12ImageWhite from '../../assets/ProMax/iPhone_12_Pro_Max_White.png';
+
+import iPhone13ImageBlack from '../../assets/ProMax/13_Pro_Max_Black.jpg';
+import iPhone13ImageWhite from '../../assets/ProMax/13_Pro_Max_White.jpg';
+
+import iPhone14ImagePurple from '../../assets/ProMax/14_Pro_Max_Purple.jpeg';
+import iPhone14ImageGold from '../../assets/ProMax/14_Pro_Max_Gold.jpeg';
+import iPhone14ImageGray from '../../assets/ProMax/14_Pro_Max_Gray.jpeg';
+import iPhone14ImagePink from '../../assets/ProMax/14_Pro_Max_Pink.jpeg';
+
+import iPhone15ImageBlack from '../../assets/ProMax/15_Pro_Max_Black.jpg';
+import iPhone15ImageGold from '../../assets/ProMax/15_Pro_Max_Gold.jpg';
+import iPhone15ImageGray from '../../assets/ProMax/15_Pro_Max_Gray.jpg';
+import iPhone15ImagePink from '../../assets/ProMax/15_Pro_Max_Pink.jpg';
+import iPhone15ImageWhite from '../../assets/ProMax/15_Pro_Max_White.jpg';
 
 // Styled Components
 const ShowcaseContainer = styled.div`
@@ -95,13 +110,13 @@ const Price = styled.p`
 `;
 
 // Components
-const ProductCard = ({ image, title, price, colors }) => {
+const ProductCard = ({ images, title, price, colors, colorNames }) => {
   const [selectedColor, setSelectedColor] = useState(0);
   
   return (
     <Card>
       <ImageContainer>
-        {image && <ProductImage src={image} alt={title} />}
+        {images && <ProductImage src={images[selectedColor]} alt={`${title} in ${colorNames[selectedColor]}`} />}
       </ImageContainer>
       <ProductTitle>{title}</ProductTitle>
       
@@ -112,7 +127,7 @@ const ProductCard = ({ image, title, price, colors }) => {
             color={color}
             selected={selectedColor === index}
             onClick={() => setSelectedColor(index)}
-            aria-label={`Select ${color} color`}
+            aria-label={`Select ${colorNames[index]} color`}
           />
         ))}
       </ColorOptions>
@@ -123,35 +138,66 @@ const ProductCard = ({ image, title, price, colors }) => {
 };
 
 const iPhonePro = () => {
+  const colorNameMap = {
+    "#000000": "Black",
+    "#D4AF37": "Gold",
+    "#4F4F4F": "Gray",
+    "#F8C8C8": "Pink",
+    "#FFFFFF": "White"
+  };
+
   const products = [
-    
     {
       id: 1,
-      image: iPhone12Image,
+      images: [
+        iPhone12ImageBlack,
+        iPhone12ImageGold,
+        iPhone12ImageGray,
+        iPhone12ImagePink,
+        iPhone12ImageWhite
+      ],
       title: "iPhone 12 Pro Max",
       price: "399.99",
-      colors: ["#000000", "#D4AF37", "#4F4F4F", "#F8C8C8", "#FFFFFF"]
+      colors: ["#000000", "#D4AF37", "#4F4F4F", "#F8C8C8", "#FFFFFF"],
+      colorNames: ["Black", "Gold", "Gray", "Pink", "White"]
     },
     {
       id: 2,
-      image: iPhone13Image,
+      images: [
+        iPhone13ImageBlack,
+        iPhone13ImageWhite
+      ],
       title: "iPhone 13 Pro Max",
       price: "249.99",
-      colors: ["#000000", "#FFFFFF"]
+      colors: ["#000000", "#FFFFFF"],
+      colorNames: ["Black", "White"]
     },
     {
       id: 3,
-      image: iPhone14Image,
+      images: [
+        iPhone14ImagePurple,
+        iPhone14ImageGold,
+        iPhone14ImageGray,
+        iPhone14ImagePink
+      ],
       title: "iPhone 14 Pro Max",
       price: "599.99",
-      colors: ["#000000", "#D4AF37", "#4F4F4F", "#F8C8C8"]
+      colors: ["#000000", "#D4AF37", "#4F4F4F", "#F8C8C8"],
+      colorNames: ["Black", "Gold", "Gray", "Pink"]
     },
     {
       id: 4,
-      image: iPhone15Image,
+      images: [
+        iPhone15ImageBlack,
+        iPhone15ImageGold,
+        iPhone15ImageGray,
+        iPhone15ImagePink,
+        iPhone15ImageWhite
+      ],
       title: "iPhone 15 Pro Max 64/256/512GB",
       price: "8,800.00",
-      colors: ["#000000", "#D4AF37", "#F4F4F4", "#F8C8C8", "#FFFFFF"]
+      colors: ["#000000", "#D4AF37", "#4F4F4F", "#F8C8C8", "#FFFFFF"],
+      colorNames: ["Black", "Gold", "Gray", "Pink", "White"]
     }
   ];
 
@@ -165,10 +211,11 @@ const iPhonePro = () => {
         {products.map(product => (
           <ProductCard
             key={product.id}
-            image={product.image}
+            images={product.images}
             title={product.title}
             price={product.price}
             colors={product.colors}
+            colorNames={product.colorNames}
           />
         ))}
       </ProductGrid>
