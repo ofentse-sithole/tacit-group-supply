@@ -122,15 +122,9 @@ const ProductCard = ({ image, title, price, colors }) => {
   );
 };
 
-const ProductShowcase = () => {
+const iPhonePro = () => {
   const products = [
-    {
-      id: 4,
-      image: iPhone15Image,
-      title: "iPhone 15 Pro Max 64/256/512GB",
-      price: "8,800.00",
-      colors: ["#000000", "#D4AF37", "#F4F4F4", "#F8C8C8", "#FFFFFF"]
-    },
+    
     {
       id: 1,
       image: iPhone12Image,
@@ -151,12 +145,22 @@ const ProductShowcase = () => {
       title: "iPhone 14 Pro Max",
       price: "599.99",
       colors: ["#000000", "#D4AF37", "#4F4F4F", "#F8C8C8"]
+    },
+    {
+      id: 4,
+      image: iPhone15Image,
+      title: "iPhone 15 Pro Max 64/256/512GB",
+      price: "8,800.00",
+      colors: ["#000000", "#D4AF37", "#F4F4F4", "#F8C8C8", "#FFFFFF"]
     }
   ];
 
   return (
     <ShowcaseContainer>
-      <ShowcaseTitle>Featured Accessories</ShowcaseTitle>
+      <br/>
+      <br/>
+      <br/>
+      <ShowcaseTitle>Pre-Owned iPhone Pro Max</ShowcaseTitle>
       <ProductGrid>
         {products.map(product => (
           <ProductCard
@@ -172,4 +176,4 @@ const ProductShowcase = () => {
   );
 };
 
-export default ProductShowcase;
+export default iPhonePro;
