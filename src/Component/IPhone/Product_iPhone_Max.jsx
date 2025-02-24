@@ -2,10 +2,21 @@ import React, { useState } from 'react';
 import styled from 'styled-components';
 
 import iPhone12ImageBlack from '../../assets/iPhone12/12_Normal_Black.jpeg';
+import iPhone12ImageBlue from '../../assets/iPhone12/12_Normal_Blue.jpeg';
 import iPhone12ImageWhite from '../../assets/iPhone12/12_Normal_White.jpeg';
-import iPhone12ImagePink from '../../assets/iPhone12/12_Normal_Red.jpeg';
-import iPhone12ImageGold from '../../assets/iPhone12/12_Pro_Max_Gold.jpeg';
-import iPhone12ImageBlue from '../../assets/iPhone12/12_Pro_Max_Blue.png';
+import iPhone12ImageRed from '../../assets/iPhone12/12_Normal_Red.jpeg';
+import iPhone12ImagePurple from '../../assets/iPhone12/12_Normal_Purple.jpeg';
+import iPhone12ImageGreen from '../../assets/iPhone12/12_Normal_Green.jpeg';
+
+import iPhone12ImageProBlue from '../../assets/iPhone12/12_Pro_Max_Blue.jpeg'
+import iPhone12ImageProGold from '../../assets/iPhone12/12_Pro_Max_Gold.jpeg'
+import iPhone12ImageProWhite from '../../assets/iPhone12/12_Pro_Max_White.jpeg'
+import iPhone12ImageProBlack from '../../assets/iPhone12/12_Pro_Max_Black.jpeg'
+
+import iPhone12ImageProMaxBlue from '../../assets/iPhone12/12_Pro_Max_Blue.jpeg'
+import iPhone12ImageProMaxGold from '../../assets/iPhone12/12_Pro_Max_Gold.jpeg'
+import iPhone12ImageProMaxWhite from '../../assets/iPhone12/12_Pro_Max_White.jpeg'
+import iPhone12ImageProMaxBlack from '../../assets/iPhone12/12_Pro_Max_Black.jpeg'
 
 
 import iPhone13ImageBlack from '../../assets/iPhone13/13_Normal_Black.jpg';
@@ -191,18 +202,20 @@ const iPhoneShowcase = () => {
   const [searchQuery, setSearchQuery] = useState('');
 
   const phoneData = {
+
     12: [
       {
         variant: 'Mini',
         title: 'iPhone 12',
         price: '299.99',
-        colors: ['#000000', '#D4AF37', '#4F4F4F', '#F8C8C8', '#FFFFFF'],
-        colorNames: ['Black', 'Gold', 'Gray', 'Pink', 'White'],
+        colors: ['#000000', '#dda0dd', '#0000cd', '#ff0000 ', '#8fbc8f','#FFFFFF'],
+        colorNames: ['Black', 'Purple', 'Blue', 'Red', 'Green',  'White'],
         images: [
           iPhone12ImageBlack,
-          iPhone12ImageGold,
+          iPhone12ImagePurple,
           iPhone12ImageBlue,
-          iPhone12ImagePink,
+          iPhone12ImageRed,
+          iPhone12ImageGreen,
           iPhone12ImageWhite
         ]
       },
@@ -210,13 +223,14 @@ const iPhoneShowcase = () => {
         variant: 'Standard',
         title: 'iPhone 12',
         price: '349.99',
-        colors: ['#000000', '#D4AF37', '#4F4F4F', '#F8C8C8', '#FFFFFF'],
-        colorNames: ['Black', 'Gold', 'Gray', 'Pink', 'White'],
+        colors: ['#000000', '#dda0dd', '#0000cd', '#ff0000 ', '#8fbc8f','#FFFFFF'],
+        colorNames: ['Black', 'Purple', 'Blue', 'Red', 'Green',  'White'],
         images: [
           iPhone12ImageBlack,
-          iPhone12ImageGold,
+          iPhone12ImagePurple,
           iPhone12ImageBlue,
-          iPhone12ImagePink,
+          iPhone12ImageRed,
+          iPhone12ImageGreen,
           iPhone12ImageWhite
         ]
       },
@@ -224,28 +238,26 @@ const iPhoneShowcase = () => {
         variant: 'Pro',
         title: 'iPhone 12',
         price: '399.99',
-        colors: ['#000000', '#D4AF37', '#4F4F4F', '#F8C8C8', '#FFFFFF'],
-        colorNames: ['Black', 'Gold', 'Gray', 'Pink', 'White'],
+        colors: ['#add8e6', '#deb887', '#f8f8ff', '#000000'],
+        colorNames: ['Blue', 'Gold', 'White', 'Black'],
         images: [
-          iPhone12ImageBlack,
-          iPhone12ImageGold,
-          iPhone12ImageBlue,
-          iPhone12ImagePink,
-          iPhone12ImageWhite
+          iPhone12ImageProBlue,
+          iPhone12ImageProGold,
+          iPhone12ImageProWhite,
+          iPhone12ImageProBlack
         ]
       },
       {
         variant: 'Pro Max',
         title: 'iPhone 12',
         price: '449.99',
-        colors: ['#000000', '#D4AF37', '#4F4F4F', '#F8C8C8', '#FFFFFF'],
-        colorNames: ['Black', 'Gold', 'Gray', 'Pink', 'White'],
+        colors: ['#add8e6', '#deb887', '#f8f8ff', '#000000'],
+        colorNames: ['Blue', 'Gold', 'White', 'Black'],
         images: [
-          iPhone12ImageBlack,
-          iPhone12ImageGold,
-          iPhone12ImageBlue,
-          iPhone12ImagePink,
-          iPhone12ImageWhite
+          iPhone12ImageProMaxBlue,
+          iPhone12ImageProMaxGold,
+          iPhone12ImageProMaxWhite,
+          iPhone12ImageProMaxBlack
         ]
       }
     ],
@@ -321,7 +333,7 @@ const iPhoneShowcase = () => {
           <MainTitle>Pre-Owned iPhones</MainTitle>
           <SearchInput
             type="text"
-            placeholder="Search by model, variant, or color..."
+            placeholder="Search by model"
             value={searchQuery}
             onChange={(e) => setSearchQuery(e.target.value)}
           />
