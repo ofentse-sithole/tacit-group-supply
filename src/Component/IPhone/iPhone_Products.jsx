@@ -1,6 +1,17 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
 
+//iPhone XR
+import iPhoneXImageXRBlue from '../../assets/iPhoneX/XR_NORMAL.jpg';
+import iPhoneXImageXRRed from '../../assets/iPhoneX/XR_NORMAL_RED.jpg';
+import iPhoneXImageXRWhite from '../../assets/iPhoneX/XR_NORMAL_WHITE.jpg';
+import iPhoneXImageXRBlack from '../../assets/iPhoneX/XR_NORMAL_BLACK.jpg';
+
+//iPhone XS
+import iPhoneXImageXSMaxGold from '../../assets/iPhoneX/XS_NORMAL.jpg';
+import iPhoneXImageXSBlack from '../../assets/iPhoneX/XS_NORMAL_BLACK.jpg';
+import iPhoneXImageXSWhite from '../../assets/iPhoneX/XS_NORMAL_WHITE.jpg';
+
 //iPhone 12
 import iPhone12ImageBlack from '../../assets/iPhone12/12_Normal_Black.jpeg';
 import iPhone12ImageBlue from '../../assets/iPhone12/12_Normal_Blue.jpeg';
@@ -24,6 +35,8 @@ import iPhone12ImageProMaxBlack from '../../assets/iPhone12/12_Pro_Max_Black.jpe
 //iPhone 13
 import iPhone13ImageBlack from '../../assets/iPhone13/13_Normal_Black.jpg';
 import iPhone13ImagePink from '../../assets/iPhone13/13_Normal_Pink.jpeg';
+import iPhone13ImageWhite from '../../assets/iPhone13/13_Normal_White.jpg';
+import iPhone13ImageDarkGreen from '../../assets/iPhone13/13_Normal_Dark_Green.jpg';
 import iPhone13ImageRed from '../../assets/iPhone13/13_Normal_Red.jpeg';
 import iPhone13ImageBlue from '../../assets/iPhone13/13_Normal_Blue.jpeg';
 
@@ -35,6 +48,7 @@ import iPhone13ImageProMaxGold from '../../assets/iPhone13/13_Pro_Max_Gold.jpg';
 //iPhone 14 Plus
 import iPhone14ImageMidnight from '../../assets/iPhone14/14_Plus_Midnight.jpg';
 import iPhone14ImageBlue from '../../assets/iPhone14/14_Normal_Blue.jpg';
+import iPhone14ImageWhite from '../../assets/iPhone14/14_Plus_White.jpg';
 import iPhoneImageBlack from '../../assets/iPhone14/14_Normal_Black.jpg';
 
 //iPhone 14 Pro Max
@@ -47,6 +61,7 @@ import iPhone14ImageProMaxWhite from '../../assets/iPhone14/14_Pro_Max_White.jpg
 import iPhone15ImageBlue from '../../assets/iPhone15/15_Plus_Blue.jpg';
 import iPhone15ImageGreen from '../../assets/iPhone15/15_Plus_Green.jpg';
 import iPhone15ImageYellow from '../../assets/iPhone15/15_Plus_Yellow.png';
+import iPhone15ImageWhite from '../../assets/iPhone15/15_Plus_White.jpg';
 
 //iPhone 15 Pro
 import iPhone15ImageProMaxBlack from '../../assets/iPhone15/15_Pro_Max_Black.jpg';
@@ -226,10 +241,38 @@ const PhoneSection = ({ generation, phones }) => (
   </SectionContainer>
 );
 
-const iPhoneShowcase = () => {
+const iPhoneProducts = () => {
   const [searchQuery, setSearchQuery] = useState('');
 
   const phoneData = {
+
+    10: [
+      {
+        variant: 'XR',
+        title: 'iPhone ',
+        price: '8800.00',
+        colors: ['#5f9ea0 ', '#ff0000', '#ffffff', '#000000'],
+        colorNames: ['Blue', 'Red', 'White', 'Black'],
+        images: [
+          iPhoneXImageXRBlue,
+          iPhoneXImageXRRed,
+          iPhoneXImageXRWhite,
+          iPhoneXImageXRBlack
+        ]
+      },
+      {
+        variant: 'XS',
+        title: 'iPhone ',
+        price: '8800.00',
+        colors: ['#daa520 ', '#000000', '#ffffff'],
+        colorNames: ['Gold', 'Black', 'White'],
+        images: [
+          iPhoneXImageXSMaxGold,
+          iPhoneXImageXSBlack,
+          iPhoneXImageXSWhite
+        ]
+      }
+    ],
 
     12: [
       {
@@ -298,17 +341,20 @@ const iPhoneShowcase = () => {
         colorNames: ['Black', 'White'],
         images: [
           iPhone13ImageBlack,
+          iPhone13ImageWhite
         ]
       },
       {
         variant: 'Standard',
         title: 'iPhone 13',
         price: '399.99',
-        colors: ['#000000', '#FFFFFF', '#ffb6c1'],
-        colorNames: ['Black', 'White', 'Pink'],
+        colors: ['#000000', '#FFFFFF', '#ffb6c1' , '#18453b'],
+        colorNames: ['Black', 'White', 'Pink', 'Dark Green'],
         images: [
           iPhone13ImageBlack,
-          iPhone13ImagePink
+          iPhone13ImageWhite,
+          iPhone13ImagePink,
+          iPhone13ImageDarkGreen
         ]
       },
     ],
@@ -317,12 +363,11 @@ const iPhoneShowcase = () => {
         variant: 'Standard',
         title: 'iPhone 14',
         price: '599.99',
-        colors: ['#000000', '#4682b4', '#1d2951'],
-        colorNames: ['Black', 'Blue', 'Midnight' ],
+        colors: ['#4682b4', '#ffffff'],
+        colorNames: [ 'Blue', 'White' ],
         images: [
-          
-          iPhone14ImageGray,
-          iPhone14ImagePink
+          iPhone14ImageBlue,
+          iPhone14ImageWhite
         ]
       },
       {
@@ -345,12 +390,13 @@ const iPhoneShowcase = () => {
         variant: 'Plus',
         title: 'iPhone 15',
         price: '8800.00',
-        colors: ['#5f9ea0 ', '#d1e189', '#f0e68c'],
-        colorNames: ['Blue', 'Green', 'Yellow'],
+        colors: ['#5f9ea0 ', '#d1e189', '#f0e68c', '#ffffff'],
+        colorNames: ['Blue', 'Green', 'Yellow', 'White'],
         images: [
           iPhone15ImageBlue,
           iPhone15ImageGreen,
-          iPhone15ImageYellow
+          iPhone15ImageYellow,
+          iPhone15ImageWhite
         ]
       },
       // Add similar objects for Plus, Pro, and Pro Max...
@@ -415,4 +461,4 @@ const iPhoneShowcase = () => {
   );
 };
 
-export default iPhoneShowcase;
+export default iPhoneProducts;
