@@ -28,10 +28,14 @@ function Navbar() {
   };
 
   const toggleMobileProducts = (e) => {
-    // Only handle click for mobile
     if (window.innerWidth <= 1024) {
-      e.preventDefault();
-      setMobileProductsOpen(!mobileProductsOpen);
+      // Check if dropdown content has links and only prevent default if there are submenu items
+      if (mobileProductsOpen) {
+        setMobileProductsOpen(false);
+      } else {
+        e.preventDefault(); // Prevent navigation only if dropdown will open
+        setMobileProductsOpen(true);
+      }
     }
   };
 
