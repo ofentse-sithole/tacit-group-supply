@@ -7,6 +7,7 @@ import Contact from './Component/pages/Contact';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import iPhoneProducts from './Component/IPhone/iPhone_Products'; // Import the default export
 import {ProductDetailPage} from './Component/IPhone/iPhone_Details'; // Import the default export
+import Footer from './Component/Footer/Footer';
 
 function App() {
   return (
@@ -21,6 +22,7 @@ function App() {
           <Route path="/product/iphone/:productId" element={<ProductDetailPage />} />
           <Route path="/contact" element={<Contact />} />
         </Routes>
+        <Footer/>
       </>
     </Router>
   );
