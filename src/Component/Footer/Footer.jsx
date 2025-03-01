@@ -1,100 +1,40 @@
 import React from 'react';
-import styled from 'styled-components';
-
-const FooterContainer = styled.footer`
-  position: relative;
-  background:rgb(255, 255, 255);
-  min-height: 300px;
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-end;
-`;
-
-const WaveSection = styled.div`
-  position: relative;
-  background:rgb(1, 2, 0);
-  min-height: 200px;
-  
-`;
-
-const ContentWrapper = styled.div`
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 2rem;
-  text-align: center;
-  color: white;
-`;
-
-const SocialLinks = styled.div`
-  display: flex;
-  justify-content: center;
-  gap: 1.5rem;
-  margin-bottom: 2rem;
-`;
-
-const SocialIcon = styled.a`
-  color: white;
-  font-size: 1.5rem;
-  transition: opacity 0.3s ease;
-  
-  &:hover {
-    opacity: 0.8;
-  }
-`;
-
-const Navigation = styled.nav`
-  display: flex;
-  justify-content: center;
-  gap: 2rem;
-  margin-bottom: 2rem;
-`;
-
-const NavLink = styled.a`
-  color: white;
-  text-decoration: none;
-  transition: opacity 0.3s ease;
-  
-  &:hover {
-    opacity: 0.8;
-  }
-`;
-
-const Copyright = styled.p`
-  color: rgba(255, 255, 255, 0.8);
-  font-size: 0.9rem;
-`;
+import { Link } from 'react-router-dom';
+import { Facebook, Twitter, Linkedin, Instagram } from 'lucide-react';
+import './Footer.css';
 
 const Footer = () => {
   return (
-    <FooterContainer>
-      <WaveSection>
-        <ContentWrapper>
-          <SocialLinks>
-            <SocialIcon href="#" aria-label="Facebook">
-              <i className="fab fa-facebook-f"></i>
-            </SocialIcon>
-            <SocialIcon href="#" aria-label="Twitter">
-              <i className="fab fa-twitter"></i>
-            </SocialIcon>
-            <SocialIcon href="#" aria-label="LinkedIn">
-              <i className="fab fa-linkedin-in"></i>
-            </SocialIcon>
-            <SocialIcon href="#" aria-label="Instagram">
-              <i className="fab fa-instagram"></i>
-            </SocialIcon>
-          </SocialLinks>
+    <footer className="footer-container">
+      <div className="wave-section">
+        <div className="content-wrapper">
+          <div className="social-links">
+            {/*<a href="#" className="social-icon" aria-label="Facebook">
+              <Facebook />
+            </a>
+            <a href="#" className="social-icon" aria-label="Twitter">
+              <Twitter />
+            </a>
+            <a href="#" className="social-icon" aria-label="LinkedIn">
+              <Linkedin />
+            </a>*/}
+            <a href="https://www.instagram.com/tacitgroupsupply_co/?hl=en" className="social-icon" aria-label="Instagram">
+              <Instagram />
+            </a>
+          </div>
 
-          <Navigation>
-            <NavLink href="/home">Home</NavLink>
-            <NavLink href="/contact">Contact</NavLink>
-          </Navigation>
+          <nav className="footer-navigation">
+            <Link to="/home" className="footer-nav-link">Home</Link>
+            <Link to="/product" className="footer-nav-link">Products</Link>
+            <Link to="/contact" className="footer-nav-link">Contact</Link>
+          </nav>
 
-          <Copyright>
+          <p className="copyright">
             ©2025 Tacit Supply Group Co. | All Rights Reserved
-          </Copyright>
-        </ContentWrapper>
-      </WaveSection>
-    </FooterContainer>
+          </p>
+        </div>
+      </div>
+    </footer>
   );
 };
 
