@@ -29,14 +29,13 @@ function Navbar() {
 
   const toggleMobileProducts = (e) => {
     if (window.innerWidth <= 1024) {
-      // Check if dropdown content has links and only prevent default if there are submenu items
-      if (mobileProductsOpen) {
-        setMobileProductsOpen(false);
-      } else {
-        e.preventDefault(); // Prevent navigation only if dropdown will open
-        setMobileProductsOpen(true);
-      }
+      e.preventDefault(); // Prevent navigation initially
+      setMobileProductsOpen(!mobileProductsOpen);
     }
+  };
+  
+  const handleNavLinkClick = () => {
+    closeNavbar(); // Ensures navbar closes after clicking any link
   };
 
   return (
@@ -48,18 +47,31 @@ function Navbar() {
         <Link to="/home" onClick={closeNavbar} className="nav-link">Home</Link>
         
         <div className={`dropdown ${mobileProductsOpen ? 'mobile-open' : ''}`}>
-          <Link 
-            to="/product" 
-            className="dropdown-btn nav-link"
-            onClick={toggleMobileProducts}
-          >
-            Products <ChevronDown className="dropdown-icon" size={16} />
-          </Link>
-          <div className="dropdown-content">
-            <Link to="/products/pre-owned" onClick={closeNavbar}>Pre-owned Devices</Link>
-            <Link to="/products/new" onClick={closeNavbar}>Brand New Devices</Link>
-          </div>
-        </div>
+  {/* Clicking "Products" navigates and closes navbar */}
+  <Link 
+    to="/product" 
+    className="dropdown-btn nav-link"
+    onClick={closeNavbar} // Closes navbar when navigating
+  >
+    Products
+  </Link>
+
+  {/* Clicking the arrow toggles dropdown */}
+  <button 
+    className="dropdown-toggle" 
+    onClick={(e) => {
+      e.preventDefault(); // Prevents navigation
+      setMobileProductsOpen(!mobileProductsOpen); // Toggles dropdown
+    }}
+  >
+    <ChevronDown className="dropdown-icon" size={16} />
+  </button>
+
+  <div className="dropdown-content">
+    <Link to="/products/pre-owned" onClick={closeNavbar}>Pre-owned Devices</Link>
+    <Link to="/products/new" onClick={closeNavbar}>Brand New Devices</Link>
+  </div>
+</div>
 
         <Link to="/about" onClick={closeNavbar} className="nav-link">About Us</Link>
         
