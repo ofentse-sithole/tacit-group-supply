@@ -26,6 +26,7 @@ const Footer = () => {
           <nav className="footer-navigation">
             <Link to="/home" className="footer-nav-link">Home</Link>
             <Link to="/product" className="footer-nav-link">Products</Link>
+            <Link to="/about" className="footer-nav-link">About Us</Link>
             <Link to="/contact" className="footer-nav-link">Contact</Link>
           </nav>
 

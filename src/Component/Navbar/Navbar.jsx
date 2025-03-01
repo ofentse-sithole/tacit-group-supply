@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import { Menu, X, ChevronDown } from 'lucide-react';
 import './Navbar.css';
 import logo from '../../../public/image/Logo.png';
+import new_logo from '../../../public/image/New_Logo.png';
 
 function Navbar() {
   const navRef = useRef();
@@ -37,7 +38,7 @@ function Navbar() {
   return (
     <header className="header">
       <Link to="/" className="logo">
-        <img src={logo} alt="Company Logo" className="logo-image" />
+        <img src={new_logo} alt="Company Logo" className="logo-image" />
       </Link>
       <nav ref={navRef}>
         <Link to="/home" onClick={closeNavbar} className="nav-link">Home</Link>
@@ -55,6 +56,8 @@ function Navbar() {
             <Link to="/products/new" onClick={closeNavbar}>Brand New Devices</Link>
           </div>
         </div>
+
+        <Link to="/about" onClick={closeNavbar} className="nav-link">About Us</Link>
         
         <Link to="/contact" onClick={closeNavbar} className="nav-link">Contact</Link>
 
