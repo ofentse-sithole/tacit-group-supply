@@ -128,11 +128,11 @@ const ServicesSection = () => {
       <Wrapper>
         <Header>
           <Title>
-            <span className="normal">MY </span>
+            <span className="normal">Our </span>
             <span className="highlight">SERVICES</span>
           </Title>
           <Subtitle>
-            Lorem ipsum is simply dummy text of the printing and typesetting industry. Lorem ipsum standard dummy text.
+          Tacit Group Supply Co. offers a comprehensive range of services to meet your needs.
           </Subtitle>
         </Header>
 

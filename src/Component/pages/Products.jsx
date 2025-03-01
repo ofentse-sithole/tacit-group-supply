@@ -1,12 +1,10 @@
 import '../../App.css'
-import Pro_Max_Products from '../IPhone/iPhone_Products'
-import Footer from '../MiddleSection/Footer'
+import ProductHeroSection from '../HeroSection/ProductHeroSection'
 
 function Product() {
   return (
     <div>
-        <Pro_Max_Products/>
-        <Footer/>
+        <ProductHeroSection/>
     </div>
   )
 }
