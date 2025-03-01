@@ -4,79 +4,79 @@ import { Link, useParams, useNavigate, Routes, Route } from 'react-router-dom';
 
 
 //iPhone XR
-import iPhoneXImageXRBlue from '../../assets/iPhoneX/XR_NORMAL.jpg';
-import iPhoneXImageXRRed from '../../assets/iPhoneX/XR_NORMAL_RED.jpg';
-import iPhoneXImageXRWhite from '../../assets/iPhoneX/XR_NORMAL_WHITE.jpg';
-import iPhoneXImageXRBlack from '../../assets/iPhoneX/XR_NORMAL_BLACK.jpg';
+import iPhoneXImageXRBlue from '../../../assets/iPhoneX/XR_NORMAL.jpg';
+import iPhoneXImageXRRed from '../../../assets/iPhoneX/XR_NORMAL_RED.jpg';
+import iPhoneXImageXRWhite from '../../../assets/iPhoneX/XR_NORMAL_WHITE.jpg';
+import iPhoneXImageXRBlack from '../../../assets/iPhoneX/XR_NORMAL_BLACK.jpg';
 
 //iPhone XS
-import iPhoneXImageXSMaxGold from '../../assets/iPhoneX/XS_NORMAL.jpg';
-import iPhoneXImageXSBlack from '../../assets/iPhoneX/XS_NORMAL_BLACK.jpg';
-import iPhoneXImageXSWhite from '../../assets/iPhoneX/XS_NORMAL_WHITE.jpg';
+import iPhoneXImageXSMaxGold from '../../../assets/iPhoneX/XS_NORMAL.jpg';
+import iPhoneXImageXSBlack from '../../../assets/iPhoneX/XS_NORMAL_BLACK.jpg';
+import iPhoneXImageXSWhite from '../../../assets/iPhoneX/XS_NORMAL_WHITE.jpg';
 
 //iPhone 12
-import iPhone12ImageBlack from '../../assets/iPhone12/12_Normal_Black.jpeg';
-import iPhone12ImageBlue from '../../assets/iPhone12/12_Normal_Blue.jpeg';
-import iPhone12ImageWhite from '../../assets/iPhone12/12_Normal_White.jpeg';
-import iPhone12ImageRed from '../../assets/iPhone12/12_Normal_Red.jpeg';
-import iPhone12ImagePurple from '../../assets/iPhone12/12_Normal_Purple.jpeg';
-import iPhone12ImageGreen from '../../assets/iPhone12/12_Normal_Green.jpeg';
+import iPhone12ImageBlack from '../../../assets/iPhone12/12_Normal_Black.jpeg';
+import iPhone12ImageBlue from '../../../assets/iPhone12/12_Normal_Blue.jpeg';
+import iPhone12ImageWhite from '../../../assets/iPhone12/12_Normal_White.jpeg';
+import iPhone12ImageRed from '../../../assets/iPhone12/12_Normal_Red.jpeg';
+import iPhone12ImagePurple from '../../../assets/iPhone12/12_Normal_Purple.jpeg';
+import iPhone12ImageGreen from '../../../assets/iPhone12/12_Normal_Green.jpeg';
 
 //iPhone 12 Pro
-import iPhone12ImageProBlue from '../../assets/iPhone12/12_Pro_Max_Blue.jpeg'
-import iPhone12ImageProGold from '../../assets/iPhone12/12_Pro_Max_Gold.jpeg'
-import iPhone12ImageProWhite from '../../assets/iPhone12/12_Pro_Max_White.jpeg'
-import iPhone12ImageProBlack from '../../assets/iPhone12/12_Pro_Max_Black.jpeg'
+import iPhone12ImageProBlue from '../../../assets/iPhone12/12_Pro_Max_Blue.jpeg'
+import iPhone12ImageProGold from '../../../assets/iPhone12/12_Pro_Max_Gold.jpeg'
+import iPhone12ImageProWhite from '../../../assets/iPhone12/12_Pro_Max_White.jpeg'
+import iPhone12ImageProBlack from '../../../assets/iPhone12/12_Pro_Max_Black.jpeg'
 
 //iPhone 12 Pro Max
-import iPhone12ImageProMaxBlue from '../../assets/iPhone12/12_Pro_Max_Blue.jpeg'
-import iPhone12ImageProMaxGold from '../../assets/iPhone12/12_Pro_Max_Gold.jpeg'
-import iPhone12ImageProMaxWhite from '../../assets/iPhone12/12_Pro_Max_White.jpeg'
-import iPhone12ImageProMaxBlack from '../../assets/iPhone12/12_Pro_Max_Black.jpeg'
+import iPhone12ImageProMaxBlue from '../../../assets/iPhone12/12_Pro_Max_Blue.jpeg'
+import iPhone12ImageProMaxGold from '../../../assets/iPhone12/12_Pro_Max_Gold.jpeg'
+import iPhone12ImageProMaxWhite from '../../../assets/iPhone12/12_Pro_Max_White.jpeg'
+import iPhone12ImageProMaxBlack from '../../../assets/iPhone12/12_Pro_Max_Black.jpeg'
 
 //iPhone 13
-import iPhone13ImageBlack from '../../assets/iPhone13/13_Normal_Black.jpg';
-import iPhone13ImagePink from '../../assets/iPhone13/13_Normal_Pink.jpeg';
-import iPhone13ImageWhite from '../../assets/iPhone13/13_Normal_White.jpg';
-import iPhone13ImageDarkGreen from '../../assets/iPhone13/13_Normal_Dark_Green.jpg';
-import iPhone13ImageRed from '../../assets/iPhone13/13_Normal_Red.jpeg';
-import iPhone13ImageBlue from '../../assets/iPhone13/13_Normal_Blue.jpeg';
+import iPhone13ImageBlack from '../../../assets/iPhone13/13_Normal_Black.jpg';
+import iPhone13ImagePink from '../../../assets/iPhone13/13_Normal_Pink.jpeg';
+import iPhone13ImageWhite from '../../../assets/iPhone13/13_Normal_White.jpg';
+import iPhone13ImageDarkGreen from '../../../assets/iPhone13/13_Normal_Dark_Green.jpg';
+import iPhone13ImageRed from '../../../assets/iPhone13/13_Normal_Red.jpeg';
+import iPhone13ImageBlue from '../../../assets/iPhone13/13_Normal_Blue.jpeg';
 
 //iPhone 13 Pro Max
-import iPhone13ImageProMaxBlue from '../../assets/iPhone13/13_Pro_Max_Blue.jpg';
-import iPhone13ImageProMaxWhite from '../../assets/iPhone13/13_Pro_Max_White.jpg';
-import iPhone13ImageProMaxGold from '../../assets/iPhone13/13_Pro_Max_Gold.jpg';
+import iPhone13ImageProMaxBlue from '../../../assets/iPhone13/13_Pro_Max_Blue.jpg';
+import iPhone13ImageProMaxWhite from '../../../assets/iPhone13/13_Pro_Max_White.jpg';
+import iPhone13ImageProMaxGold from '../../../assets/iPhone13/13_Pro_Max_Gold.jpg';
 
 //iPhone 14 Plus
-import iPhone14ImageMidnight from '../../assets/iPhone14/14_Plus_Midnight.jpg';
-import iPhone14ImageBlue from '../../assets/iPhone14/14_Normal_Blue.jpg';
-import iPhone14ImageWhite from '../../assets/iPhone14/14_Plus_White.jpg';
-import iPhoneImageBlack from '../../assets/iPhone14/14_Normal_Black.jpg';
+import iPhone14ImageMidnight from '../../../assets/iPhone14/14_Plus_Midnight.jpg';
+import iPhone14ImageBlue from '../../../assets/iPhone14/14_Normal_Blue.jpg';
+import iPhone14ImageWhite from '../../../assets/iPhone14/14_Plus_White.jpg';
+import iPhoneImageBlack from '../../../assets/iPhone14/14_Normal_Black.jpg';
 
 //iPhone 14 Pro Max
-import iPhone14ImageProMaxPurple from '../../assets/iPhone14/14_Pro_Max_Purple.jpg';
-import iPhone14ImageProMaxGold from '../../assets/iPhone14/14_Pro_Max_Gold.jpg';
-import iPhone14ImageProMaxGray from '../../assets/iPhone14/14_Pro_Max_Gray.jpeg';
-import iPhone14ImageProMaxWhite from '../../assets/iPhone14/14_Pro_Max_White.jpg';
+import iPhone14ImageProMaxPurple from '../../../assets/iPhone14/14_Pro_Max_Purple.jpg';
+import iPhone14ImageProMaxGold from '../../../assets/iPhone14/14_Pro_Max_Gold.jpg';
+import iPhone14ImageProMaxGray from '../../../assets/iPhone14/14_Pro_Max_Gray.jpeg';
+import iPhone14ImageProMaxWhite from '../../../assets/iPhone14/14_Pro_Max_White.jpg';
 
 //iPhone 15 Plus
-import iPhone15ImageBlue from '../../assets/iPhone15/15_Plus_Blue.jpg';
-import iPhone15ImageGreen from '../../assets/iPhone15/15_Plus_Green.jpg';
-import iPhone15ImageYellow from '../../assets/iPhone15/15_Plus_Yellow.png';
-import iPhone15ImageWhite from '../../assets/iPhone15/15_Plus_White.jpg';
+import iPhone15ImageBlue from '../../../assets/iPhone15/15_Plus_Blue.jpg';
+import iPhone15ImageGreen from '../../../assets/iPhone15/15_Plus_Green.jpg';
+import iPhone15ImageYellow from '../../../assets/iPhone15/15_Plus_Yellow.png';
+import iPhone15ImageWhite from '../../../assets/iPhone15/15_Plus_White.jpg';
 
 //iPhone 15 Pro
-import iPhone15ImageProMaxBlack from '../../assets/iPhone15/15_Pro_Max_Black.jpg';
-import iPhone15ImageProMaxGold from '../../assets/iPhone15/15_Pro_Max_Gold.jpeg';
-import iPhone15ImageProMaxTitanium from '../../assets/iPhone15/15_Pro_Max_Titanium.jpg';
-import iPhone15ImageProMaxWhite from '../../assets/iPhone15/15_Pro_Max_White.png'
+import iPhone15ImageProMaxBlack from '../../../assets/iPhone15/15_Pro_Max_Black.jpg';
+import iPhone15ImageProMaxGold from '../../../assets/iPhone15/15_Pro_Max_Gold.jpeg';
+import iPhone15ImageProMaxTitanium from '../../../assets/iPhone15/15_Pro_Max_Titanium.jpg';
+import iPhone15ImageProMaxWhite from '../../../assets/iPhone15/15_Pro_Max_White.png'
 
 //iPhone 16 Plus
-import iPhone16ImageBlack from '../../assets/iPhone16/16_Plus_Black.jpg'
-import iPhone16ImagePink from '../../assets/iPhone16/16_Plus_Pink.jpg'
-import iPhone16ImageScarcelle from '../../assets/iPhone16/16_Plus_Scarcelle.jpg'
-import iPhone16ImageUltramarine from '../../assets/iPhone16/16_Plus_Ultramarine.jpg'
-import iPhone16ImageWhite from '../../assets/iPhone16/16_Plus_White.jpg'
+import iPhone16ImageBlack from '../../../assets/iPhone16/16_Plus_Black.jpg'
+import iPhone16ImagePink from '../../../assets/iPhone16/16_Plus_Pink.jpg'
+import iPhone16ImageScarcelle from '../../../assets/iPhone16/16_Plus_Scarcelle.jpg'
+import iPhone16ImageUltramarine from '../../../assets/iPhone16/16_Plus_Ultramarine.jpg'
+import iPhone16ImageWhite from '../../../assets/iPhone16/16_Plus_White.jpg'
 
 // Styled Components
 // Styled Components (existing ones remain the same)
