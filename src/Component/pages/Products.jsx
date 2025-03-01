@@ -1,5 +1,5 @@
 import '../../App.css'
-import Pro_Max_Products from '../IPhone/iPhone_Products'
+import Pro_Max_Products from '../IPhone/PreOwned_Devices/iPhone_Products'
 
 function Product() {
   return (
