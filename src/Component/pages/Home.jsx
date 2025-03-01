@@ -8,7 +8,6 @@ function Home() {
     <div>
         <HeroSection />
         <Services/>
-        <About/>
     </div>
   )
 }
