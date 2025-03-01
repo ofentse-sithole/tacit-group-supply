@@ -1,0 +1,46 @@
+/* HeroSlider.css */
+.hero-slider {
+  position: relative;
+  width: 100%;
+  height: 80vh; /* Adjust for responsiveness */
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-top: 50px; /* Adds space on top */
+}
+
+.slider-container {
+  display: flex;
+  width: 100%;
+  height: 100%;
+}
+
+.slider-item {
+  min-width: 100%;
+  flex: 0 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.slider-image {
+  width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+}
+
+/* ✅ Mobile-Friendly Adjustments */
+@media (max-width: 1024px) {
+  .hero-slider {
+    height: 60vh;
+    padding-top: 30px; /* Less space on smaller screens */
+  }
+}
+
+@media (max-width: 768px) {
+  .hero-slider {
+    height: 50vh;
+    padding-top: 20px;
+  }
+}

@@ -3,6 +3,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import Navbar from './Component/Navbar/Navbar';
 import Home from './Component/pages/Home';
 import Product from './Component/pages/Products';
+import About from './Component/pages/About';
 import Contact from './Component/pages/Contact';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import iPhoneProducts from './Component/IPhone/PreOwned_Devices/iPhone_Products'; // Import the default export
@@ -22,6 +23,7 @@ function App() {
           <Route path="/product/iphone" element={<iPhoneProducts />} /> {/* This is correct */}
           <Route path="/product/iphone/:productId" element={<ProductDetailPage />} />
           <Route path="/products/pre-owned" element={<PreOwned_Devices />} />
+          <Route path="/about" element={<About />} />
           <Route path="/contact" element={<Contact />} />
         </Routes>
         <Footer/>

@@ -1,10 +1,10 @@
 import '../../App.css'
-import Pro_Max_Products from '../IPhone/PreOwned_Devices/iPhone_Products'
+import ProductHeroSection from '../HeroSection/ProductHeroSection'
 
 function Product() {
   return (
     <div>
-        <Pro_Max_Products/>
+        <ProductHeroSection/>
     </div>
   )
 }
