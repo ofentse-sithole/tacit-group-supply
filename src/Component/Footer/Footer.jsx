@@ -9,30 +9,20 @@ const Footer = () => {
       <div className="wave-section">
         <div className="content-wrapper">
           <div className="social-links">
-            {/*<a href="#" className="social-icon" aria-label="Facebook">
-              <Facebook />
-            </a>
-            <a href="#" className="social-icon" aria-label="Twitter">
-              <Twitter />
-            </a>
-            <a href="#" className="social-icon" aria-label="LinkedIn">
-              <Linkedin />
-            </a>*/}
-            <a href="https://www.instagram.com/tacitgroupsupply_co/?hl=en" className="social-icon" aria-label="Instagram">
-              <Instagram />
-            </a>
+            <a href="#" className="social-icon"><Facebook size={24} /></a>
+            <a href="#" className="social-icon"><Twitter size={24} /></a>
+            <a href="#" className="social-icon"><Linkedin size={24} /></a>
+            <a href="#" className="social-icon"><Instagram size={24} /></a>
           </div>
-
-          <nav className="footer-navigation">
-            <Link to="/home" className="footer-nav-link">Home</Link>
+          <div className="footer-navigation">
+            <Link to="/" className="footer-nav-link">Home</Link>
             <Link to="/product" className="footer-nav-link">Products</Link>
             <Link to="/about" className="footer-nav-link">About Us</Link>
             <Link to="/contact" className="footer-nav-link">Contact</Link>
-          </nav>
-
-          <p className="copyright">
+          </div>
+          <div className="copyright">
             ©2025 Tacit Supply Group Co. | All Rights Reserved
-          </p>
+          </div>
         </div>
       </div>
     </footer>
