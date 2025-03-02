@@ -1,0 +1,128 @@
+.showcase-container {
+    width: 100%;
+    height: 100vh;
+    min-height: 500px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+  }
+  
+  .showcase-background {
+    width: 100%;
+    height: 100%;
+    background: white;
+    position: relative;
+  }
+  
+  .showcase-background::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: url('/path/to/subtle-pattern.png');
+    opacity: 0.1;
+    z-index: 0;
+  }
+  
+  .showcase-content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    max-width: 1200px;
+    margin: 0 auto;
+    height: 100%;
+    padding: 0 20px;
+    position: relative;
+    z-index: 1;
+  }
+  
+  .showcase-text {
+    flex: 1;
+    max-width: 450px;
+    padding-right: 40px;
+  }
+  
+  .showcase-title {
+    color: #0d3b4c;
+    font-size: 2.8rem;
+    font-weight: 700;
+    line-height: 1.2;
+    margin: 0 0 20px 0;
+  }
+  
+  .showcase-description {
+    color: #495057;
+    font-size: 1rem;
+    line-height: 1.6;
+    margin-bottom: 30px;
+  }
+  
+  .pre-order-button {
+    background-color: #0096c7;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    padding: 12px 24px;
+    font-size: 1rem;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .pre-order-button:hover {
+    background-color: #0077b6;
+  }
+  
+  .shopping-icon {
+    margin-right: 10px;
+    display: flex;
+    align-items: center;
+  }
+  
+  .showcase-image {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+  }
+  
+  .showcase-image img {
+    max-width: 100%;
+    height: auto;
+    filter: drop-shadow(0px 10px 20px rgba(0, 0, 0, 0.15));
+    transform: translateY(-20px);
+    transition: transform 0.5s ease;
+  }
+  
+  .showcase-image img:hover {
+    transform: translateY(-30px);
+  }
+  
+  /* Responsive adjustments */
+  @media (max-width: 768px) {
+    .showcase-content {
+      flex-direction: column;
+      text-align: center;
+      padding-top: 40px;
+    }
+    
+    .showcase-text {
+      padding-right: 0;
+      margin-bottom: 40px;
+    }
+    
+    .pre-order-button {
+      margin: 0 auto;
+    }
+    
+    .showcase-title {
+      font-size: 2.2rem;
+    }
+  }

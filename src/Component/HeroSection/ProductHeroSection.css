@@ -7,7 +7,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  padding-top: 50px; /* Adds space on top */
+  padding-top: 50px; /* Adds space on top for desktop */
 }
 
 .slider-container {
@@ -30,17 +30,39 @@
   object-fit: contain;
 }
 
+/* Mobile spacer element */
+.mobile-spacer {
+  display: none;
+}
+
 /* ✅ Mobile-Friendly Adjustments */
 @media (max-width: 1024px) {
   .hero-slider {
     height: 60vh;
-    padding-top: 30px; /* Less space on smaller screens */
+    padding-top: 60px; /* Increased space on top for tablets */
   }
 }
 
 @media (max-width: 768px) {
   .hero-slider {
     height: 50vh;
-    padding-top: 20px;
+    padding-top: 80px; /* Significantly more space on top for mobile */
+  }
+  
+  .mobile-spacer {
+    display: block;
+    height: 40px; /* Additional space at the top inside the slider */
+    min-width: 100%;
+  }
+}
+
+/* Extra small devices */
+@media (max-width: 480px) {
+  .hero-slider {
+    padding-top: 100px; /* Even more space for very small screens */
+  }
+  
+  .mobile-spacer {
+    height: 60px;
   }
 }
