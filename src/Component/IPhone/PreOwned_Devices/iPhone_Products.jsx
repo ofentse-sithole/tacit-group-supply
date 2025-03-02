@@ -1,6 +1,21 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
 import { Link, useParams, useNavigate, Routes, Route } from 'react-router-dom';
+
+useEffect(() => {
+    // More robust scroll handling
+    setTimeout(() => {
+      window.scrollTo({
+        top: 0,
+        left: 0,
+        behavior: 'smooth',
+      });
+
+      // Fallback for older browsers
+      document.body.scrollTop = 0; // For Safari
+      document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE, and Opera
+    }, 100);
+  }, []);
 
 
 //iPhone XR

@@ -3,6 +3,21 @@ import { useParams, useNavigate } from 'react-router-dom';
 import styled from 'styled-components';
 import { findPhoneById} from './iPhone_Products';
 
+useEffect(() => {
+  // More robust scroll handling
+  setTimeout(() => {
+    window.scrollTo({
+      top: 0,
+      left: 0,
+      behavior: 'smooth',
+    });
+
+    // Fallback for older browsers
+    document.body.scrollTop = 0; // For Safari
+    document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE, and Opera
+  }, 100);
+}, []);
+
 // Styled components (copying from your original file)
 const DetailPageContainer = styled.div`
   padding: 24px;

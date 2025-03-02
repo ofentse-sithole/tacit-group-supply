@@ -1,4 +1,4 @@
-import React, { useState, useRef } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import styled from 'styled-components';
 import { MapPin, Phone, Mail } from 'lucide-react';
 import emailJS from 'emailjs-com';
@@ -126,6 +126,26 @@ const ContactForm = () => {
     message: '',
   });
 
+  // Scroll to top on component mount - FIXED IMPLEMENTATION
+  useEffect(() => {
+    const scrollToTop = () => {
+      window.scrollTo({
+        top: 0,
+        left: 0,
+        behavior: 'smooth',
+      });
+
+      // Fallback for older browsers
+      document.body.scrollTop = 0; // For Safari
+      document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE, and Opera
+    };
+    
+    const timeoutId = setTimeout(scrollToTop, 100);
+    
+    // Clean up the timeout when component unmounts
+    return () => clearTimeout(timeoutId);
+  }, []);
+
   // Handle input change for controlled form
   const handleChange = (e) => {
     setFormData({
@@ -191,6 +211,7 @@ const ContactForm = () => {
               placeholder="Name"
               value={formData.name}
               onChange={handleChange}
+              required
             />
             <Input
               type="email"
@@ -198,6 +219,7 @@ const ContactForm = () => {
               placeholder="Email"
               value={formData.email}
               onChange={handleChange}
+              required
             />
             <Input
               type="text"
@@ -205,12 +227,14 @@ const ContactForm = () => {
               placeholder="Subject"
               value={formData.subject}
               onChange={handleChange}
+              required
             />
             <TextArea
               name="message"
               placeholder="Message"
               value={formData.message}
               onChange={handleChange}
+              required
             />
             <SubmitButton type="submit">Send Message</SubmitButton>
           </form>
