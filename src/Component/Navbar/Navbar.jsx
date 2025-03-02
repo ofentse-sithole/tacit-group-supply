@@ -1,41 +1,37 @@
 import { useRef, useState } from 'react';
 import { Link } from 'react-router-dom';
-import { Menu, X, ChevronDown } from 'lucide-react';
+import { Menu, X, ChevronDown, ArrowLeft } from 'lucide-react';
 import './Navbar.css';
 import logo from '../../../public/image/Logo.png';
 import new_logo from '../../../public/image/New_Logo.png';
 
 function Navbar() {
   const navRef = useRef();
-  const [mobileProductsOpen, setMobileProductsOpen] = useState(false);
+  const [activeMobileView, setActiveMobileView] = useState('main'); // 'main' or 'products'
 
   const showNavbar = () => {
-    const isOpen = navRef.current.classList.contains("responsive_nav");
-    
-    if (isOpen) {
-      // Navbar is open and will be closed
-      navRef.current.classList.remove("responsive_nav");
-      setMobileProductsOpen(false);
-    } else {
-      // Navbar is closed and will be opened
-      navRef.current.classList.add("responsive_nav");
-    }
+    navRef.current.classList.toggle("responsive_nav");
+    // Always reset to main menu when opening/closing navbar
+    setActiveMobileView('main');
   };
 
   const closeNavbar = () => {
     navRef.current.classList.remove("responsive_nav");
-    setMobileProductsOpen(false);
+    setActiveMobileView('main');
   };
 
-  const toggleMobileProducts = (e) => {
+  const showProductsSubmenu = (e) => {
     if (window.innerWidth <= 1024) {
-      e.preventDefault(); // Prevent navigation initially
-      setMobileProductsOpen(!mobileProductsOpen);
+      e.preventDefault();
+      e.stopPropagation();
+      setActiveMobileView('products');
     }
   };
-  
-  const handleNavLinkClick = () => {
-    closeNavbar(); // Ensures navbar closes after clicking any link
+
+  const goBackToMainMenu = (e) => {
+    e.preventDefault();
+    e.stopPropagation();
+    setActiveMobileView('main');
   };
 
   return (
@@ -43,44 +39,76 @@ function Navbar() {
       <Link to="/" className="logo">
         <img src={new_logo} alt="Company Logo" className="logo-image" />
       </Link>
+      
       <nav ref={navRef}>
-        <Link to="/home" onClick={closeNavbar} className="nav-link">Home</Link>
-        
-        <div className={`dropdown ${mobileProductsOpen ? 'mobile-open' : ''}`}>
-  {/* Clicking "Products" navigates and closes navbar */}
-  <Link 
-    to="/product" 
-    className="dropdown-btn nav-link"
-    onClick={closeNavbar} // Closes navbar when navigating
-  >
-    Products
-  </Link>
+        {/* Main Menu */}
+        {activeMobileView === 'main' && (
+          <div className="mobile-menu-container">
+            <Link to="/home" onClick={closeNavbar} className="nav-link">Home</Link>
+            
+            <div className="mobile-menu-item">
+              <Link to="/product" className="nav-link" onClick={closeNavbar}>Products</Link>
+              <button 
+                className="submenu-toggle" 
+                onClick={showProductsSubmenu} 
+                aria-label="Open Products Menu"
+              >
+                <ChevronDown size={20} />
+              </button>
+            </div>
+            
+            <Link to="/about" onClick={closeNavbar} className="nav-link">About Us</Link>
+            <Link to="/contact" onClick={closeNavbar} className="nav-link">Contact</Link>
+          </div>
+        )}
 
-  {/* Clicking the arrow toggles dropdown */}
-  <button 
-    className="dropdown-toggle" 
-    onClick={(e) => {
-      e.preventDefault(); // Prevents navigation
-      setMobileProductsOpen(!mobileProductsOpen); // Toggles dropdown
-    }}
-  >
-    <ChevronDown className="dropdown-icon" size={16} />
-  </button>
-
-  <div className="dropdown-content">
-    <Link to="/products/pre-owned" onClick={closeNavbar}>Pre-owned Devices</Link>
-    <Link to="/products/new" onClick={closeNavbar}>Brand New Devices</Link>
-  </div>
-</div>
-
-        <Link to="/about" onClick={closeNavbar} className="nav-link">About Us</Link>
-        
-        <Link to="/contact" onClick={closeNavbar} className="nav-link">Contact</Link>
+        {/* Products Submenu */}
+        {activeMobileView === 'products' && (
+          <div className="mobile-submenu-container">
+            <div className="submenu-header">
+              <button className="back-button" onClick={goBackToMainMenu}>
+                <ArrowLeft size={20} />
+                <span>Back</span>
+              </button>
+              <h3>Products</h3>
+            </div>
+            
+            <div className="submenu-links">
+              <Link to="/products/pre-owned" onClick={closeNavbar} className="submenu-link">
+                Pre-owned Devices
+              </Link>
+              <Link to="/products/new" onClick={closeNavbar} className="submenu-link">
+                Brand New Devices
+              </Link>
+            </div>
+          </div>
+        )}
 
         <button className="nav-btn nav-close-btn" onClick={showNavbar}>
           <X />
         </button>
       </nav>
+      
+      {/* Regular navbar for desktop */}
+      <div className="desktop-nav">
+        <Link to="/home" className="desktop-link">Home</Link>
+        
+        <div className="dropdown">
+          <Link to="/product" className="desktop-link dropdown-btn">
+            Products
+            <ChevronDown className="dropdown-icon" size={16} />
+          </Link>
+          
+          <div className="dropdown-content">
+            <Link to="/products/pre-owned">Pre-owned Devices</Link>
+            <Link to="/products/new">Brand New Devices</Link>
+          </div>
+        </div>
+        
+        <Link to="/about" className="desktop-link">About Us</Link>
+        <Link to="/contact" className="desktop-link">Contact</Link>
+      </div>
+      
       <button className="nav-btn" onClick={showNavbar}>
         <Menu />
       </button>
