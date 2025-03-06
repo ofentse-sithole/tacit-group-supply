@@ -77,7 +77,7 @@ function Navbar() {
               <Link to="/products/pre-owned" onClick={closeNavbar} className="submenu-link">
                 Pre-owned Devices
               </Link>
-              <Link to="/products/new" onClick={closeNavbar} className="submenu-link">
+              <Link to="/products/brand-new" onClick={closeNavbar} className="submenu-link">
                 Brand New Devices
               </Link>
             </div>
