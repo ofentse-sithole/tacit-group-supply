@@ -1,21 +1,13 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState} from 'react';
 import styled from 'styled-components';
 import { Link, useParams, useNavigate, Routes, Route } from 'react-router-dom';
 
-useEffect(() => {
-    // More robust scroll handling
-    setTimeout(() => {
-      window.scrollTo({
-        top: 0,
-        left: 0,
-        behavior: 'smooth',
-      });
+//iPhone6/6s
+import iPhone6Rose from '../../../assets/iPhone6/6_Rose_Gold.jpg';
+import iPhone6Gold from '../../../assets/iPhone6/6_Gold.jpeg';
+import iPhone6Silver from '../../../assets/iPhone6/6_Silver.jpeg';
 
-      // Fallback for older browsers
-      document.body.scrollTop = 0; // For Safari
-      document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE, and Opera
-    }, 100);
-  }, []);
+//iPhone 7
 
 
 //iPhone XR
@@ -431,11 +423,98 @@ const PurchaseButton = styled.button`
 
 // Define phone data outside components for global access
 const phoneData = {
+  6: [
+    {/*
+      variant: 'Standard',
+      title: 'iPhone',
+      price: '3 500.00',
+      colors: ['#5f9ea0', '#ff0000', '#ffffff', '#000000'],
+      colorNames: ['Blue', 'Red', 'White', 'Black'],
+      images: [
+        iPhoneXImageXRBlue,
+        iPhoneXImageXRRed,
+        iPhoneXImageXRWhite,
+        iPhoneXImageXRBlack
+      ],
+      id: '8-standard' // Adding IDs for routing
+    */},
+    {
+      variant: '6/6s',
+      title: 'iPhone ',
+      price: '2 200.00',
+      colors: ['#ff9999', '#eee8aa', '#c0c0c0'],
+      colorNames: ['Rose Gold', 'Gold', 'Silver'],
+      images: [
+        iPhone6Rose,
+        iPhone6Gold,
+        iPhone6Silver
+      ],
+      id: '7-plus'
+    }
+  ],
+  7: [
+    {/*
+      variant: 'Standard',
+      title: 'iPhone',
+      price: '3 500.00',
+      colors: ['#5f9ea0', '#ff0000', '#ffffff', '#000000'],
+      colorNames: ['Blue', 'Red', 'White', 'Black'],
+      images: [
+        iPhoneXImageXRBlue,
+        iPhoneXImageXRRed,
+        iPhoneXImageXRWhite,
+        iPhoneXImageXRBlack
+      ],
+      id: '8-standard' // Adding IDs for routing
+    */},
+    {
+      variant: 'Plus',
+      title: 'iPhone 7',
+      price: '4 000.00',
+      colors: ['#daa520', '#000000', '#ffffff'],
+      colorNames: ['Gold', 'Black', 'White'],
+      images: [
+        iPhoneXImageXSMaxGold,
+        iPhoneXImageXSBlack,
+        iPhoneXImageXSWhite
+      ],
+      id: '7-plus'
+    }
+  ],
+  8: [
+    {
+      variant: 'Standard',
+      title: 'iPhone 8',
+      price: '3 500.00',
+      colors: ['#5f9ea0', '#ff0000', '#ffffff', '#000000'],
+      colorNames: ['Blue', 'Red', 'White', 'Black'],
+      images: [
+        iPhoneXImageXRBlue,
+        iPhoneXImageXRRed,
+        iPhoneXImageXRWhite,
+        iPhoneXImageXRBlack
+      ],
+      id: '8-standard' // Adding IDs for routing
+    },
+    {
+      variant: 'Plus',
+      title: 'iPhone 8',
+      price: '4 000.00',
+      colors: ['#daa520', '#000000', '#ffffff'],
+      colorNames: ['Gold', 'Black', 'White'],
+      images: [
+        iPhoneXImageXSMaxGold,
+        iPhoneXImageXSBlack,
+        iPhoneXImageXSWhite
+      ],
+      id: '10-xs'
+    }
+  ],
   10: [
     {
       variant: 'XR',
       title: 'iPhone',
-      price: '8800.00',
+      price: '5 000.00',
       colors: ['#5f9ea0', '#ff0000', '#ffffff', '#000000'],
       colorNames: ['Blue', 'Red', 'White', 'Black'],
       images: [
@@ -449,7 +528,7 @@ const phoneData = {
     {
       variant: 'XS',
       title: 'iPhone',
-      price: '8800.00',
+      price: '5 500.00',
       colors: ['#daa520', '#000000', '#ffffff'],
       colorNames: ['Gold', 'Black', 'White'],
       images: [
@@ -464,7 +543,7 @@ const phoneData = {
     {
       variant: 'Mini',
       title: 'iPhone 12',
-      price: '299.99',
+      price: '6 200.00',
       colors: ['#000000', '#dda0dd', '#0000cd', '#ff0000', '#8fbc8f', '#FFFFFF'],
       colorNames: ['Black', 'Purple', 'Blue', 'Red', 'Green', 'White'],
       images: [
@@ -480,7 +559,7 @@ const phoneData = {
     {
       variant: 'Standard',
       title: 'iPhone 12',
-      price: '349.99',
+      price: '8 000.00',
       colors: ['#000000', '#dda0dd', '#0000cd', '#ff0000', '#8fbc8f', '#FFFFFF'],
       colorNames: ['Black', 'Purple', 'Blue', 'Red', 'Green', 'White'],
       images: [
@@ -496,7 +575,7 @@ const phoneData = {
     {
       variant: 'Pro',
       title: 'iPhone 12',
-      price: '399.99',
+      price: '9 500.00',
       colors: ['#add8e6', '#deb887', '#f8f8ff', '#000000'],
       colorNames: ['Blue', 'Gold', 'White', 'Black'],
       images: [
@@ -507,10 +586,10 @@ const phoneData = {
       ],
       id: '12-pro'
     },
-    {
+    {/*
       variant: 'Pro Max',
       title: 'iPhone 12',
-      price: '449.99',
+      price: '9 500.00',
       colors: ['#add8e6', '#deb887', '#f8f8ff', '#000000'],
       colorNames: ['Blue', 'Gold', 'White', 'Black'],
       images: [
@@ -520,14 +599,14 @@ const phoneData = {
         iPhone12ImageProMaxBlack
       ],
       id: '12-pro-max'
-    }
+    */}
   ],
   // Rest of your phone data with IDs added
   13: [
     {
       variant: 'Mini',
       title: 'iPhone 13',
-      price: '399.99',
+      price: '6 500.00',
       colors: ['#000000', '#FFFFFF'],
       colorNames: ['Black', 'White'],
       images: [
@@ -539,7 +618,7 @@ const phoneData = {
     {
       variant: 'Standard',
       title: 'iPhone 13',
-      price: '399.99',
+      price: '8 500.00',
       colors: ['#000000', '#FFFFFF', '#ffb6c1', '#18453b'],
       colorNames: ['Black', 'White', 'Pink', 'Dark Green'],
       images: [
@@ -550,12 +629,38 @@ const phoneData = {
       ],
       id: '13-standard'
     },
+    {
+      variant: 'Pro',
+      title: 'iPhone 13',
+      price: '11 500.00',
+      colors: ['#87cefa', '#daa520', '#fffff'],
+      colorNames: ['Blue', 'Gold', 'White'],
+      images: [
+        iPhone13ImageProMaxBlue,
+        iPhone13ImageProMaxGold,
+        iPhone13ImageProMaxWhite
+      ],
+      id: '13-pro'
+    },
+    {
+      variant: 'Pro Max',
+      title: 'iPhone 13',
+      price: '13 000.00',
+      colors: ['#87cefa', '#daa520', '#fffff'],
+      colorNames: ['Blue', 'Gold', 'White'],
+      images: [
+        iPhone13ImageProMaxBlue,
+        iPhone13ImageProMaxGold,
+        iPhone13ImageProMaxWhite
+      ],
+      id: '13-pro-max'
+    },
   ],
   14: [
     {
       variant: 'Standard',
       title: 'iPhone 14',
-      price: '599.99',
+      price: '10 000.00',
       colors: ['#4682b4', '#ffffff'],
       colorNames: ['Blue', 'White'],
       images: [
@@ -565,9 +670,35 @@ const phoneData = {
       id: '14-standard'
     },
     {
+      variant: 'Plus',
+      title: 'iPhone 14',
+      price: '12 000.00',
+      colors: ['#4682b4', '#ffffff'],
+      colorNames: ['Blue', 'White'],
+      images: [
+        iPhone14ImageBlue,
+        iPhone14ImageWhite
+      ],
+      id: '14-plus'
+    },
+    {
+      variant: 'Pro',
+      title: 'iPhone 14',
+      price: '14 500.00',
+      colors: ['#800080', '#daa520', '#808080', '#fffafa'],
+      colorNames: ['Purple', 'Gold', 'Gray', 'White'],
+      images: [
+        iPhone14ImageProMaxPurple,
+        iPhone14ImageProMaxGold,
+        iPhone14ImageProMaxGray,
+        iPhone14ImageProMaxWhite
+      ],
+      id: '14-pro'
+    },
+    {
       variant: 'Pro Max',
       title: 'iPhone 14',
-      price: '599.99',
+      price: '16 500.00',
       colors: ['#800080', '#daa520', '#808080', '#fffafa'],
       colorNames: ['Purple', 'Gold', 'Gray', 'White'],
       images: [
@@ -581,9 +712,23 @@ const phoneData = {
   ],
   15: [
     {
+      variant: 'Standard',
+      title: 'iPhone 15',
+      price: '13 500.00',
+      colors: ['#5f9ea0', '#d1e189', '#f0e68c', '#ffffff'],
+      colorNames: ['Blue', 'Green', 'Yellow', 'White'],
+      images: [
+        iPhone15ImageBlue,
+        iPhone15ImageGreen,
+        iPhone15ImageYellow,
+        iPhone15ImageWhite
+      ],
+      id: '15-standard'
+    },
+    {
       variant: 'Plus',
       title: 'iPhone 15',
-      price: '8800.00',
+      price: '15 000.00',
       colors: ['#5f9ea0', '#d1e189', '#f0e68c', '#ffffff'],
       colorNames: ['Blue', 'Green', 'Yellow', 'White'],
       images: [
@@ -594,12 +739,26 @@ const phoneData = {
       ],
       id: '15-plus'
     },
+    {
+      variant: 'Pro Max',
+      title: 'iPhone 15',
+      price: '17 000.00',
+      colors: ['#000000', '#1a2421', '#daa520', '#ffffff'],
+      colorNames: ['Black', 'Grey', 'Titanium', 'White'],
+      images: [
+        iPhone15ImageProMaxBlack,
+        iPhone15ImageProMaxGold,
+        iPhone15ImageProMaxTitanium,
+        iPhone15ImageProMaxWhite,
+      ],
+      id: '15-pro'
+    },
   ],
   16: [
     {
       variant: 'Plus',
       title: 'iPhone 16',
-      price: '599.99',
+      price: '17 000.00',
       colors: ['#1b1b1b', '#317873', '#ffb6c1', '#7b68ee', '#f8f8ff'],
       colorNames: ['Black', 'Scarcelle', 'Pink', 'Ultramarine', 'White'],
       images: [
@@ -680,15 +839,16 @@ const ProductListPage = () => {
   
   const filteredPhones = Object.entries(phoneData).reduce((acc, [generation, phones]) => {
     const filtered = phones.filter(phone => 
-      phone.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
-      phone.variant.toLowerCase().includes(searchQuery.toLowerCase()) ||
-      phone.colorNames.some(color => color.toLowerCase().includes(searchQuery.toLowerCase()))
+        phone?.title?.toLowerCase().includes(searchQuery.toLowerCase()) ||
+        phone?.variant?.toLowerCase().includes(searchQuery.toLowerCase()) ||
+        phone?.colorNames?.some(color => color?.toLowerCase().includes(searchQuery.toLowerCase()))
     );
     if (filtered.length > 0) {
-      acc[generation] = filtered;
+        acc[generation] = filtered;
     }
     return acc;
-  }, {});
+}, {});
+
   
   return (
     <ShowcaseContainer>

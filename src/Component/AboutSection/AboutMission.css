@@ -1,0 +1,148 @@
+.team-container {
+    display: flex;
+    align-items: center;
+    padding: 60px;
+    max-width: 1200px;
+    margin: 0 auto;
+    background-color: #fcfcfa;
+    font-family: 'Arial', sans-serif;
+  }
+  
+  .image-section {
+    flex: 1;
+    position: relative;
+    margin-right: 50px;
+    height: 400px;
+  }
+  
+  .blue-blob {
+    position: absolute;
+    width: 150px;
+    height: 150px;
+    border-radius: 50% 50% 0 50%;
+    background-color: #c5d6e6;
+    top: 0;
+    left: 0;
+    z-index: 1;
+  }
+  
+  .profile-image-container {
+    position: absolute;
+    width: 250px;
+    height: 320px;
+    overflow: hidden;
+    top: 30px;
+    left: 50px;
+    z-index: 2;
+    border: 5px solid white;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  .profile-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  
+  .blue-circle {
+    position: absolute;
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    background-color: #c5d6e6;
+    top: 60px;
+    right: 50px;
+    z-index: 1;
+  }
+  
+  .name-badge {
+    position: absolute;
+    background-color: #4a87b9;
+    color: white;
+    padding: 15px 25px;
+    bottom: 30px;
+    left: 50px;
+    width: 250px;
+    border-radius: 8px;
+    text-align: center;
+    z-index: 3;
+  }
+  
+  .team-member-name {
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin: 0 0 8px 0;
+    line-height: 1.2;
+  }
+  
+  .team-member-title {
+    font-size: 0.9rem;
+    margin: 0;
+    opacity: 0.9;
+    line-height: 1.4;
+  }
+  
+  .content-section {
+    flex: 1;
+  }
+  
+  .main-heading {
+    color: #4a87b9;
+    font-size: 3.2rem;
+    font-weight: 600;
+    line-height: 1.1;
+    margin-bottom: 30px;
+  }
+  
+  .subheading {
+    color: #333;
+    font-size: 1.7rem;
+    font-weight: 600;
+    margin-bottom: 15px;
+  }
+  
+  .description {
+    color: #666;
+    font-size: 1.1rem;
+    line-height: 1.5;
+    max-width: 550px;
+  }
+  
+  /* Responsive adjustments */
+  @media (max-width: 900px) {
+    .team-container {
+      flex-direction: column;
+      padding: 30px;
+    }
+    
+    .image-section {
+      margin-right: 0;
+      margin-bottom: 60px;
+      width: 100%;
+    }
+    
+    .content-section {
+      width: 100%;
+    }
+    
+    .main-heading {
+      font-size: 2.5rem;
+    }
+  }
+  
+  @media (max-width: 600px) {
+    .profile-image-container {
+      width: 200px;
+      height: 260px;
+      left: 30px;
+    }
+    
+    .name-badge {
+      width: 200px;
+      left: 30px;
+    }
+    
+    .blue-circle {
+      right: 30px;
+    }
+  }
