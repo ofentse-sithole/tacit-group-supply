@@ -1,0 +1,61 @@
+.mission-vision-container {
+    background-color: #fff;
+    padding: 40px 20px;
+    color: rgb(0, 0, 0);
+    font-family: Arial, sans-serif;
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+    min-height: 100vh;
+  }
+  
+  .mission-section, .vision-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    max-width: 600px;
+    margin: 0 auto;
+    width: 100%;
+  }
+  
+  .header-container {
+    background-color: #036d08;
+    border-radius: 25px;
+    padding: 15px 20px;
+    width: 100%;
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  
+  .section-header {
+    color: white;
+    font-size: 24px;
+    font-weight: normal;
+    margin: 0;
+    letter-spacing: 1px;
+  }
+  
+  .section-text {
+    text-align: left;
+    line-height: 1.6;
+    margin-bottom: 20px;
+    width: 100%;
+  }
+  
+  @media (max-width: 768px) {
+    .mission-vision-container {
+      padding: 20px 15px;
+    }
+    
+    .header-container {
+      padding: 12px 15px;
+    }
+    
+    .section-header {
+      font-size: 20px;
+    }
+    
+    .section-text {
+      font-size: 14px;
+    }
+  }

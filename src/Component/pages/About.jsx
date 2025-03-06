@@ -3,6 +3,7 @@ import AboutHero from '../HeroSection/AboutHeroSection'
 import AboutTop from '../AboutSection/AboutTop'
 import AboutMission from '../AboutSection/AboutMission'
 import AboutVision from '../AboutSection/AboutVision'
+import MissionVision from '../AboutSection/MissionAndVision'
 import AboutMid from '../AboutSection/AboutMiddle'
 
 function About() {
@@ -10,7 +11,7 @@ function About() {
     <div>
         <AboutHero/>
         <AboutTop/>
-      <AboutMid/>
+        <MissionVision/>
     </div>
   )
 }
