@@ -3,27 +3,28 @@ import './AboutTop.css';
 
 const AboutTop = () => {
   return (
-    <div className="about-container">
-      <div className="content-container">
-        <h1 className="main-heading">About Company</h1>
-        
-        <h2 className="subheading">Subheading</h2>
-        
-        <p className="description">
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor 
-          incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam
+    <div className="about-us-container">
+      <div className="about-us-content">
+        <h1 className="about-us-title">
+          ABOUT US
+        </h1>
+        <p className="about-us-text">
+        As the Tacit Group Supply Co, we specialize in providing 
+        top-notch gadgets and phones to meet all your tech needs. 
+        With a keen eye for quality, we meticulously curate our inventory 
+        to ensure that every product we offer is nothing short of excellent. 
+        As trusted consignors, we pride ourselves on delivering reliability and 
+        satisfaction with every purchase. Whether you're searching for the latest 
+        smartphone or cutting-edge gadgets, we're here to provide unparalleled 
+        service and exceptional products.
         </p>
       </div>
-      
-      <div className="image-container">
-        <div className="image-frame">
-          <img 
-            src="/image/New_Logo.png" 
-            alt="Tacit Group Supply Logo" 
-            className="main-image" 
-          />
-        </div>
-        <div className="circle-accent"></div>
+      <div className="about-us-image-container">
+        <img 
+          src="/image/New_Logo.png" 
+          alt="Person holding laptop taking selfie" 
+          className="about-us-image" 
+        />
       </div>
     </div>
   );

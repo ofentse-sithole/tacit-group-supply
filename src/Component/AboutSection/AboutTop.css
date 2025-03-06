@@ -1,175 +1,65 @@
-.about-container {
+.about-us-container {
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  width: 100%;
-  margin: 0 auto;
   background-color: #fff;
-  font-family: 'Arial', sans-serif;
-  position: relative;
-  padding: 20px;
-  box-sizing: border-box;
-}
-
-.image-container {
-  position: relative;
-  width: 100%;
-  display: flex;
-  justify-content: center;
+  padding: 40px 80px; /* Increased left and right padding */
+  min-height: 100vh;
   align-items: center;
-  z-index: 1;
-  margin: 20px 0;
+  font-family: 'Times New Roman', serif;
+  justify-content: space-between; /* Ensure even spacing */
 }
 
-.image-frame {
-  width: 200px;
-  height: 200px;
-  border-radius: 50%;
-  background-color: #f0f0ea;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  position: relative;
-  overflow: hidden;
+.about-us-content {
+  flex: 1;
+  padding-right: 40px; /* Added more space */
+  padding-left: 40px; /* Move content from the left */
 }
 
-.main-image {
-  width: 90%;
-  height: auto;
-  object-fit: contain;
-  position: relative;
-  z-index: 2;
+.about-us-title {
+  font-size: 80px;
+  font-weight: normal;
+  color: #59483d;
+  margin-bottom: 40px;
+  line-height: 0.9;
 }
 
-.circle-accent {
-  position: absolute;
-  width: 50px;
-  height: 50px;
-  border-radius: 50%;
-  background-color: #c5d6e6;
-  bottom: 20%;
-  right: calc(50% - 100px);
-  z-index: 3;
-}
-
-.content-container {
-  width: 100%;
-  text-align: center;
-  position: relative;
-  z-index: 2;
-}
-
-.main-heading {
-  color: #4a87b9;
-  font-size: 2.5rem;
-  font-weight: 600;
-  line-height: 1.1;
-  margin-bottom: 20px;
-}
-
-.subheading {
-  color: #333;
-  font-size: 1.5rem;
-  font-weight: 600;
-  margin-bottom: 15px;
-}
-
-.description {
-  color: #666;
-  font-size: 1rem;
+.about-us-text {
+  font-size: 16px;
+  color: #59483d;
   line-height: 1.5;
-  max-width: 90%;
-  margin: 0 auto;
+  max-width: 400px; /* Slightly wider text */
 }
 
-/* Tablet and desktop adjustments */
-@media (min-width: 768px) {
-  .about-container {
-    flex-direction: row;
-    min-height: 380px;
-    max-width: 1200px;
-    padding: 40px 20px;
+.about-us-image-container {
+  flex: 1;
+  display: flex;
+  justify-content: center; /* Ensure spacing within the right side */
+  padding-right: 40px; /* Add space from the right */
+}
+
+.about-us-image {
+  max-width: 100%;
+  height: auto;
+  max-height: 40vh;
+}
+
+@media (max-width: 768px) {
+  .about-us-container {
+    flex-direction: column;
+    padding: 20px;
   }
-  
-  .image-container {
-    width: 45%;
-    order: 1;
-    margin: 0;
+
+  .about-us-title {
+    font-size: 60px;
+    margin-bottom: 20px;
   }
-  
-  .image-frame {
-    width: 280px;
-    height: 280px;
-  }
-  
-  .content-container {
-    width: 55%;
-    text-align: left;
-    padding-right: 40px;
-    order: 2;
-  }
-  
-  .main-heading {
-    font-size: 3.2rem;
+
+  .about-us-content {
+    padding: 0 20px; /* Adjusted padding for mobile */
     margin-bottom: 30px;
   }
-  
-  .subheading {
-    font-size: 1.7rem;
-  }
-  
-  .description {
-    font-size: 1.1rem;
-    max-width: 550px;
-    margin: 0;
-  }
-  
-  .circle-accent {
-    bottom: 20%;
-    right: 25%;
-    width: 70px;
-    height: 70px;
-  }
-}
 
-/* Specific tablet adjustments */
-@media (min-width: 768px) and (max-width: 992px) {
-  .image-frame {
-    width: 240px;
-    height: 240px;
-  }
-  
-  .main-heading {
-    font-size: 2.8rem;
-  }
-  
-  .description {
-    font-size: 1rem;
-  }
-}
-
-/* Small mobile adjustments */
-@media (max-width: 350px) {
-  .image-frame {
-    width: 150px;
-    height: 150px;
-  }
-  
-  .circle-accent {
-    width: 40px;
-    height: 40px;
-    right: calc(50% - 75px);
-  }
-  
-  .main-heading {
-    font-size: 1.8rem;
-  }
-  
-  .subheading {
-    font-size: 1.2rem;
-  }
-  
-  .description {
-    font-size: 0.9rem;
+  .about-us-image-container {
+    justify-content: center;
+    padding-right: 0;
   }
 }
