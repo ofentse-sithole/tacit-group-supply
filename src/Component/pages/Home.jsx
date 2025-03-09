@@ -1,5 +1,5 @@
 import '../../App.css'
-import HeroSection from '../HeroSection/HeroSection'
+import HeroSection from '../HeroSection/HomeHeroSection'
 import Services from '../MiddleSection/ServiceMiddle'
 import Timer from '../HeroSection/TimerHeoSection'
 import Customer from '../AboutSection/Customer'
@@ -7,7 +7,7 @@ import Customer from '../AboutSection/Customer'
 function Home() {
   return (
     <div>
-        <Timer/>
+        <HeroSection/>
         <Services/>
         <Customer/>
     </div>
