@@ -133,7 +133,12 @@ const FlipClock = () => {
     return (
       <div className="flip-clock-wrapper">
         <div className="header-section">
-          <h1 className="heading">**Your One-Stop Shop for Quality Products**</h1>
+            <br/>
+            <br/>
+            <br/>
+            <br/>
+            
+          <h1 className="heading">Your One-Stop Shop for Quality Products</h1>
         </div>
         
         <div className="flip-clock-container">

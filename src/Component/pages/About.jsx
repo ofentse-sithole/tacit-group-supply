@@ -5,6 +5,7 @@ import AboutMission from '../AboutSection/AboutMission'
 import AboutVision from '../AboutSection/AboutVision'
 import MissionVision from '../AboutSection/MissionAndVision'
 import AboutMid from '../AboutSection/AboutMiddle'
+import Customer from '../AboutSection/Customer'
 
 function About() {
   return (
