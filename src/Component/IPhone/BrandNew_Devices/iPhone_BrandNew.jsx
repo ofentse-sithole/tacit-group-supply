@@ -212,7 +212,7 @@ const ColorOptions = styled.div`
 const ColorButton = styled.button`
   width: 20px;
   height: 20px;
-  border-radius: 50%;
+  border-radius: 50%; // This is already set to 50% which makes a perfect circle
   background-color: ${props => props.color};
   border: none;
   cursor: pointer;
@@ -322,10 +322,11 @@ const DetailColorOptions = styled.div`
   margin-bottom: 24px;
 `;
 
+
 const DetailColorButton = styled.button`
   width: 32px;
   height: 32px;
-  border-radius: 50%;
+  border-radius: 50%; // This is already set to 50% which makes a perfect circle
   background-color: ${props => props.color};
   border: none;
   cursor: pointer;

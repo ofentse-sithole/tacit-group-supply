@@ -1,0 +1,240 @@
+/* FlipClock.css */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+  
+  .flip-clock-wrapper {
+    font-family: 'Arial', sans-serif;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+  }
+  
+  .header-section {
+    text-align: center;
+    margin-bottom: 40px;
+    width: 100%;
+    padding: 20px;
+    background-color: #2c3e50;
+    color: white;
+  }
+  
+  .heading {
+    font-size: 2.5rem;
+    margin-bottom: 10px;
+    font-weight: bold;
+  }
+  
+  .flip-clock-container {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+  
+  /* Base styles for single digit display */
+  .digit-container {
+    position: relative;
+    width: 140px;
+    height: 120px;
+    perspective: 300px;
+    background-color: #333;
+    border-radius: 5px;
+    box-shadow: 0 10px 10px -10px rgba(0, 0, 0, 0.5);
+  }
+  
+  .digit-display {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+  }
+  
+  .digit {
+    font-size: 5rem;
+    color: white;
+    text-align: center;
+  }
+  
+  .unit-labels {
+    display: flex;
+    margin-top: 10px;
+    width: 100%;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+  
+  .unit-label {
+    text-align: center;
+    color: #333;
+    font-size: 1rem;
+    margin-top: 5px;
+    font-weight: bold;
+    width: 140px;
+  }
+  
+  .unit-label.empty {
+    width: 140px;
+  }
+  
+  .separator-space {
+    width: 30px;
+  }
+  
+  /* Animation styles */
+  .flip-card {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    transform-style: preserve-3d;
+    transition: transform 0.5s ease;
+    top: 0;
+    left: 0;
+  }
+  
+  .flip-card.flipped {
+    transform: rotateX(180deg);
+  }
+  
+  .flip-card-front,
+  .flip-card-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    background-color: #333;
+    color: white;
+    font-size: 5rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+  }
+  
+  .flip-card-front {
+    transform: rotateX(0deg);
+    border-radius: 5px;
+  }
+  
+  .flip-card-back {
+    transform: rotateX(180deg);
+    border-radius: 5px;
+  }
+  
+  .dot-separator {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 3rem;
+    color: #333;
+    margin: 0 5px;
+  }
+  
+  /* Media Queries for Responsiveness */
+  @media (max-width: 768px) {
+    .flip-clock-container {
+      gap: 10px;
+    }
+    
+    .digit-container {
+      width: 100px;
+      height: 90px;
+    }
+    
+    .digit, .flip-card-front, .flip-card-back {
+      font-size: 4rem;
+    }
+    
+    .dot-separator {
+      font-size: 2.5rem;
+    }
+    
+    .unit-label, .unit-label.empty {
+      width: 100px;
+    }
+    
+    .separator-space {
+      width: 20px;
+    }
+    
+    .heading {
+      font-size: 2rem;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .flip-clock-container {
+      gap: 5px;
+    }
+    
+    .digit-container {
+      width: 70px;
+      height: 70px;
+    }
+    
+    .digit, .flip-card-front, .flip-card-back {
+      font-size: 3rem;
+    }
+    
+    .dot-separator {
+      font-size: 2rem;
+      margin: 0 2px;
+    }
+    
+    .unit-label, .unit-label.empty {
+      width: 70px;
+      font-size: 0.8rem;
+    }
+    
+    .separator-space {
+      width: 15px;
+    }
+    
+    .heading {
+      font-size: 1.5rem;
+    }
+    
+    .header-section {
+      padding: 15px;
+      margin-bottom: 20px;
+    }
+  }
+  
+  @media (max-width: 320px) {
+    .flip-clock-container {
+      gap: 3px;
+    }
+    
+    .digit-container {
+      width: 60px;
+      height: 60px;
+    }
+    
+    .digit, .flip-card-front, .flip-card-back {
+      font-size: 2.5rem;
+    }
+    
+    .dot-separator {
+      font-size: 1.5rem;
+    }
+    
+    .unit-label, .unit-label.empty {
+      width: 60px;
+      font-size: 0.7rem;
+    }
+    
+    .separator-space {
+      width: 10px;
+    }
+    
+    .heading {
+      font-size: 1.2rem;
+    }
+  }
