@@ -1,10 +1,12 @@
 // components/admin/SaleItemForm.js
 import React, { useState, useEffect, useRef } from 'react';
+import axios from 'axios'; // Make sure to install axios with npm install axios
 import './AdminSaleForm.css';
 
 function SaleItemForm({ onSubmit, initialData }) {
   const fileInputRef = useRef(null);
   const [uploadedFiles, setUploadedFiles] = useState([]);
+  const [uploading, setUploading] = useState(false);
   const [formData, setFormData] = useState({
     name: '',
     description: '',
@@ -39,29 +41,58 @@ function SaleItemForm({ onSubmit, initialData }) {
     });
   };
 
-  const handleImageUpload = (e) => {
+  const handleImageUpload = async (e) => {
     const files = Array.from(e.target.files);
     if (files.length === 0) return;
 
-    const newUploadedFiles = [...uploadedFiles];
-    const newImages = [...formData.images];
+    setUploading(true);
+    
+    try {
+      const uploadedImagePaths = await uploadImages(files);
+      
+      const newUploadedFiles = [...uploadedFiles];
+      const newImages = [...formData.images];
 
-    files.forEach(file => {
-      // Store file information
-      const imagePath = `/public/admin/images/${file.name}`;
-      newUploadedFiles.push({
-        name: file.name,
-        path: imagePath,
-        file: file // Keep the file reference for actual upload later
+      uploadedImagePaths.forEach((imagePath, index) => {
+        const file = files[index];
+        newUploadedFiles.push({
+          name: file.name,
+          path: imagePath
+        });
+        newImages.push(imagePath);
       });
-      newImages.push(imagePath);
-    });
 
-    setUploadedFiles(newUploadedFiles);
-    setFormData({
-      ...formData,
-      images: newImages
+      setUploadedFiles(newUploadedFiles);
+      setFormData({
+        ...formData,
+        images: newImages
+      });
+    } catch (error) {
+      console.error("Error uploading images:", error);
+      alert("Failed to upload images. Please try again.");
+    } finally {
+      setUploading(false);
+    }
+  };
+
+  // Function to upload images to the server
+  const uploadImages = async (files) => {
+    const uploadPromises = files.map(async (file) => {
+      const formData = new FormData();
+      formData.append('image', file);
+      
+      // Make API request to upload endpoint
+      const response = await axios.post('/api/upload-image', formData, {
+        headers: {
+          'Content-Type': 'multipart/form-data'
+        }
+      });
+      
+      // Return the path where the image was saved
+      return response.data.path; // This should be the path like '/public/admin/images/filename.jpg'
     });
+    
+    return Promise.all(uploadPromises);
   };
 
   const removeFile = (index) => {
@@ -84,8 +115,6 @@ function SaleItemForm({ onSubmit, initialData }) {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    // In a real app, you would handle the actual file upload here
-    // before submitting the form data
     onSubmit(formData);
   };
 
@@ -154,13 +183,15 @@ function SaleItemForm({ onSubmit, initialData }) {
             ref={fileInputRef}
             className="file-input"
             id="imageUpload"
+            disabled={uploading}
           />
           <button 
             type="button" 
             className="upload-button"
             onClick={() => fileInputRef.current.click()}
+            disabled={uploading}
           >
-            Upload Images
+            {uploading ? 'Uploading...' : 'Upload Images'}
           </button>
           <small>You can upload multiple images from your phone</small>
         </div>
@@ -177,6 +208,7 @@ function SaleItemForm({ onSubmit, initialData }) {
                     type="button"
                     className="remove-file-btn"
                     onClick={() => removeFile(index)}
+                    disabled={uploading}
                   >
                     Remove
                   </button>
@@ -207,7 +239,7 @@ function SaleItemForm({ onSubmit, initialData }) {
       </div>
       
       <div className="form-actions">
-        <button type="submit" className="submit-button">
+        <button type="submit" className="submit-button" disabled={uploading}>
           {initialData ? 'Update Item' : 'Add Item'}
         </button>
       </div>

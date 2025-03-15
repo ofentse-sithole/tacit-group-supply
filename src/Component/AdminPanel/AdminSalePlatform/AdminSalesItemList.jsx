@@ -1,9 +1,76 @@
-// Component/AdminPanel/AdminSalePlatform/SaleItemsList.jsx
-import React from 'react';
-import './AdminSalesItemList.css';
+// src/Component/AdminPanel/AdminSalePlatform/AdminSalesItemList.jsx
+import React, { useState, useCallback, memo } from 'react';
+import './AdminSalesItemList.css'; // Make sure this CSS file exists
 
-function SaleItemsList({ items, onEdit, onDelete }) {
-  if (items.length === 0) {
+// Memoized table row component to prevent unnecessary re-renders
+const SaleItemRow = memo(({ item, activeImageIndex, onCycleImage, onEdit, onDelete }) => {
+  const hasMultipleImages = item.images && item.images.length > 1;
+  
+  // Get the current image to display
+  const currentImage = item.images && item.images.length > 0 
+    ? item.images[activeImageIndex || 0] 
+    : item.imageUrl;
+
+  return (
+    <tr>
+      <td className="item-image">
+        <img 
+          src={currentImage} 
+          alt={item.name} 
+          onClick={() => hasMultipleImages && onCycleImage(item.id)}
+          className={hasMultipleImages ? "has-multiple-images" : ""}
+          onError={(e) => {
+            e.target.onerror = null;
+            e.target.src = '/placeholder-image.png'; // Fallback image
+          }}
+        />
+        {hasMultipleImages && (
+          <span className="image-count">
+            {(activeImageIndex || 0) + 1}/{item.images.length}
+          </span>
+        )}
+      </td>
+      <td>{item.name}</td>
+      <td>{item.category}</td>
+      <td>R {parseFloat(item.originalPrice).toFixed(2)}</td>
+      <td>R {parseFloat(item.salePrice).toFixed(2)}</td>
+      <td className="actions-cell">
+        <button 
+          onClick={() => onEdit(item)} 
+          className="edit-button"
+          type="button"
+        >
+          Edit
+        </button>
+        <button 
+          onClick={() => onDelete(item.id)} 
+          className="delete-button"
+          type="button"
+        >
+          Delete
+        </button>
+      </td>
+    </tr>
+  );
+});
+
+// Ensure the component name matches the file name
+function AdminSalesItemList({ items, onEdit, onDelete }) {
+  const [activeImageIndices, setActiveImageIndices] = useState({});
+
+  // Memoized function to cycle through images
+  const handleCycleImage = useCallback((itemId) => {
+    const item = items.find(i => i.id === itemId);
+    if (!item || !item.images || item.images.length <= 1) return;
+    
+    setActiveImageIndices(prev => {
+      const currentIndex = prev[itemId] || 0;
+      const nextIndex = (currentIndex + 1) % item.images.length;
+      return { ...prev, [itemId]: nextIndex };
+    });
+  }, [items]);
+
+  if (!items || items.length === 0) {
     return (
       <div className="empty-state">
         <p>No sale items found. Add your first item!</p>
@@ -26,36 +93,14 @@ function SaleItemsList({ items, onEdit, onDelete }) {
         </thead>
         <tbody>
           {items.map(item => (
-            <tr key={item.id}>
-              <td className="item-image">
-                <img 
-                  src={item.imageUrl} 
-                  alt={item.name} 
-                  onError={(e) => {
-                    e.target.onerror = null;
-                    e.target.src = '/placeholder-image.png'; // Fallback image
-                  }}
-                />
-              </td>
-              <td>{item.name}</td>
-              <td>{item.category}</td>
-              <td>${parseFloat(item.originalPrice).toFixed(2)}</td>
-              <td>${parseFloat(item.salePrice).toFixed(2)}</td>
-              <td className="actions-cell">
-                <button 
-                  onClick={() => onEdit(item)} 
-                  className="edit-button"
-                >
-                  Edit
-                </button>
-                <button 
-                  onClick={() => onDelete(item.id)} 
-                  className="delete-button"
-                >
-                  Delete
-                </button>
-              </td>
-            </tr>
+            <SaleItemRow
+              key={item.id}
+              item={item}
+              activeImageIndex={activeImageIndices[item.id]}
+              onCycleImage={handleCycleImage}
+              onEdit={onEdit}
+              onDelete={onDelete}
+            />
           ))}
         </tbody>
       </table>
@@ -63,4 +108,5 @@ function SaleItemsList({ items, onEdit, onDelete }) {
   );
 }
 
-export default SaleItemsList;
+// Make sure to export with the same name as the file
+export default AdminSalesItemList;
