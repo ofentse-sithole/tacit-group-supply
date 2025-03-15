@@ -1,7 +1,7 @@
 // Component/AdminPanel/LoginDetails/AdminLogin.js
 import React, { useState, useContext } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { AuthContext } from '../../../context/AdminAuth';
+import { AuthContext } from '../LoginDetails/context/AdminAuth';
 import './AdminLogin.css';
 import Logo from '/public/image/New_Logo.png';
 

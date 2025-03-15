@@ -1,7 +1,7 @@
 // pages/admin/AdminDashboard.js
 import React, { useState, useEffect, useContext } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { AuthContext } from '../../context/AdminAuth';
+import { AuthContext } from '../AdminPanel/LoginDetails/context/AdminAuth';
 import SaleItemForm from '../AdminPanel/AdminSalePlatform/AdminSaleForm';
 import SaleItemsList from '../AdminPanel/AdminSalePlatform/AdminSalesItemList';
 import './AdminDashboard.css';
