@@ -112,12 +112,28 @@ const AboutHeroSection = () => {
 };
 
 // Styled Components
-
 const HeroContainer = styled.div`
   position: relative;
   width: 100%;
-  height: 100vh;
+  min-height: 100dvh;
   overflow: hidden;
+`;
+
+const VideoElement = styled.video`
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  
+  @media (max-width: 768px) {
+    object-fit: contain; /* Ensure it covers the whole space */
+    height: 100%;
+    width: 100%;
+  }
+
+  position: absolute;
+  top: 0;
+  left: 0;
+  transition: opacity 0.5s ease;
 `;
 
 const VideoContainer = styled.div`
@@ -125,18 +141,8 @@ const VideoContainer = styled.div`
   top: 0;
   left: 0;
   width: 100%;
-  height: 100%;
-  background-color: #000;
-`;
-
-const VideoElement = styled.video`
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  position: absolute;
-  top: 0;
-  left: 0;
-  transition: opacity 0.5s ease;
+  height: 100vh; /* Ensure full screen */
+  background-color: black; /* Debugging: ensures the background doesn't create issues */
 `;
 
 const LoadingIndicator = styled.div`
@@ -163,12 +169,19 @@ const IndicatorDots = styled.div`
 `;
 
 const IndicatorDot = styled.div`
-  width: 8px;
-  height: 8px;
+  width: 12px;
+  height: 12px;
   border-radius: 50%;
   background: ${(props) => (props.active ? "white" : "rgba(255, 255, 255, 0.5)")};
   transition: background 0.3s ease;
   cursor: pointer;
+
+  @media (max-width: 768px) {
+    width: 10px;
+    height: 10px;
+  }
 `;
+
+
 
 export default AboutHeroSection;
