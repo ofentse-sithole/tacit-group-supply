@@ -13,10 +13,10 @@ import PreOwned_Devices from './Component/pages/PreOwnedDevices';
 import BrandNew_Devices from './Component/pages/BrandNewDevices';
 import Sale from './Component/pages/Sale';
 
-import AdminDashboard from './Component/AdminPanel/AdminDashboard';
-import { AuthProvider } from './context/AdminAuth';
-import ProtectedRoute from './Component/AdminPanel/ProtectedRoute';
-import AdminLogins from './Component/AdminPanel/LoginDetails/AdminLogin';
+import AdminDashboard from './AdminPanel/AdminDashboard';
+import { AuthProvider } from './AdminPanel/LoginDetails/context/AdminAuth';
+import ProtectedRoute from './AdminPanel/ProtectedRoute';
+import AdminLogins from './AdminPanel/LoginDetails/AdminLogin';
 
 function App() {
   return (
@@ -37,7 +37,7 @@ function App() {
           
           {/*Added the admin routes */}  
           <Route path="/sale" element={<Sale />} />
-          <Route path="/admin/login" element={<AdminLogins />} />
+          <Route path="/admin/private/secure/login" element={<AdminLogins />} />
           <Route path="/admin/dashboard" element={<ProtectedRoute element={<AdminDashboard />} />} />
         </Routes>
         <Footer/>

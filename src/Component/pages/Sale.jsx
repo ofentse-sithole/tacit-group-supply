@@ -1,5 +1,5 @@
 import '../../App.css'
-import SaleProducts from '../Sales/SalesProducts'
+import SaleProducts from '../IPhone/Sales/SalesProducts'
 
 function Sale() {
   return (
