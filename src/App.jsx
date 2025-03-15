@@ -11,12 +11,12 @@ import {ProductDetailPage} from './Component/IPhone/PreOwned_Devices/iPhone_Deta
 import Footer from './Component/Footer/Footer';
 import PreOwned_Devices from './Component/pages/PreOwnedDevices';
 import BrandNew_Devices from './Component/pages/BrandNewDevices';
+import Sale from './Component/pages/Sale';
 
 import AdminDashboard from './Component/AdminPanel/AdminDashboard';
 import { AuthProvider } from './context/AdminAuth';
 import ProtectedRoute from './Component/AdminPanel/ProtectedRoute';
 import AdminLogins from './Component/AdminPanel/LoginDetails/AdminLogin';
-import PublicSalePage from './Component/AdminPanel/AdminSalePlatform/AdminSaleForm';
 
 function App() {
   return (
@@ -36,7 +36,7 @@ function App() {
           <Route path="/contact" element={<Contact />} />
           
           {/*Added the admin routes */}  
-          <Route path="/sale" element={<PublicSalePage />} />
+          <Route path="/sale" element={<Sale />} />
           <Route path="/admin/login" element={<AdminLogins />} />
           <Route path="/admin/dashboard" element={<ProtectedRoute element={<AdminDashboard />} />} />
         </Routes>
