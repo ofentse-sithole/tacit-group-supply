@@ -6,6 +6,11 @@ const AboutHeroSection = () => {
   const [isLoading, setIsLoading] = useState(true);
   const videoRefs = useRef([]);
 
+  // Scroll to top on mount
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
   // Video URLs - Fixed paths to be consistent
   const videos = [
     "/videos/iPhone16_AI.mp4",
@@ -24,22 +29,18 @@ const AboutHeroSection = () => {
     };
 
     const currentVideo = videoRefs.current[currentVideoIndex];
-    
+
     if (currentVideo) {
-      // Set loading state to true when changing videos
       setIsLoading(true);
-      
+
       currentVideo.addEventListener("loadeddata", handleVideoLoaded);
       currentVideo.addEventListener("error", handleVideoError);
-      
-      // Check if video is already loaded
+
       if (currentVideo.readyState >= 3) {
         setIsLoading(false);
       }
-      
-      // Ensure video starts playing
+
       const playPromise = currentVideo.play();
-      
       if (playPromise !== undefined) {
         playPromise.catch((error) => {
           console.error("Video play error:", error);
@@ -61,13 +62,13 @@ const AboutHeroSection = () => {
     const handleVideoEnd = () => {
       setCurrentVideoIndex((prevIndex) => (prevIndex + 1) % videos.length);
     };
-    
+
     const currentVideo = videoRefs.current[currentVideoIndex];
-    
+
     if (currentVideo) {
       currentVideo.addEventListener("ended", handleVideoEnd);
     }
-    
+
     return () => {
       if (currentVideo) {
         currentVideo.removeEventListener("ended", handleVideoEnd);
@@ -77,13 +78,7 @@ const AboutHeroSection = () => {
 
   return (
     <HeroContainer>
-        
       <VideoContainer>
-      <br/>
-        <br/>
-        <br/>
-        <br/>
-        <br/>
         {videos.map((video, index) => (
           <VideoElement
             key={index}
