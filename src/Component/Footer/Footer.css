@@ -94,6 +94,17 @@
     font-size: 0.9rem;
 }
 
+.developer-link {
+    color: #149400;
+    text-decoration: none;
+    font-weight: bold;
+  }
+  
+  .developer-link:hover {
+    text-decoration: underline;
+  }
+  
+
 @media only screen and (max-width: 768px) {
     .footer-navigation {
         flex-direction: column;

@@ -6,6 +6,11 @@ const AboutHeroSection = () => {
   const [isLoading, setIsLoading] = useState(true);
   const videoRefs = useRef([]);
 
+  // Scroll to top on mount
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
   // Video URLs - Fixed paths to be consistent
   const videos = [
     "/videos/iPhone16_AI.mp4",
@@ -24,22 +29,18 @@ const AboutHeroSection = () => {
     };
 
     const currentVideo = videoRefs.current[currentVideoIndex];
-    
+
     if (currentVideo) {
-      // Set loading state to true when changing videos
       setIsLoading(true);
-      
+
       currentVideo.addEventListener("loadeddata", handleVideoLoaded);
       currentVideo.addEventListener("error", handleVideoError);
-      
-      // Check if video is already loaded
+
       if (currentVideo.readyState >= 3) {
         setIsLoading(false);
       }
-      
-      // Ensure video starts playing
+
       const playPromise = currentVideo.play();
-      
       if (playPromise !== undefined) {
         playPromise.catch((error) => {
           console.error("Video play error:", error);
@@ -61,13 +62,13 @@ const AboutHeroSection = () => {
     const handleVideoEnd = () => {
       setCurrentVideoIndex((prevIndex) => (prevIndex + 1) % videos.length);
     };
-    
+
     const currentVideo = videoRefs.current[currentVideoIndex];
-    
+
     if (currentVideo) {
       currentVideo.addEventListener("ended", handleVideoEnd);
     }
-    
+
     return () => {
       if (currentVideo) {
         currentVideo.removeEventListener("ended", handleVideoEnd);
@@ -77,13 +78,7 @@ const AboutHeroSection = () => {
 
   return (
     <HeroContainer>
-        
       <VideoContainer>
-      <br/>
-        <br/>
-        <br/>
-        <br/>
-        <br/>
         {videos.map((video, index) => (
           <VideoElement
             key={index}
@@ -117,12 +112,28 @@ const AboutHeroSection = () => {
 };
 
 // Styled Components
-
 const HeroContainer = styled.div`
   position: relative;
   width: 100%;
-  height: 100vh;
+  min-height: 100dvh;
   overflow: hidden;
+`;
+
+const VideoElement = styled.video`
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  
+  @media (max-width: 768px) {
+    object-fit: contain; /* Ensure it covers the whole space */
+    height: 100%;
+    width: 100%;
+  }
+
+  position: absolute;
+  top: 0;
+  left: 0;
+  transition: opacity 0.5s ease;
 `;
 
 const VideoContainer = styled.div`
@@ -130,18 +141,8 @@ const VideoContainer = styled.div`
   top: 0;
   left: 0;
   width: 100%;
-  height: 100%;
-  background-color: #000;
-`;
-
-const VideoElement = styled.video`
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  position: absolute;
-  top: 0;
-  left: 0;
-  transition: opacity 0.5s ease;
+  height: 100vh; /* Ensure full screen */
+  background-color: black; /* Debugging: ensures the background doesn't create issues */
 `;
 
 const LoadingIndicator = styled.div`
@@ -168,12 +169,19 @@ const IndicatorDots = styled.div`
 `;
 
 const IndicatorDot = styled.div`
-  width: 8px;
-  height: 8px;
+  width: 12px;
+  height: 12px;
   border-radius: 50%;
   background: ${(props) => (props.active ? "white" : "rgba(255, 255, 255, 0.5)")};
   transition: background 0.3s ease;
   cursor: pointer;
+
+  @media (max-width: 768px) {
+    width: 10px;
+    height: 10px;
+  }
 `;
+
+
 
 export default AboutHeroSection;
