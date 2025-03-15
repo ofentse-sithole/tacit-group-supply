@@ -81,7 +81,7 @@ function Navbar() {
                 Brand New Devices
               </Link>
               <Link to="/products/sale" onClick={closeNavbar} className="submenu-link">
-                Sale
+              Sale
               </Link>
             </div>
           </div>
