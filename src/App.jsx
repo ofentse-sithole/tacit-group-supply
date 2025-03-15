@@ -12,8 +12,15 @@ import Footer from './Component/Footer/Footer';
 import PreOwned_Devices from './Component/pages/PreOwnedDevices';
 import BrandNew_Devices from './Component/pages/BrandNewDevices';
 
+import AdminDashboard from './Component/AdminPanel/AdminDashboard';
+import { AuthProvider } from './context/AdminAuth';
+import ProtectedRoute from './Component/AdminPanel/ProtectedRoute';
+import AdminLogins from './Component/AdminPanel/LoginDetails/AdminLogin';
+import PublicSalePage from './Component/AdminPanel/AdminSalePlatform/AdminSaleForm';
+
 function App() {
   return (
+    <AuthProvider>
     <Router>
       <>
         <Navbar />
@@ -27,10 +34,16 @@ function App() {
           <Route path="/products/new" element={<BrandNew_Devices />} />
           <Route path="/about" element={<About />} />
           <Route path="/contact" element={<Contact />} />
+          
+          {/*Added the admin routes */}  
+          <Route path="/sale" element={<PublicSalePage />} />
+          <Route path="/admin/login" element={<AdminLogins />} />
+          <Route path="/admin/dashboard" element={<ProtectedRoute element={<AdminDashboard />} />} />
         </Routes>
         <Footer/>
       </>
     </Router>
+    </AuthProvider>
   );
 }
 
