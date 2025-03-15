@@ -6,7 +6,7 @@ import { AuthContext } from '../AdminPanel/LoginDetails/context/AdminAuth';
 const ProtectedRoute = ({ element }) => {
   const { isAuthenticated } = useContext(AuthContext);
 
-  return isAuthenticated ? element : <Navigate to="/admin/login" />;
+  return isAuthenticated ? element : <Navigate to="/admin/private/secure/login" />;
 };
 
 export default ProtectedRoute;
