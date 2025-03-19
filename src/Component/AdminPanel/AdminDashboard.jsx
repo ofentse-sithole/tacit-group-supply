@@ -4,7 +4,9 @@ import { useNavigate } from 'react-router-dom';
 import { AuthContext } from '../AdminPanel/LoginDetails/context/AdminAuth';
 import SaleItemForm from '../AdminPanel/AdminSalePlatform/AdminSaleForm';
 import SaleItemsList from '../AdminPanel/AdminSalePlatform/AdminSalesItemList';
-import { FiLogOut, FiPlusCircle, FiXCircle, FiBox } from 'react-icons/fi';
+import { FiLogOut, FiPlusCircle, FiXCircle, FiBox, FiMenu, FiGrid, FiList } from 'react-icons/fi';
+import { collection, query, where, getDocs, Timestamp } from 'firebase/firestore';
+import { db } from './Firebase/config'; 
 import './AdminDashboard.css';
 
 function AdminDashboard() {
@@ -13,42 +15,99 @@ function AdminDashboard() {
   const [saleItems, setSaleItems] = useState([]);
   const [showForm, setShowForm] = useState(false);
   const [editingItem, setEditingItem] = useState(null);
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [viewMode, setViewMode] = useState('grid'); // 'grid' or 'list'
+  const [isLoading, setIsLoading] = useState(true);
   const [dashboardStats, setDashboardStats] = useState({
     totalItems: 0,
     activeItems: 0,
     recentlyAdded: 0
   });
 
+  // Fetch local items and count total items
   useEffect(() => {
     const storedItems = localStorage.getItem('sale_items');
     if (storedItems) {
       const parsedItems = JSON.parse(storedItems);
       setSaleItems(parsedItems);
       
-      // Calculate dashboard stats
-      const now = new Date();
-      const oneWeekAgo = new Date(now.getTime() - 7 * 24 * 60 * 60 * 1000);
-      
-      setDashboardStats({
-        totalItems: parsedItems.length,
-        activeItems: parsedItems.filter(item => !item.isSold).length,
-        recentlyAdded: parsedItems.filter(item => new Date(item.dateAdded) > oneWeekAgo).length
-      });
+      // Set total items count from localStorage
+      setDashboardStats(prev => ({
+        ...prev,
+        totalItems: parsedItems.length
+      }));
     }
+    
+    // Set view mode based on screen size
+    const handleResize = () => {
+      setViewMode(window.innerWidth < 768 ? 'list' : 'grid');
+    };
+    
+    // Set initial view mode
+    handleResize();
+    
+    // Add resize listener
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
   }, []);
 
+  // Fetch active items and recently added from Firestore
+  useEffect(() => {
+    const fetchFirestoreData = async () => {
+      setIsLoading(true);
+      try {
+        // Get active items (not sold)
+        const activeItemsQuery = query(
+          collection(db, 'saleItems'),
+          where('isSold', '==', false)
+        );
+        const activeItemsSnapshot = await getDocs(activeItemsQuery);
+        const activeItemsCount = activeItemsSnapshot.size;
+        
+        // Get recently added items (last 7 days)
+        const oneWeekAgo = new Date();
+        oneWeekAgo.setDate(oneWeekAgo.getDate() - 7);
+        const oneWeekAgoTimestamp = Timestamp.fromDate(oneWeekAgo);
+        
+        const recentItemsQuery = query(
+          collection(db, 'saleItems'),
+          where('dateAdded', '>=', oneWeekAgoTimestamp)
+        );
+        const recentItemsSnapshot = await getDocs(recentItemsQuery);
+        const recentItemsCount = recentItemsSnapshot.size;
+        
+        // Update dashboard stats
+        setDashboardStats(prev => ({
+          ...prev,
+          activeItems: activeItemsCount,
+          recentlyAdded: recentItemsCount
+        }));
+      } catch (error) {
+        console.error('Error fetching Firestore data:', error);
+      } finally {
+        setIsLoading(false);
+      }
+    };
+    
+    fetchFirestoreData();
+    
+    // Set up interval to refresh data every 5 minutes
+    const intervalId = setInterval(() => {
+      fetchFirestoreData();
+    }, 5 * 60 * 1000);
+    
+    return () => clearInterval(intervalId);
+  }, []);
+
+  // Update local storage when items change
   useEffect(() => {
     localStorage.setItem('sale_items', JSON.stringify(saleItems));
     
-    // Update stats whenever items change
-    const now = new Date();
-    const oneWeekAgo = new Date(now.getTime() - 7 * 24 * 60 * 60 * 1000);
-    
-    setDashboardStats({
-      totalItems: saleItems.length,
-      activeItems: saleItems.filter(item => !item.isSold).length,
-      recentlyAdded: saleItems.filter(item => new Date(item.dateAdded) > oneWeekAgo).length
-    });
+    // Update total items count
+    setDashboardStats(prev => ({
+      ...prev,
+      totalItems: saleItems.length
+    }));
   }, [saleItems]);
 
   const handleLogout = () => {
@@ -84,18 +143,26 @@ function AdminDashboard() {
   const startEdit = (item) => {
     setEditingItem(item);
     setShowForm(true);
+    // Scroll to form on mobile
+    if (window.innerWidth < 768) {
+      setTimeout(() => {
+        document.querySelector('.form-container')?.scrollIntoView({ behavior: 'smooth' });
+      }, 100);
+    }
+  };
+
+  const toggleMobileMenu = () => {
+    setMobileMenuOpen(!mobileMenuOpen);
   };
 
   return (
     <div className="admin-dashboard">
       <div className="dashboard-header">
-        <br/>
-        <br/>
-        <br/>
         <div className="brand-section">
           <h1><FiBox className="header-icon" /> Admin Dashboard</h1>
         </div>
-        <div className="user-actions">
+        
+        <div className={`user-actions ${mobileMenuOpen ? 'menu-open' : ''}`}>
           <div className="user-info">
             <div className="user-avatar">
               {user?.username?.charAt(0).toUpperCase() || 'A'}
@@ -106,6 +173,10 @@ function AdminDashboard() {
             <FiLogOut className="button-icon" /> Logout
           </button>
         </div>
+        
+        <button className="mobile-menu-toggle" onClick={toggleMobileMenu}>
+          <FiMenu />
+        </button>
       </div>
       
       <div className="dashboard-stats">
@@ -115,17 +186,37 @@ function AdminDashboard() {
         </div>
         <div className="stat-card">
           <h3>Active Items</h3>
-          <p className="stat-value">{dashboardStats.activeItems}</p>
+          <p className="stat-value">
+            {isLoading ? <span className="loading-indicator">Loading...</span> : dashboardStats.activeItems}
+          </p>
         </div>
         <div className="stat-card">
           <h3>Recently Added</h3>
-          <p className="stat-value">{dashboardStats.recentlyAdded}</p>
+          <p className="stat-value">
+            {isLoading ? <span className="loading-indicator">Loading...</span> : dashboardStats.recentlyAdded}
+          </p>
         </div>
       </div>
       
       <div className="dashboard-content">
         <div className="content-header">
-          <h2>Sale Items Management</h2>
+          <div className="header-left">
+            <h2>Sale Items Management</h2>
+            <div className="view-toggle">
+              <button 
+                className={`view-toggle-button ${viewMode === 'grid' ? 'active' : ''}`} 
+                onClick={() => setViewMode('grid')}
+              >
+                <FiGrid /> Grid
+              </button>
+              <button 
+                className={`view-toggle-button ${viewMode === 'list' ? 'active' : ''}`} 
+                onClick={() => setViewMode('list')}
+              >
+                <FiList /> List
+              </button>
+            </div>
+          </div>
           <button
             onClick={() => {
               setEditingItem(null);
@@ -152,7 +243,8 @@ function AdminDashboard() {
           <SaleItemsList 
             items={saleItems} 
             onEdit={startEdit} 
-            onDelete={deleteItem} 
+            onDelete={deleteItem}
+            viewMode={viewMode}
           />
         )}
       </div>
