@@ -3,6 +3,7 @@ import HeroSection from '../HeroSection/HomeHeroSection'
 import Services from '../MiddleSection/ServiceMiddle'
 import Timer from '../HeroSection/TimerHeoSection'
 import Customer from '../AboutSection/Customer'
+import Reviews from '../Reviews/ClientReviews'
 
 function Home() {
   return (
@@ -10,6 +11,7 @@ function Home() {
         <HeroSection/>
         <Services/>
         <Customer/>
+        <Reviews/>
     </div>
   )
 }
