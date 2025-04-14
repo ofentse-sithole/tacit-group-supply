@@ -46,118 +46,126 @@ const testimonials = [
 ];
 
 export default function ClientReviews() {
-  const [currentIndex, setCurrentIndex] = useState(0);
-  const [isAutoScrolling, setIsAutoScrolling] = useState(true);
-  const carouselRef = useRef(null);
-  
-  // Auto-scroll functionality
-  useEffect(() => {
-    if (!isAutoScrolling) return;
+    const [currentIndex, setCurrentIndex] = useState(0);
+    const [isAutoScrolling, setIsAutoScrolling] = useState(true);
+    const carouselRef = useRef(null);
     
-    const interval = setInterval(() => {
+    // Auto-scroll functionality
+    useEffect(() => {
+      if (!isAutoScrolling) return;
+      
+      const interval = setInterval(() => {
+        setCurrentIndex((prevIndex) => 
+          prevIndex === testimonials.length - 1 ? 0 : prevIndex + 1
+        );
+      }, 5000); // Change slide every 5 seconds
+      
+      return () => clearInterval(interval);
+    }, [isAutoScrolling]);
+    
+    // Navigation handlers
+    const goToPrevious = () => {
+      setIsAutoScrolling(false);
+      setCurrentIndex((prevIndex) => 
+        prevIndex === 0 ? testimonials.length - 1 : prevIndex - 1
+      );
+    };
+    
+    const goToNext = () => {
+      setIsAutoScrolling(false);
       setCurrentIndex((prevIndex) => 
         prevIndex === testimonials.length - 1 ? 0 : prevIndex + 1
       );
-    }, 5000); // Change slide every 5 seconds
-    
-    return () => clearInterval(interval);
-  }, [isAutoScrolling]);
+    };
   
-  // Navigation handlers
-  const goToPrevious = () => {
-    setIsAutoScrolling(false);
-    setCurrentIndex((prevIndex) => 
-      prevIndex === 0 ? testimonials.length - 1 : prevIndex - 1
-    );
-  };
+    // Display stars based on rating
+    const renderStars = (rating) => {
+      return Array.from({ length: 5 }).map((_, index) => (
+        <span 
+          key={index} 
+          className={`star ${index < rating ? 'filled' : ''}`}
+        >
+          ★
+        </span>
+      ));
+    };
   
-  const goToNext = () => {
-    setIsAutoScrolling(false);
-    setCurrentIndex((prevIndex) => 
-      prevIndex === testimonials.length - 1 ? 0 : prevIndex + 1
-    );
-  };
-
-  // Display stars based on rating
-  const renderStars = (rating) => {
-    return Array.from({ length: 5 }).map((_, index) => (
-      <span 
-        key={index} 
-        className={`star ${index < rating ? 'filled' : ''}`}
-      >
-        ★
-      </span>
-    ));
-  };
-
-  return (
-    <div className="testimonial-container">
-      <h2 className="testimonial-heading">What Our Customers Say</h2>
-      
-      <div className="carousel-wrapper">
-        {/* Carousel container */}
-        <div ref={carouselRef} className="carousel-container">
-          <div 
-            className="carousel-track"
-            style={{ transform: `translateX(-${currentIndex * 100}%)` }}
-          >
-            {testimonials.map((testimonial) => (
-              <div key={testimonial.id} className="testimonial-slide">
-                <div className="testimonial-card">
-                  <img 
-                    src={testimonial.image} 
-                    alt={`${testimonial.name}`} 
-                    className="client-image"
-                  />
-                  
-                  <div className="rating">
-                    {renderStars(testimonial.rating)}
-                  </div>
-                  
-                  <p className="testimonial-text">"{testimonial.text}"</p>
-                  
-                  <div className="client-info">
-                    <h3 className="client-name">{testimonial.name}</h3>
-                    <p className="product-purchased">Purchased: {testimonial.product}</p>
+    return (
+      <div className="testimonial-container">
+        <h2 className="testimonial-heading">What Our Customers Say</h2>
+        
+        <div className="carousel-wrapper">
+          {/* Carousel container */}
+          <div ref={carouselRef} className="carousel-container">
+            <div 
+              className="carousel-track"
+              style={{ transform: `translateX(-${currentIndex * 100}%)` }}
+            >
+              {testimonials.map((testimonial) => (
+                <div key={testimonial.id} className="testimonial-slide">
+                  <div className="testimonial-card">
+                    <img 
+                      src={testimonial.image} 
+                      alt={`${testimonial.name}`} 
+                      className="client-image"
+                    />
+                    
+                    <div className="rating">
+                      {renderStars(testimonial.rating)}
+                    </div>
+                    
+                    <p className="testimonial-text">"{testimonial.text}"</p>
+                    
+                    <div className="client-info">
+                      <h3 className="client-name">{testimonial.name}</h3>
+                      <p className="product-purchased">Purchased: {testimonial.product}</p>
+                      <a 
+                        href={`https://instagram.com/${testimonial.instagram}`} 
+                        target="_blank" 
+                        rel="noopener noreferrer" 
+                        className="instagram-link"
+                      >
+                        @{testimonial.instagram}
+                      </a>
+                    </div>
                   </div>
                 </div>
-              </div>
+              ))}
+            </div>
+          </div>
+          
+          {/* Navigation buttons */}
+          <button 
+            onClick={goToPrevious}
+            className="nav-button prev-button"
+            aria-label="Previous testimonial"
+          >
+            &lt;
+          </button>
+          
+          <button 
+            onClick={goToNext}
+            className="nav-button next-button"
+            aria-label="Next testimonial"
+          >
+            &gt;
+          </button>
+          
+          {/* Indicators */}
+          <div className="carousel-indicators">
+            {testimonials.map((_, index) => (
+              <button
+                key={index}
+                onClick={() => {
+                  setIsAutoScrolling(false);
+                  setCurrentIndex(index);
+                }}
+                className={`indicator ${currentIndex === index ? 'active' : ''}`}
+                aria-label={`Go to testimonial ${index + 1}`}
+              />
             ))}
           </div>
         </div>
-        
-        {/* Navigation buttons */}
-        <button 
-          onClick={goToPrevious}
-          className="nav-button prev-button"
-          aria-label="Previous testimonial"
-        >
-          &lt;
-        </button>
-        
-        <button 
-          onClick={goToNext}
-          className="nav-button next-button"
-          aria-label="Next testimonial"
-        >
-          &gt;
-        </button>
-        
-        {/* Indicators */}
-        <div className="carousel-indicators">
-          {testimonials.map((_, index) => (
-            <button
-              key={index}
-              onClick={() => {
-                setIsAutoScrolling(false);
-                setCurrentIndex(index);
-              }}
-              className={`indicator ${currentIndex === index ? 'active' : ''}`}
-              aria-label={`Go to testimonial ${index + 1}`}
-            />
-          ))}
-        </div>
       </div>
-    </div>
-  );
-}
+    );
+  }
