@@ -8,6 +8,12 @@ import iPhone6Gold from '../../../assets/iPhone6/6_Gold.jpeg';
 import iPhone6Silver from '../../../assets/iPhone6/6_Silver.jpeg';
 
 //iPhone 7
+import iPhone7Silver from '../../../assets/iPhone7/iPhone7_Silver.jpg';
+import iPhone7Gold from '../../../assets/iPhone7/iPhone7_Gold.jpg';
+import iPhone7RoseGold from '../../../assets/iPhone7/iPhone7_RoseGold.jpg';
+import iPhone7PlusGold from '../../../assets/iPhone7/iPhone7_Plus_Gold-removebg-preview.png';
+import iPhone7PlusRoseGold from '../../../assets/iPhone7/iPhone7_Plus_Rose_Gold-removebg-preview.png';
+import iPhone7PlusBlack from '../../../assets/iPhone7/iPhone7_Plus_Black-removebg-preview.png';
 
 
 //iPhone XR
@@ -424,20 +430,6 @@ const PurchaseButton = styled.button`
 // Define phone data outside components for global access
 const phoneData = {
   6: [
-    {/*
-      variant: 'Standard',
-      title: 'iPhone',
-      price: '3 500.00',
-      colors: ['#5f9ea0', '#ff0000', '#ffffff', '#000000'],
-      colorNames: ['Blue', 'Red', 'White', 'Black'],
-      images: [
-        iPhoneXImageXRBlue,
-        iPhoneXImageXRRed,
-        iPhoneXImageXRWhite,
-        iPhoneXImageXRBlack
-      ],
-      id: '8-standard' // Adding IDs for routing
-    */},
     {
       variant: '6/6s',
       title: 'iPhone ',
@@ -449,34 +441,20 @@ const phoneData = {
         iPhone6Gold,
         iPhone6Silver
       ],
-      id: '7-plus'
+      id: '6-standard'
     }
   ],
   7: [
-    {/*
-      variant: 'Standard',
-      title: 'iPhone',
-      price: '3 500.00',
-      colors: ['#5f9ea0', '#ff0000', '#ffffff', '#000000'],
-      colorNames: ['Blue', 'Red', 'White', 'Black'],
-      images: [
-        iPhoneXImageXRBlue,
-        iPhoneXImageXRRed,
-        iPhoneXImageXRWhite,
-        iPhoneXImageXRBlack
-      ],
-      id: '8-standard' // Adding IDs for routing
-    */},
     {
       variant: 'Plus',
       title: 'iPhone 7',
       price: '4 000.00',
-      colors: ['#daa520', '#000000', '#ffffff'],
-      colorNames: ['Gold', 'Black', 'White'],
+      colors: ['#daa520', '#F7C3C3', '#000000'],
+      colorNames: ['Gold', 'Rose Gold', 'Black'],
       images: [
-        iPhoneXImageXSMaxGold,
-        iPhoneXImageXSBlack,
-        iPhoneXImageXSWhite
+        iPhone7PlusGold,
+        iPhone7PlusRoseGold,
+        iPhone7PlusBlack
       ],
       id: '7-plus'
     }

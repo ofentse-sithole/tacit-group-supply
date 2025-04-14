@@ -12,6 +12,7 @@ import Footer from './Component/Footer/Footer';
 import PreOwned_Devices from './Component/pages/PreOwnedDevices';
 import BrandNew_Devices from './Component/pages/BrandNewDevices';
 import Sale from './Component/pages/Sale';
+import SalesProductDetails from './Component/IPhone/Sales/SalesProducts_Details';
 
 import AdminDashboard from './Component/AdminPanel/AdminDashboard';
 import { AuthProvider } from './Component/AdminPanel/LoginDetails/context/AdminAuth';
@@ -39,6 +40,9 @@ function AppContent() {
         <Route path="/about" element={<About />} />
         <Route path="/contact" element={<Contact />} />
         <Route path="/sale" element={<Sale />} />
+        <Route path="/sale/:productId" element={<SalesProductDetails />} />
+
+        {/* Admin routes */}
         <Route path="/admin/private/secure/login" element={<AdminLogins />} />
         <Route path="/admin/dashboard" element={<ProtectedRoute element={<AdminDashboard />} />} />
       </Routes>
