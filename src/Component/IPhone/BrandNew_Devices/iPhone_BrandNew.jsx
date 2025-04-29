@@ -1,6 +1,6 @@
-import React, { useState} from 'react';
+import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
-import { Link, useParams, useNavigate, Routes, Route } from 'react-router-dom';
+import { Link, useParams, useNavigate, Routes, Route, useLocation } from 'react-router-dom';
 
 //iPhone6/6s
 import iPhone6Rose from '../../../assets/iPhone6/6_Rose_Gold.jpg';
@@ -88,7 +88,6 @@ import iPhone16ImageUltramarine from '../../../assets/iPhone16/16_Plus_Ultramari
 import iPhone16ImageWhite from '../../../assets/iPhone16/16_Plus_White.jpg'
 
 // Styled Components
-// Styled Components (existing ones remain the same)
 const ShowcaseContainer = styled.div`
   padding: 24px;
   background-color: #f9fafb;
@@ -808,9 +807,26 @@ const PhoneSection = ({ generation, phones }) => (
   </SectionContainer>
 );
 
+// ScrollToTop component to handle page scrolling to top
+const ScrollToTop = () => {
+  useEffect(() => {
+    // Scroll to top when component mounts
+    window.scrollTo(0, 0);
+  }, []);
+
+  return null; // This component doesn't render anything
+};
+
+
 // ProductListPage component (main phones listing)
 const ProductListPage = () => {
   const [searchQuery, setSearchQuery] = useState('');
+  
+  // Use the ScrollToTop component at the top level
+  useEffect(() => {
+    // Scroll to top when component mounts
+    window.scrollTo(0, 0);
+  }, []);
   
   const filteredPhones = Object.entries(phoneData).reduce((acc, [generation, phones]) => {
     const filtered = phones.filter(phone => 
@@ -822,7 +838,7 @@ const ProductListPage = () => {
         acc[generation] = filtered;
     }
     return acc;
-}, {});
+  }, {});
 
   
   return (
@@ -853,10 +869,14 @@ const ProductListPage = () => {
   );
 };
 
-
 // Main component that renders the iPhone product showcase
 const iPhoneBrandNew = () => {
-  return <ProductListPage />;
+  return (
+  <>
+  <ScrollToTop />
+  <ProductListPage />
+  </>
+  );
 };
 
 export default iPhoneBrandNew;

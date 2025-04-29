@@ -13,6 +13,7 @@ import PreOwned_Devices from './Component/pages/PreOwnedDevices';
 import BrandNew_Devices from './Component/pages/BrandNewDevices';
 import Sale from './Component/pages/Sale';
 import SalesProductDetails from './Component/IPhone/Sales/SalesProducts_Details';
+import ScrollToTop from './Component/pages/ScrollTop';
 
 import AdminDashboard from './Component/AdminPanel/AdminDashboard';
 import { AuthProvider } from './Component/AdminPanel/LoginDetails/context/AdminAuth';
@@ -27,6 +28,7 @@ function AppContent() {
 
   return (
     <>
+      <ScrollToTop />
       {!isAdminRoute && <Navbar />}
 
       <Routes>
