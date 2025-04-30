@@ -80,6 +80,9 @@ function Navbar() {
               <Link to="/products/new" onClick={closeNavbar} className="submenu-link">
                 Brand New Devices
               </Link>
+              <Link to="/products/new" onClick={closeNavbar} className="submenu-link">
+                AirPods
+              </Link>
               <Link to="/products/sale" onClick={closeNavbar} className="submenu-link">
               Sale
               </Link>
@@ -105,6 +108,7 @@ function Navbar() {
           <div className="dropdown-content">
             <Link to="/products/pre-owned">Pre-owned Devices</Link>
             <Link to="/products/new">Brand New Devices</Link>
+            <Link to="/products/new">AirPods</Link>
             <Link to="/sale" className="desktop-link">Sale</Link>
           </div>
         </div>

@@ -14,6 +14,7 @@ import BrandNew_Devices from './Component/pages/BrandNewDevices';
 import Sale from './Component/pages/Sale';
 import SalesProductDetails from './Component/IPhone/Sales/SalesProducts_Details';
 import ScrollToTop from './Component/pages/ScrollTop';
+import AirPods from './Component/pages/AirPods';
 
 import AdminDashboard from './Component/AdminPanel/AdminDashboard';
 import { AuthProvider } from './Component/AdminPanel/LoginDetails/context/AdminAuth';
@@ -39,6 +40,7 @@ function AppContent() {
         <Route path="/product/iphone/:productId" element={<ProductDetailPage />} />
         <Route path="/products/pre-owned" element={<PreOwned_Devices />} />
         <Route path="/products/new" element={<BrandNew_Devices />} />
+        <Route path="/products/airpods" element={<AirPods />} />
         <Route path="/about" element={<About />} />
         <Route path="/contact" element={<Contact />} />
         <Route path="/sale" element={<Sale />} />
