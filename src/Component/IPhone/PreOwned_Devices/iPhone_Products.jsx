@@ -442,13 +442,27 @@ const phoneData = {
         iPhone6Silver
       ],
       id: '6-standard'
+    },
+    {
+      variant: '6/6s',
+      title: 'iPhone ',
+      price: '2 200.00',
+      colors: ['#ff9999', '#eee8aa', '#c0c0c0'],
+      colorNames: ['Rose Gold', 'Gold', 'Silver'],
+      images: [
+        iPhone6Rose,
+        iPhone6Gold,
+        iPhone6Silver
+      ],
+      id: '6-standard'
     }
   ],
   7: [
+    
     {
       variant: 'Plus',
       title: 'iPhone 7',
-      price: '4 000.00',
+      price: '3 200.00',
       colors: ['#daa520', '#F7C3C3', '#000000'],
       colorNames: ['Gold', 'Rose Gold', 'Black'],
       images: [
@@ -477,7 +491,7 @@ const phoneData = {
     {
       variant: 'Plus',
       title: 'iPhone 8',
-      price: '4 000.00',
+      price: '3 600.00',
       colors: ['#daa520', '#000000', '#ffffff'],
       colorNames: ['Gold', 'Black', 'White'],
       images: [
@@ -506,7 +520,7 @@ const phoneData = {
     {
       variant: 'XS',
       title: 'iPhone',
-      price: '5 500.00',
+      price: '4 800.00',
       colors: ['#daa520', '#000000', '#ffffff'],
       colorNames: ['Gold', 'Black', 'White'],
       images: [
@@ -515,29 +529,95 @@ const phoneData = {
         iPhoneXImageXSWhite
       ],
       id: '10-xs'
+    },
+    {
+      variant: 'X',
+      title: 'iPhone',
+      price: '4 500.00',
+      colors: ['#daa520', '#000000', '#ffffff'],
+      colorNames: ['Gold', 'Black', 'White'],
+      images: [
+        iPhoneXImageXSMaxGold,
+        iPhoneXImageXSBlack,
+        iPhoneXImageXSWhite
+      ],
+      id: '10-x'
+    },
+    {
+      variant: 'XS Max',
+      title: 'iPhone',
+      price: '5 500.00',
+      colors: ['#daa520', '#000000', '#ffffff'],
+      colorNames: ['Gold', 'Black', 'White'],
+      images: [
+        iPhoneXImageXSMaxGold,
+        iPhoneXImageXSBlack,
+        iPhoneXImageXSWhite
+      ],
+      id: '10-xs-max'
+    }
+  ],
+  11:[
+    {
+      variant: 'Standard',
+      title: 'iPhone 11',
+      price: '5 500.00',
+      colors: ['#5f9ea0', '#ff0000', '#ffffff', '#000000'],
+      colorNames: ['Blue', 'Red', 'White', 'Black'],
+      images: [
+        iPhoneXImageXRBlue,
+        iPhoneXImageXRRed,
+        iPhoneXImageXRWhite,
+        iPhoneXImageXRBlack
+      ],
+      id: '11-standard' // Adding IDs for routing
+    },
+    {
+      variant: 'Pro',
+      title: 'iPhone 11',
+      price: '6 500.00',
+      colors: ['#daa520', '#000000', '#ffffff'],
+      colorNames: ['Gold', 'Black', 'White'],
+      images: [
+        iPhoneXImageXSMaxGold,
+        iPhoneXImageXSBlack,
+        iPhoneXImageXSWhite
+      ],
+      id: '11-pro'
+    },
+    {
+      variant: 'Pro',
+      title: 'iPhone 11',
+      price: '7 200.00',
+      colors: ['#daa520', '#000000', '#ffffff'],
+      colorNames: ['Gold', 'Black', 'White'],
+      images: [
+        iPhoneXImageXSMaxGold,
+        iPhoneXImageXSBlack,
+        iPhoneXImageXSWhite
+      ],
+      id: '11-pro'
+    },
+    {
+      variant: 'Pro Max',
+      title: 'iPhone 11',
+      price: '8 200.00',
+      colors: ['#daa520', '#000000', '#ffffff'],
+      colorNames: ['Gold', 'Black', 'White'],
+      images: [
+        iPhoneXImageXSMaxGold,
+        iPhoneXImageXSBlack,
+        iPhoneXImageXSWhite
+      ],
+      id: '11-pro-max'
     }
   ],
   12: [
-    {
-      variant: 'Mini',
-      title: 'iPhone 12',
-      price: '6 200.00',
-      colors: ['#000000', '#dda0dd', '#0000cd', '#ff0000', '#8fbc8f', '#FFFFFF'],
-      colorNames: ['Black', 'Purple', 'Blue', 'Red', 'Green', 'White'],
-      images: [
-        iPhone12ImageBlack,
-        iPhone12ImagePurple,
-        iPhone12ImageBlue,
-        iPhone12ImageRed,
-        iPhone12ImageGreen,
-        iPhone12ImageWhite
-      ],
-      id: '12-mini'
-    },
+   
     {
       variant: 'Standard',
       title: 'iPhone 12',
-      price: '8 000.00',
+      price: '7 500.00',
       colors: ['#000000', '#dda0dd', '#0000cd', '#ff0000', '#8fbc8f', '#FFFFFF'],
       colorNames: ['Black', 'Purple', 'Blue', 'Red', 'Green', 'White'],
       images: [
@@ -564,10 +644,10 @@ const phoneData = {
       ],
       id: '12-pro'
     },
-    {/*
+    {
       variant: 'Pro Max',
       title: 'iPhone 12',
-      price: '9 500.00',
+      price: '11 000.00',
       colors: ['#add8e6', '#deb887', '#f8f8ff', '#000000'],
       colorNames: ['Blue', 'Gold', 'White', 'Black'],
       images: [
@@ -577,22 +657,10 @@ const phoneData = {
         iPhone12ImageProMaxBlack
       ],
       id: '12-pro-max'
-    */}
+    }
   ],
-  // Rest of your phone data with IDs added
+
   13: [
-    {
-      variant: 'Mini',
-      title: 'iPhone 13',
-      price: '6 500.00',
-      colors: ['#000000', '#FFFFFF'],
-      colorNames: ['Black', 'White'],
-      images: [
-        iPhone13ImageBlack,
-        iPhone13ImageWhite
-      ],
-      id: '13-mini'
-    },
     {
       variant: 'Standard',
       title: 'iPhone 13',
@@ -638,7 +706,7 @@ const phoneData = {
     {
       variant: 'Standard',
       title: 'iPhone 14',
-      price: '10 000.00',
+      price: '9 500.00',
       colors: ['#4682b4', '#ffffff'],
       colorNames: ['Blue', 'White'],
       images: [
@@ -676,7 +744,7 @@ const phoneData = {
     {
       variant: 'Pro Max',
       title: 'iPhone 14',
-      price: '16 500.00',
+      price: '15 500.00',
       colors: ['#800080', '#daa520', '#808080', '#fffafa'],
       colorNames: ['Purple', 'Gold', 'Gray', 'White'],
       images: [
@@ -706,7 +774,7 @@ const phoneData = {
     {
       variant: 'Plus',
       title: 'iPhone 15',
-      price: '15 000.00',
+      price: '14 500.00',
       colors: ['#5f9ea0', '#d1e189', '#f0e68c', '#ffffff'],
       colorNames: ['Blue', 'Green', 'Yellow', 'White'],
       images: [
@@ -720,7 +788,7 @@ const phoneData = {
     {
       variant: 'Pro Max',
       title: 'iPhone 15',
-      price: '17 000.00',
+      price: '19 000.00',
       colors: ['#000000', '#1a2421', '#daa520', '#ffffff'],
       colorNames: ['Black', 'Grey', 'Titanium', 'White'],
       images: [
@@ -733,6 +801,21 @@ const phoneData = {
     },
   ],
   16: [
+    {
+      variant: 'Standard',
+      title: 'iPhone 16',
+      price: '16 000.00',
+      colors: ['#1b1b1b', '#317873', '#ffb6c1', '#7b68ee', '#f8f8ff'],
+      colorNames: ['Black', 'Scarcelle', 'Pink', 'Ultramarine', 'White'],
+      images: [
+        iPhone16ImageBlack,
+        iPhone16ImageScarcelle,
+        iPhone16ImagePink,
+        iPhone16ImageUltramarine,
+        iPhone16ImageWhite
+      ],
+      id: '16-standard'
+    },
     {
       variant: 'Plus',
       title: 'iPhone 16',
@@ -747,6 +830,36 @@ const phoneData = {
         iPhone16ImageWhite
       ],
       id: '16-plus'
+    },
+    {
+      variant: 'Pro',
+      title: 'iPhone 16',
+      price: '21 000.00',
+      colors: ['#1b1b1b', '#317873', '#ffb6c1', '#7b68ee', '#f8f8ff'],
+      colorNames: ['Black', 'Scarcelle', 'Pink', 'Ultramarine', 'White'],
+      images: [
+        iPhone16ImageBlack,
+        iPhone16ImageScarcelle,
+        iPhone16ImagePink,
+        iPhone16ImageUltramarine,
+        iPhone16ImageWhite
+      ],
+      id: '16-pro'
+    },
+    {
+      variant: 'Pro Max',
+      title: 'iPhone 16',
+      price: '23 500.00',
+      colors: ['#1b1b1b', '#317873', '#ffb6c1', '#7b68ee', '#f8f8ff'],
+      colorNames: ['Black', 'Scarcelle', 'Pink', 'Ultramarine', 'White'],
+      images: [
+        iPhone16ImageBlack,
+        iPhone16ImageScarcelle,
+        iPhone16ImagePink,
+        iPhone16ImageUltramarine,
+        iPhone16ImageWhite
+      ],
+      id: '16-pro-max'
     },
   ]
 };
