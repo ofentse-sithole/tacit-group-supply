@@ -3,11 +3,11 @@ import styled from 'styled-components';
 import { Link, useParams, useNavigate, Routes, Route } from 'react-router-dom';
 
 //iPhone6/6s
-import first_Gen_AirPods from '../../../assets/AirPods/1st_Gen_AirPods.jpeg';
-import second_Gen_AirPods from '../../../assets/AirPods/2nd_Gen_AirPods.jpeg';
-import third_Gen_AirPods from '../../../assets/AirPods/3rd_Gen_AirPods.jpeg';
-import fourth_Gen_AirPods from '../../../assets/AirPods/4th_Gen_AirPods.jpeg';
-import Pro_Gen_AirPods from '../../../assets/AirPods/Pro_Gen_AirPods.jpeg';
+import first_Gen_AirPods from '../../../assets/AirPods/1st_Gen_Airpods.jpeg';
+import second_Gen_AirPods from '../../../assets/AirPods/2nd_Gen_Airpods.jpeg';
+import third_Gen_AirPods from '../../../assets/AirPods/3rd_Gen_Airpods.jpeg';
+import fourth_Gen_AirPods from '../../../assets/AirPods/4th_Gen_Airpods.jpeg';
+import Pro_Gen_AirPods from '../../../assets/AirPods/Pro_Gen_Airpods.jpeg';
 
 // Styled Components
 // Styled Components (existing ones remain the same)
@@ -355,9 +355,7 @@ const phoneData = {
       colors: ['#ffffff'],
       colorNames: ['White'],
       images: [
-        iPhone6Rose,
-        iPhone6Gold,
-        iPhone6Silver
+        first_Gen_AirPods
       ],
       id: '1-Generation'
     },
@@ -398,7 +396,7 @@ const phoneData = {
       images: [
         fourth_Gen_AirPods
       ],
-      id: '4th-Generation' // Adding IDs for routing
+      id: '4-Generation' // Adding IDs for routing
     },
     
   ],
@@ -412,7 +410,7 @@ const phoneData = {
       images: [
         Pro_Gen_AirPods
       ],
-      id: '11-standard' // Adding IDs for routing
+      id: '5-Max' // Adding IDs for routing
     },
   ],
 };
@@ -465,7 +463,7 @@ const PhoneCard = ({ phone }) => {
 
 const PhoneSection = ({ generation, phones }) => (
   <SectionContainer>
-    <SectionTitle>iPhone {generation}</SectionTitle>
+    <SectionTitle>AirPods {generation}</SectionTitle>
     <ProductGrid>
       {phones.map((phone) => (
         <PhoneCard 

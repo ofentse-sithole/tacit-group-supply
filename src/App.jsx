@@ -8,6 +8,8 @@ import Contact from './Component/pages/Contact';
 import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-router-dom';
 import iPhoneProducts from './Component/IPhone/PreOwned_Devices/iPhone_Products';
 import { ProductDetailPage } from './Component/IPhone/PreOwned_Devices/iPhone_Details';
+import {BrandNewDetailPage} from './Component/IPhone/BrandNew_Devices/iPhone_BrandNew_Details';
+import {AirPodsDetails} from './Component/IPhone/AirPods/AirPods_Details';
 import Footer from './Component/Footer/Footer';
 import PreOwned_Devices from './Component/pages/PreOwnedDevices';
 import BrandNew_Devices from './Component/pages/BrandNewDevices';
@@ -37,10 +39,19 @@ function AppContent() {
         <Route path="/home" element={<Home />} />
         <Route path="/product" element={<Product />} />
         <Route path="/product/iphone" element={<iPhoneProducts />} />
+
+        {/*Used iPhone Routes*/}
         <Route path="/product/iphone/:productId" element={<ProductDetailPage />} />
         <Route path="/products/pre-owned" element={<PreOwned_Devices />} />
+
+        {/*New iPhone Routes*/}
         <Route path="/products/new" element={<BrandNew_Devices />} />
+        <Route path="/product/brandnew/:productId" element={<BrandNewDetailPage />} />
+
+        {/*AirPods*/}
         <Route path="/products/airpods" element={<AirPods />} />
+        <Route path="/product/iphone/:id" element={<AirPodsDetails />} />
+
         <Route path="/about" element={<About />} />
         <Route path="/contact" element={<Contact />} />
         <Route path="/sale" element={<Sale />} />
