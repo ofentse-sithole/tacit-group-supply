@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import styled from 'styled-components';
-import { findPhoneById} from './iPhone_BrandNew';
+import { findPhoneById} from './AirPods_Products';
 
 
 const DetailPageContainer = styled.div`
@@ -204,36 +204,8 @@ const PurchaseButton = styled.button`
   }
 `;
 
-
-
-// Add the phone data here - copied from your original file
-const phoneData = {
-  10: [
-    {
-      variant: 'XR',
-      title: 'iPhone',
-      price: '8800.00',
-      colors: ['#5f9ea0', '#ff0000', '#ffffff', '#000000'],
-      colorNames: ['Blue', 'Red', 'White', 'Black'],
-      images: [
-        // You'll need to import these images at the top of the file
-        // For now, I'll use the variable names
-        'iPhoneXImageXRBlue',
-        'iPhoneXImageXRRed',
-        'iPhoneXImageXRWhite',
-        'iPhoneXImageXRBlack'
-      ],
-      id: '10-xr'
-    },
-    // Add the rest of your phone data here
-    // ...
-  ],
-  // Other phone generations
-  // ...
-};
-
 // ProductDetailPage component
-const BrandNew_Details = () => {
+const AirPods_Details = () => {
   const { productId } = useParams();
   const navigate = useNavigate();
   const [selectedColor, setSelectedColor] = useState(0);
@@ -281,9 +253,9 @@ const BrandNew_Details = () => {
     <DetailPageContainer>
       <DetailHeader>
         <BackButton onClick={() => navigate('/product')}>
-          ← Back to all iPhones
+          ← Back to all AirPods
         </BackButton>
-        <MainTitle>Pre-Owned iPhones</MainTitle>
+        <MainTitle>AirPods</MainTitle>
       </DetailHeader>
       
       <DetailContent>
@@ -353,4 +325,4 @@ const BrandNew_Details = () => {
   );
 };
 
-export { BrandNew_Details };
+export { AirPods_Details };
