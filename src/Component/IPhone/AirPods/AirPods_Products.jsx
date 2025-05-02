@@ -435,7 +435,7 @@ const PhoneCard = ({ phone }) => {
   const [selectedColor, setSelectedColor] = useState(0);
   
   return (
-    <StyledLink to={`/product/iphone/${phone.id}?color=${selectedColor}`}>
+    <StyledLink to={`/product/airpods/${phone.id}?color=${selectedColor}`}>
       <Card>
         <ImageContainer>
           <ProductImage src={phone.images[selectedColor]} alt={`${phone.title} ${phone.variant} in ${phone.colorNames[selectedColor]}`} />

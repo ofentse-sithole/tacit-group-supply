@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import styled from 'styled-components';
-import { findPhoneById} from './iPhone_BrandNew';
+import { findPhoneById } from './iPhone_BrandNew'; // CHANGED: Import from iPhone_BrandNew instead of iPhone_Products
 
 
 const DetailPageContainer = styled.div`
@@ -204,37 +204,9 @@ const PurchaseButton = styled.button`
   }
 `;
 
-
-
-// Add the phone data here - copied from your original file
-const phoneData = {
-  10: [
-    {
-      variant: 'XR',
-      title: 'iPhone',
-      price: '8800.00',
-      colors: ['#5f9ea0', '#ff0000', '#ffffff', '#000000'],
-      colorNames: ['Blue', 'Red', 'White', 'Black'],
-      images: [
-        // You'll need to import these images at the top of the file
-        // For now, I'll use the variable names
-        'iPhoneXImageXRBlue',
-        'iPhoneXImageXRRed',
-        'iPhoneXImageXRWhite',
-        'iPhoneXImageXRBlack'
-      ],
-      id: '10-xr'
-    },
-    // Add the rest of your phone data here
-    // ...
-  ],
-  // Other phone generations
-  // ...
-};
-
-// ProductDetailPage component
-const BrandNew_Details = () => {
-  const { productId } = useParams();
+// BrandNew_Details component
+export const BrandNew_Details = () => {
+  const { productId  } = useParams();
   const navigate = useNavigate();
   const [selectedColor, setSelectedColor] = useState(0);
   const [phone, setPhone] = useState(null);
@@ -248,42 +220,41 @@ const BrandNew_Details = () => {
       setSelectedColor(parseInt(colorParam));
     }
     
-    const foundPhone = findPhoneById(productId);
+    const foundPhone = findPhoneById(productId );
     if (foundPhone) {
       setPhone(foundPhone);
     } else {
       // Handle phone not found
-      navigate('/product');
+      navigate('/products/new');
     }
-  }, [productId, navigate]);
+  }, [productId , navigate]);
   
   if (!phone) {
     return <div>Loading...</div>;
   }
   
   const specifications = {
-    'Condition': 'Brand New',
-    'Storage': '64GB',
+    'Condition': 'Brand New - Sealed',
+    'Storage': phone.storage || '128GB',
     'Network': 'Unlocked',
-    'Warranty': '6 Months',
-    'Battery Health': '85%+',
-    'Screen': 'No scratches or damage',
-    'Accessories': 'Charging cable included'
+    'Warranty': '12 Months Apple Warranty',
+    'Box Contents': 'All original accessories included',
+    'Model': phone.model || phone.variant
   };
   
   const handlePurchase = () => {
     alert(`Thank you for purchasing the ${phone.title} ${phone.variant} in ${phone.colorNames[selectedColor]}!`);
     // In a real app, this would add to cart or redirect to checkout
-    navigate('/product');
+    navigate('/products/new');
   };
   
   return (
     <DetailPageContainer>
       <DetailHeader>
-        <BackButton onClick={() => navigate('/product')}>
-          ← Back to all iPhones
+        <BackButton onClick={() => navigate('/products/new')}>
+          ← Back to Brand New iPhones
         </BackButton>
-        <MainTitle>Pre-Owned iPhones</MainTitle>
+        <MainTitle>Brand New iPhones</MainTitle>
       </DetailHeader>
       
       <DetailContent>
@@ -305,7 +276,7 @@ const BrandNew_Details = () => {
                 onClick={() => {
                   setSelectedColor(index);
                   // Update URL with selected color
-                  navigate(`/product/iphone/${productId}?color=${index}`);
+                  navigate(`/product/brandnew/${productId }?color=${index}`);
                 }}
                 aria-label={`Select ${phone.colorNames[index]} color`}
               />
@@ -336,11 +307,11 @@ const BrandNew_Details = () => {
           <TermsContainer>
             <TermsTitle>Terms & Conditions</TermsTitle>
             <TermsList>
-              <TermsListItem>30-day return policy for defective devices</TermsListItem>
-              <TermsListItem>All pre-owned devices have been thoroughly tested and refurbished</TermsListItem>
-              <TermsListItem>6-month warranty covers hardware malfunctions</TermsListItem>
-              <TermsListItem>Free shipping on orders over R1000</TermsListItem>
+              <TermsListItem>14-day return policy for unopened devices</TermsListItem>
+              <TermsListItem>All brand new devices come with full manufacturer warranty</TermsListItem>
+              <TermsListItem>Free shipping on all brand new devices</TermsListItem>
               <TermsListItem>Payment processed securely through our payment gateway</TermsListItem>
+              <TermsListItem>All devices are 100% authentic and sourced directly from authorized channels</TermsListItem>
             </TermsList>
           </TermsContainer>
           
@@ -352,5 +323,3 @@ const BrandNew_Details = () => {
     </DetailPageContainer>
   );
 };
-
-export { BrandNew_Details };

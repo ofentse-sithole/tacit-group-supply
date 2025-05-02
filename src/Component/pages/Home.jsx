@@ -11,7 +11,7 @@ function Home() {
         <HeroSection/>
         <Services/>
         <Customer/>
-        <Reviews/>
+        {/*<Reviews/>*/}
     </div>
   )
 }

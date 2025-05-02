@@ -48,9 +48,9 @@ function AppContent() {
         <Route path="/products/new" element={<BrandNew_Devices />} />
         <Route path="/product/brandnew/:productId" element={<BrandNew_Details />} />
 
-        {/*AirPods*/}
+        {/*AirPods - FIXED: Changed route path to avoid conflict*/}
         <Route path="/products/airpods" element={<AirPods />} />
-        <Route path="/product/iphone/:productId" element={<AirPods_Details />} />
+        <Route path="/product/airpods/:productId" element={<AirPods_Details />} /> {/* Changed from /product/iphone/:productId */}
 
         <Route path="/about" element={<About />} />
         <Route path="/contact" element={<Contact />} />

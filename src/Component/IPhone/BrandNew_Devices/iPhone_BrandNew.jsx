@@ -776,13 +776,16 @@ const phoneData = {
 };
 
 
-// Utility functions
 export const findPhoneById = (id) => {
+  // Check each generation of phones
   for (const generation in phoneData) {
-    const found = phoneData[generation].find(phone => phone.id === id);
-    if (found) return found;
+    // Look through each variant in the generation
+    const foundPhone = phoneData[generation].find(phone => phone.id === id);
+    if (foundPhone) {
+      return foundPhone;
+    }
   }
-  return null;
+  return null; // Return null if no phone is found
 };
 
 export const getAllPhones = () => {
@@ -795,7 +798,7 @@ const PhoneCard = ({ phone }) => {
   const [selectedColor, setSelectedColor] = useState(0);
   
   return (
-    <StyledLink to={`/product/iphone/${phone.id}?color=${selectedColor}`}>
+    <StyledLink to={`/product/brandnew/${phone.id}?color=${selectedColor}`}>
       <Card>
         <ImageContainer>
           <ProductImage src={phone.images[selectedColor]} alt={`${phone.title} ${phone.variant} in ${phone.colorNames[selectedColor]}`} />
