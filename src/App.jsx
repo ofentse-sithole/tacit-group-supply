@@ -8,8 +8,8 @@ import Contact from './Component/pages/Contact';
 import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-router-dom';
 import iPhoneProducts from './Component/IPhone/PreOwned_Devices/iPhone_Products';
 import { ProductDetailPage } from './Component/IPhone/PreOwned_Devices/iPhone_Details';
-import {BrandNewDetailPage} from './Component/IPhone/BrandNew_Devices/iPhone_BrandNew_Details';
-import {AirPodsDetails} from './Component/IPhone/AirPods/AirPods_Details';
+import {BrandNew_Details} from './Component/IPhone/BrandNew_Devices/iPhone_BrandNew_Details';
+import {AirPods_Details} from './Component/IPhone/AirPods/AirPods_Details';
 import Footer from './Component/Footer/Footer';
 import PreOwned_Devices from './Component/pages/PreOwnedDevices';
 import BrandNew_Devices from './Component/pages/BrandNewDevices';
@@ -46,11 +46,11 @@ function AppContent() {
 
         {/*New iPhone Routes*/}
         <Route path="/products/new" element={<BrandNew_Devices />} />
-        <Route path="/product/brandnew/:productId" element={<BrandNewDetailPage />} />
+        <Route path="/product/brandnew/:productId" element={<BrandNew_Details />} />
 
         {/*AirPods*/}
         <Route path="/products/airpods" element={<AirPods />} />
-        <Route path="/product/iphone/:id" element={<AirPodsDetails />} />
+        <Route path="/product/iphone/:productId" element={<AirPods_Details />} />
 
         <Route path="/about" element={<About />} />
         <Route path="/contact" element={<Contact />} />

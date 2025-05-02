@@ -370,7 +370,7 @@ const phoneData = {
       images: [
         second_Gen_AirPods
       ],
-      id: '2nd-Generation'
+      id: '2-Generation'
     }
   ],
   3: [
@@ -383,7 +383,7 @@ const phoneData = {
       images: [
         third_Gen_AirPods
       ],
-      id: '3rd-Generation' // Adding IDs for routing
+      id: '3-Generation' // Adding IDs for routing
     },
   ],
   4: [

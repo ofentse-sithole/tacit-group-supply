@@ -233,7 +233,7 @@ const phoneData = {
 };
 
 // ProductDetailPage component
-const ProductDetailPage = () => {
+const BrandNew_Details = () => {
   const { productId } = useParams();
   const navigate = useNavigate();
   const [selectedColor, setSelectedColor] = useState(0);
@@ -353,4 +353,4 @@ const ProductDetailPage = () => {
   );
 };
 
-export { ProductDetailPage };
+export { BrandNew_Details };
