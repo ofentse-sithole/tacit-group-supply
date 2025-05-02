@@ -458,7 +458,19 @@ const phoneData = {
     }
   ],
   7: [
-    
+    {
+      variant: 'Standard',
+      title: 'iPhone 7',
+      price: '3 200.00',
+      colors: ['#daa520', '#F7C3C3', '#c0c0c0'],
+      colorNames: ['Gold', 'Rose Gold', 'Silver'],
+      images: [
+        iPhone7Gold,
+        iPhone7RoseGold,
+        iPhone7Silver
+      ],
+      id: '7-standard'
+    },
     {
       variant: 'Plus',
       title: 'iPhone 7',

@@ -12,6 +12,10 @@ import iPhone7PlusGold from '../../../assets/iPhone7/iPhone7_Plus_Gold-removebg-
 import iPhone7PlusRoseGold from '../../../assets/iPhone7/iPhone7_Plus_Rose_Gold-removebg-preview.png';
 import iPhone7PlusBlack from '../../../assets/iPhone7/iPhone7_Plus_Black-removebg-preview.png';
 
+import iPhone7Silver from '../../../assets/iPhone7/iPhone7_Silver.jpg';
+import iPhone7Gold from '../../../assets/iPhone7/iPhone7_Gold.jpg';
+import iPhone7RoseGold from '../../../assets/iPhone7/iPhone7_RoseGold.jpg';
+
 //iPhone XR
 import iPhoneXImageXRBlue from '../../../assets/iPhoneX/XR_NORMAL.jpg';
 import iPhoneXImageXRRed from '../../../assets/iPhoneX/XR_NORMAL_RED.jpg';
@@ -458,12 +462,12 @@ const phoneData = {
           variant: 'Standard',
           title: 'iPhone 7',
           price: '4 000.00',
-          colors: ['#daa520', '#F7C3C3', '#000000'],
-          colorNames: ['Gold', 'Rose Gold', 'Black'],
+          colors: ['#daa520', '#F7C3C3', '#c0c0c0'],
+          colorNames: ['Gold', 'Rose Gold', 'Silver'],
           images: [
-            iPhone7PlusGold,
-            iPhone7PlusRoseGold,
-            iPhone7PlusBlack
+            iPhone7Gold,
+            iPhone7RoseGold,
+            iPhone7Silver
           ],
           id: '7-standard'
         },
