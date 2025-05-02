@@ -233,15 +233,16 @@ const AirPods_Details = () => {
     return <div>Loading...</div>;
   }
   
-  const specifications = {
-    'Condition': 'Brand New',
-    'Storage': '64GB',
-    'Network': 'Unlocked',
-    'Warranty': '6 Months',
-    'Battery Health': '85%+',
-    'Screen': 'No scratches or damage',
-    'Accessories': 'Charging cable included'
-  };
+ const specifications = {
+  'Condition': 'Brand New',
+  'Battery Life': 'Up to 5 hours listening time',
+  'Charging Case': 'Included',
+  'Compatibility': 'All Bluetooth-enabled devices',
+  'Warranty': '6 Months',
+  'Noise Cancellation': phone.noiseCancellation ? 'Yes' : 'No',
+  'Wireless Charging': phone.wirelessCharging ? 'Supported' : 'Not Supported',
+};
+
   
   const handlePurchase = () => {
     alert(`Thank you for purchasing the ${phone.title} ${phone.variant} in ${phone.colorNames[selectedColor]}!`);
