@@ -467,7 +467,7 @@ const phoneData = {
       id: '6-standard'
     },
     {
-      variant: '6s-plus',
+      variant: '6s Plus',
       title: 'iPhone ',
       price: '3 3800.00',
       colors: ['#ff9999', '#eee8aa', '#c0c0c0'],
