@@ -860,30 +860,28 @@ const phoneData = {
       variant: 'Pro',
       title: 'iPhone 16',
       price: '21 000.00',
-      colors: ['#1b1b1b', '#317873', '#ffb6c1', '#7b68ee', '#f8f8ff'],
-      colorNames: ['Black', 'Scarcelle', 'Pink', 'Ultramarine', 'White'],
-      images: [
-        iPhone16ImageBlack,
-        iPhone16ImageScarcelle,
-        iPhone16ImagePink,
-        iPhone16ImageUltramarine,
-        iPhone16ImageWhite
-      ],
+      colors: ['#1b1b1b', '#eee8aa', '#f8f8ff', '#808080'],
+            colorNames: ['Black', 'Titanium', 'White', 'Gray'],
+            images: [
+              iPhone16ProMaxBlack,
+              iPhone16ProMaxTitanium,
+              iPhone16ProMaxWhite,
+              iPhone16ProMaxGray
+            ],
       id: '16-pro'
     },
     {
       variant: 'Pro Max',
       title: 'iPhone 16',
       price: '23 500.00',
-      colors: ['#1b1b1b', '#317873', '#ffb6c1', '#7b68ee', '#f8f8ff'],
-      colorNames: ['Black', 'Scarcelle', 'Pink', 'Ultramarine', 'White'],
-      images: [
-        iPhone16ImageBlack,
-        iPhone16ImageScarcelle,
-        iPhone16ImagePink,
-        iPhone16ImageUltramarine,
-        iPhone16ImageWhite
-      ],
+      colors: ['#1b1b1b', '#eee8aa', '#f8f8ff', '#808080'],
+            colorNames: ['Black', 'Titanium', 'White', 'Gray'],
+            images: [
+              iPhone16ProMaxBlack,
+              iPhone16ProMaxTitanium,
+              iPhone16ProMaxWhite,
+              iPhone16ProMaxGray
+            ],
       id: '16-pro-max'
     },
   ]

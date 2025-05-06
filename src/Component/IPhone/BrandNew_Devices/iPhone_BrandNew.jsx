@@ -114,6 +114,11 @@ import iPhone16ImageScarcelle from '../../../assets/iPhone16/16_Plus_Scarcelle.j
 import iPhone16ImageUltramarine from '../../../assets/iPhone16/16_Plus_Ultramarine.jpg'
 import iPhone16ImageWhite from '../../../assets/iPhone16/16_Plus_White.jpg'
 
+import iPhone16ProMaxGray from '../../../assets/iPhone16/iPhone16_ProMax_Gray.jpg'
+import iPhone16ProMaxTitanium from '../../../assets/iPhone16/iPhone16_ProMax_Titanium.jpg'
+import iPhone16ProMaxWhite from '../../../assets/iPhone16/iPhone16_ProMax_White.jpg'
+import iPhone16ProMaxBlack from '../../../assets/iPhone16/iPhone16_ProMax_Black.jpg'
+
 // Styled Components
 const ShowcaseContainer = styled.div`
   padding: 24px;
@@ -869,7 +874,34 @@ const phoneData = {
       ],
       id: '16-plus'
     },
-    
+    {
+      variant: 'Pro',
+      title: 'iPhone 16',
+      price: '24 500.00',
+      colors: ['#1b1b1b', '#eee8aa', '#f8f8ff', '#808080'],
+      colorNames: ['Black', 'Titanium', 'White', 'Gray'],
+      images: [
+        iPhone16ProMaxBlack,
+        iPhone16ProMaxTitanium,
+        iPhone16ProMaxWhite,
+        iPhone16ProMaxGray
+      ],
+      id: '16-pro'
+    },
+    {
+      variant: 'Pro Max',
+      title: 'iPhone 16',
+      price: '26 600.00',
+      colors: ['#1b1b1b', '#eee8aa', '#f8f8ff', '#808080'],
+      colorNames: ['Black', 'Titanium', 'White', 'Gray'],
+      images: [
+        iPhone16ProMaxBlack,
+        iPhone16ProMaxTitanium,
+        iPhone16ProMaxWhite,
+        iPhone16ProMaxGray
+      ],
+      id: '16-pro-max'
+    },
 
   ]
 };
