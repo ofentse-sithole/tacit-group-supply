@@ -15,6 +15,15 @@ import iPhone7PlusGold from '../../../assets/iPhone7/iPhone7_Plus_Gold-removebg-
 import iPhone7PlusRoseGold from '../../../assets/iPhone7/iPhone7_Plus_Rose_Gold-removebg-preview.png';
 import iPhone7PlusBlack from '../../../assets/iPhone7/iPhone7_Plus_Black-removebg-preview.png';
 
+//iPhone 8
+import iPhone8White from '../../../assets/iPhone8/iPhone8_Normal_White.jpg';
+import iPhone8Black from '../../../assets/iPhone8/iPhone8_Normal_Black.jpg';
+import iPhone8Gold from '../../../assets/iPhone8/iPhone8_Normal_Gold.jpg';
+
+import iPhone8PlusBlack from '../../../assets/iPhone8/iPhone8_Plus_Black.jpg';
+import iPhone8PlusWhite from '../../../assets/iPhone8/iPhone8_Plus_White.jpg';
+import iPhone8PlusGold from '../../../assets/iPhone8/iPhone8_Plus_Gold.jpg';
+import iPhone8PlusRed from '../../../assets/iPhone8/iPhone8_Plus_Red.jpg';
 
 //iPhone XR
 import iPhoneXImageXRBlue from '../../../assets/iPhoneX/XR_NORMAL.jpg';
@@ -26,6 +35,19 @@ import iPhoneXImageXRBlack from '../../../assets/iPhoneX/XR_NORMAL_BLACK.jpg';
 import iPhoneXImageXSMaxGold from '../../../assets/iPhoneX/XS_NORMAL.jpg';
 import iPhoneXImageXSBlack from '../../../assets/iPhoneX/XS_NORMAL_BLACK.jpg';
 import iPhoneXImageXSWhite from '../../../assets/iPhoneX/XS_NORMAL_WHITE.jpg';
+
+//iPhone 11
+import iPhone11Green from '../../../assets/iPhone11/iPhone11_Normal_Green.jpg';
+import iPhone11Purple from '../../../assets/iPhone11/iPhone11_Normal_Purple.jpg';
+import iPhone11White from '../../../assets/iPhone11/iPhone11_Normal_White.jpg';
+import iPhone11Black from '../../../assets/iPhone11/11_Normal_Black.jpg';
+import iPhone11Red from '../../../assets/iPhone11/iPhone11_Normal_Red.jpg';
+import iPhone11Yellow from '../../../assets/iPhone11/iPhone11_Normal_Yellow.jpg';
+
+import iPhone11ProMaxGold from '../../../assets/iPhone11/iPhone11_ProMax_Gold.jpg';
+import iPhone11ProMaxGray from '../../../assets/iPhone11/iPhone11_ProMax_Dark.jpg';
+import iPhone11ProMaxWhite from '../../../assets/iPhone11/iPhone11_ProMax_Silver.jpg';
+import iPhone11DarkGreen from '../../../assets/iPhone11/iPhone11_ProMax_DarkGreen.jpg';
 
 //iPhone 12
 import iPhone12ImageBlack from '../../../assets/iPhone12/12_Normal_Black.jpeg';
@@ -458,7 +480,19 @@ const phoneData = {
     }
   ],
   7: [
-    
+    {
+      variant: 'Standard',
+      title: 'iPhone 7',
+      price: '3 200.00',
+      colors: ['#daa520', '#F7C3C3', '#c0c0c0'],
+      colorNames: ['Gold', 'Rose Gold', 'Silver'],
+      images: [
+        iPhone7Gold,
+        iPhone7RoseGold,
+        iPhone7Silver
+      ],
+      id: '7-standard'
+    },
     {
       variant: 'Plus',
       title: 'iPhone 7',
@@ -478,28 +512,28 @@ const phoneData = {
       variant: 'Standard',
       title: 'iPhone 8',
       price: '3 500.00',
-      colors: ['#5f9ea0', '#ff0000', '#ffffff', '#000000'],
-      colorNames: ['Blue', 'Red', 'White', 'Black'],
-      images: [
-        iPhoneXImageXRBlue,
-        iPhoneXImageXRRed,
-        iPhoneXImageXRWhite,
-        iPhoneXImageXRBlack
-      ],
-      id: '8-standard' // Adding IDs for routing
+      colors: [ '#deb887', '#ffffff', '#000000'],
+            colorNames: [ 'Gold', 'White', 'Black'],
+            images: [
+              iPhone8Gold,
+              iPhone8White,
+              iPhone8Black
+            ],
+            id: '8-standard'// Adding IDs for routing
     },
     {
       variant: 'Plus',
       title: 'iPhone 8',
       price: '3 600.00',
-      colors: ['#daa520', '#000000', '#ffffff'],
-      colorNames: ['Gold', 'Black', 'White'],
+      colors: ['#daa520', '#000000', '#ffffff', '#ff0000'],
+      colorNames: ['Gold', 'Black', 'White', 'Red'],
       images: [
-        iPhoneXImageXSMaxGold,
-        iPhoneXImageXSBlack,
-        iPhoneXImageXSWhite
+        iPhone8PlusGold,
+        iPhone8PlusBlack,
+        iPhone8PlusWhite,
+        iPhone8PlusRed
       ],
-      id: '10-xs'
+      id: '8-plus'
     }
   ],
   10: [
@@ -562,39 +596,29 @@ const phoneData = {
       variant: 'Standard',
       title: 'iPhone 11',
       price: '5 500.00',
-      colors: ['#5f9ea0', '#ff0000', '#ffffff', '#000000'],
-      colorNames: ['Blue', 'Red', 'White', 'Black'],
+      colors: ['#7fff00', '#dda0dd', '#ffffff', '#000000', '#ff0000', '#eee600'],
+      colorNames: ['Green', 'Purple', 'White', 'Black', 'Red','Yellow'],
       images: [
-        iPhoneXImageXRBlue,
-        iPhoneXImageXRRed,
-        iPhoneXImageXRWhite,
-        iPhoneXImageXRBlack
+        iPhone11Green,
+        iPhone11Purple,
+        iPhone11White,
+        iPhone11Black,
+        iPhone11Red,
+        iPhone11Yellow
       ],
       id: '11-standard' // Adding IDs for routing
     },
     {
       variant: 'Pro',
       title: 'iPhone 11',
-      price: '6 500.00',
-      colors: ['#daa520', '#000000', '#ffffff'],
-      colorNames: ['Gold', 'Black', 'White'],
-      images: [
-        iPhoneXImageXSMaxGold,
-        iPhoneXImageXSBlack,
-        iPhoneXImageXSWhite
-      ],
-      id: '11-pro'
-    },
-    {
-      variant: 'Pro',
-      title: 'iPhone 11',
       price: '7 200.00',
-      colors: ['#daa520', '#000000', '#ffffff'],
-      colorNames: ['Gold', 'Black', 'White'],
+      colors: ['#daa520', '#555555', '#ffffff','#006400'],
+      colorNames: ['Gold', 'Gray', 'White', 'Dark Green'],
       images: [
-        iPhoneXImageXSMaxGold,
-        iPhoneXImageXSBlack,
-        iPhoneXImageXSWhite
+        iPhone11ProMaxGold,
+        iPhone11ProMaxGray,
+        iPhone11ProMaxWhite,
+        iPhone11DarkGreen
       ],
       id: '11-pro'
     },
@@ -602,12 +626,13 @@ const phoneData = {
       variant: 'Pro Max',
       title: 'iPhone 11',
       price: '8 200.00',
-      colors: ['#daa520', '#000000', '#ffffff'],
-      colorNames: ['Gold', 'Black', 'White'],
+      colors: ['#daa520', '#555555', '#ffffff','#006400'],
+      colorNames: ['Gold', 'Gray', 'White', 'Dark Green'],
       images: [
-        iPhoneXImageXSMaxGold,
-        iPhoneXImageXSBlack,
-        iPhoneXImageXSWhite
+        iPhone11ProMaxGold,
+        iPhone11ProMaxGray,
+        iPhone11ProMaxWhite,
+        iPhone11DarkGreen
       ],
       id: '11-pro-max'
     }
@@ -835,30 +860,28 @@ const phoneData = {
       variant: 'Pro',
       title: 'iPhone 16',
       price: '21 000.00',
-      colors: ['#1b1b1b', '#317873', '#ffb6c1', '#7b68ee', '#f8f8ff'],
-      colorNames: ['Black', 'Scarcelle', 'Pink', 'Ultramarine', 'White'],
-      images: [
-        iPhone16ImageBlack,
-        iPhone16ImageScarcelle,
-        iPhone16ImagePink,
-        iPhone16ImageUltramarine,
-        iPhone16ImageWhite
-      ],
+      colors: ['#1b1b1b', '#eee8aa', '#f8f8ff', '#808080'],
+            colorNames: ['Black', 'Titanium', 'White', 'Gray'],
+            images: [
+              iPhone16ProMaxBlack,
+              iPhone16ProMaxTitanium,
+              iPhone16ProMaxWhite,
+              iPhone16ProMaxGray
+            ],
       id: '16-pro'
     },
     {
       variant: 'Pro Max',
       title: 'iPhone 16',
       price: '23 500.00',
-      colors: ['#1b1b1b', '#317873', '#ffb6c1', '#7b68ee', '#f8f8ff'],
-      colorNames: ['Black', 'Scarcelle', 'Pink', 'Ultramarine', 'White'],
-      images: [
-        iPhone16ImageBlack,
-        iPhone16ImageScarcelle,
-        iPhone16ImagePink,
-        iPhone16ImageUltramarine,
-        iPhone16ImageWhite
-      ],
+      colors: ['#1b1b1b', '#eee8aa', '#f8f8ff', '#808080'],
+            colorNames: ['Black', 'Titanium', 'White', 'Gray'],
+            images: [
+              iPhone16ProMaxBlack,
+              iPhone16ProMaxTitanium,
+              iPhone16ProMaxWhite,
+              iPhone16ProMaxGray
+            ],
       id: '16-pro-max'
     },
   ]
