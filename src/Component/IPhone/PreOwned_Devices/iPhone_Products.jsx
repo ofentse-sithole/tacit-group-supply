@@ -113,6 +113,11 @@ import iPhone16ImageScarcelle from '../../../assets/iPhone16/16_Plus_Scarcelle.j
 import iPhone16ImageUltramarine from '../../../assets/iPhone16/16_Plus_Ultramarine.jpg'
 import iPhone16ImageWhite from '../../../assets/iPhone16/16_Plus_White.jpg'
 
+import iPhone16ProMaxGray from '../../../assets/iPhone16/iPhone16_ProMax_Gray.jpg'
+import iPhone16ProMaxTitanium from '../../../assets/iPhone16/iPhone16_ProMax_Titanium.jpg'
+import iPhone16ProMaxWhite from '../../../assets/iPhone16/iPhone16_ProMax_White.jpg'
+import iPhone16ProMaxBlack from '../../../assets/iPhone16/iPhone16_ProMax_Black.jpg'
+
 // Styled Components
 // Styled Components (existing ones remain the same)
 const ShowcaseContainer = styled.div`
