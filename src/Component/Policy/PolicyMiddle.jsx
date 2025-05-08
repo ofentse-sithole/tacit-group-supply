@@ -502,9 +502,6 @@ export default function TacitGroupPolicy() {
               <FooterText bold>Contact: 062-749-6008 / 065-661-1341</FooterText>
             </ContactWrapper>
           </FooterCard>
-          <Copyright>
-            © {new Date().getFullYear()} Tacit Group. All rights reserved.
-          </Copyright>
         </Footer>
       </Container>
     </>

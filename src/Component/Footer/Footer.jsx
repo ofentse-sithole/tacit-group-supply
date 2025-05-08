@@ -21,7 +21,7 @@ const Footer = () => {
             <Link to="/contact" className="footer-nav-link">Contact</Link>
           </div>
           <div className="copyright">
-            ©2025 Tacit Supply Group Co. | All Rights Reserved | 
+            © {new Date().getFullYear()} Tacit Supply Group Co. | All Rights Reserved | 
             <span> Designed & Developed by </span>
             <a 
               href="https://www.erencedevelopers.com" 
