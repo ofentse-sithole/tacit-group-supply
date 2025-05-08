@@ -208,18 +208,36 @@ const ExampleText = styled.p`
   color: #cbd5e0;
 `;
 
+// Mobile-friendly responsive table
+const TableWrapper = styled.div`
+  width: 100%;
+  overflow-x: auto;
+  margin-bottom: 2rem;
+  border-radius: 0.5rem;
+  border: 1px solid #4a5568;
+  
+  @media (max-width: 767px) {
+    display: block;
+  }
+`;
+
 const Table = styled.table`
   min-width: 100%;
   border-collapse: separate;
   border-spacing: 0;
-  border-radius: 0.5rem;
-  overflow: hidden;
-  border: 1px solid #4a5568;
-  margin-bottom: 2rem;
+  
+  @media (max-width: 767px) {
+    display: flex;
+    flex-direction: column;
+  }
 `;
 
 const TableHead = styled.thead`
   background-color: #1a202c;
+  
+  @media (max-width: 767px) {
+    display: none;
+  }
 `;
 
 const TableHeadCell = styled.th`
@@ -234,20 +252,93 @@ const TableHeadCell = styled.th`
 
 const TableBody = styled.tbody`
   background-color: #2d3748;
+  
+  @media (max-width: 767px) {
+    display: block;
+  }
 `;
 
 const TableRow = styled.tr`
   &:not(:last-child) {
     border-bottom: 1px solid #4a5568;
   }
+  
+  @media (max-width: 767px) {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    padding: 1rem 0.5rem;
+    
+    &:not(:last-child) {
+      border-bottom: 1px solid #4a5568;
+    }
+  }
 `;
 
 const TableCell = styled.td`
   padding: 1rem;
-  white-space: nowrap;
-  text-align: ${props => props.center ? 'center' : 'left'};
   font-weight: ${props => props.bold ? '500' : 'normal'};
   color: ${props => props.highlight ? '#a3bffa' : 'inherit'};
+  text-align: ${props => props.center ? 'center' : 'left'};
+  
+  @media (max-width: 767px) {
+    padding: 0.5rem;
+    display: ${props => props.mobileHidden ? 'none' : 'block'};
+    
+    &:first-child {
+      grid-column: 1 / -1;
+      background-color: #1a202c;
+      font-weight: 600;
+      padding: 0.75rem;
+      border-radius: 0.25rem;
+      margin-bottom: 0.5rem;
+    }
+    
+    &:not(:first-child) {
+      text-align: center;
+    }
+    
+    &:before {
+      content: '${props => props.mobileLabel}';
+      display: block;
+      font-weight: 500;
+      font-size: 0.75rem;
+      color: #a0aec0;
+      margin-bottom: 0.25rem;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+  }
+`;
+
+// Alternative Card-Based Payment Schedule for Mobile
+const PaymentScheduleCards = styled.div`
+  display: none;
+  
+  @media (max-width: 767px) {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    margin-bottom: 2rem;
+  }
+`;
+
+const PaymentCard = styled.div`
+  background-color: #2d3748;
+  border-radius: 0.5rem;
+  padding: 1rem;
+  border: 1px solid #4a5568;
+`;
+
+const PaymentCardTitle = styled.div`
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+  color: #a0aec0;
+`;
+
+const PaymentCardAmount = styled.div`
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: #a3bffa;
 `;
 
 const Footer = styled.div`
@@ -403,28 +494,84 @@ export default function TacitGroupPolicy() {
               </Section>
 
               <Section>
-                <Table>
-                  <TableHead>
-                    <TableRow>
-                      <TableHeadCell>DEVICE VALUE</TableHeadCell>
-                      <TableHeadCell center>MONTH 1</TableHeadCell>
-                      <TableHeadCell center>MONTH 2</TableHeadCell>
-                      <TableHeadCell center>MONTH 3</TableHeadCell>
-                      <TableHeadCell center>MONTH 4</TableHeadCell>
-                      <TableHeadCell center>MONTH 5</TableHeadCell>
-                    </TableRow>
-                  </TableHead>
-                  <TableBody>
-                    <TableRow>
-                      <TableCell bold>Any Device (100%)</TableCell>
-                      <TableCell center highlight>20%</TableCell>
-                      <TableCell center highlight>20%</TableCell>
-                      <TableCell center highlight>20%</TableCell>
-                      <TableCell center highlight>20%</TableCell>
-                      <TableCell center highlight>20%</TableCell>
-                    </TableRow>
-                  </TableBody>
-                </Table>
+                {/* Desktop/Tablet Table (hidden on mobile) */}
+                <TableWrapper>
+                  <Table>
+                    <TableHead>
+                      <TableRow>
+                        <TableHeadCell>DEVICE VALUE</TableHeadCell>
+                        <TableHeadCell center>MONTH 1</TableHeadCell>
+                        <TableHeadCell center>MONTH 2</TableHeadCell>
+                        <TableHeadCell center>MONTH 3</TableHeadCell>
+                        <TableHeadCell center>MONTH 4</TableHeadCell>
+                        <TableHeadCell center>MONTH 5</TableHeadCell>
+                      </TableRow>
+                    </TableHead>
+                    <TableBody>
+                      <TableRow>
+                        <TableCell bold>Any Device (100%)</TableCell>
+                        <TableCell 
+                          center 
+                          highlight 
+                          mobileLabel="Month 1"
+                        >20%</TableCell>
+                        <TableCell 
+                          center 
+                          highlight 
+                          mobileLabel="Month 2"
+                        >20%</TableCell>
+                        <TableCell 
+                          center 
+                          highlight 
+                          mobileLabel="Month 3"
+                        >20%</TableCell>
+                        <TableCell 
+                          center 
+                          highlight 
+                          mobileLabel="Month 4"
+                        >20%</TableCell>
+                        <TableCell 
+                          center 
+                          highlight 
+                          mobileLabel="Month 5"
+                        >20%</TableCell>
+                      </TableRow>
+                    </TableBody>
+                  </Table>
+                </TableWrapper>
+                
+                {/* Mobile Card Layout (only visible on mobile) */}
+                <PaymentScheduleCards>
+                  <PaymentCard>
+                    <PaymentCardTitle>DEVICE VALUE</PaymentCardTitle>
+                    <PaymentCardAmount>Any Device (100%)</PaymentCardAmount>
+                  </PaymentCard>
+                  
+                  <PaymentCard>
+                    <PaymentCardTitle>MONTH 1</PaymentCardTitle>
+                    <PaymentCardAmount>20%</PaymentCardAmount>
+                  </PaymentCard>
+                  
+                  <PaymentCard>
+                    <PaymentCardTitle>MONTH 2</PaymentCardTitle>
+                    <PaymentCardAmount>20%</PaymentCardAmount>
+                  </PaymentCard>
+                  
+                  <PaymentCard>
+                    <PaymentCardTitle>MONTH 3</PaymentCardTitle>
+                    <PaymentCardAmount>20%</PaymentCardAmount>
+                  </PaymentCard>
+                  
+                  <PaymentCard>
+                    <PaymentCardTitle>MONTH 4</PaymentCardTitle>
+                    <PaymentCardAmount>20%</PaymentCardAmount>
+                  </PaymentCard>
+                  
+                  <PaymentCard>
+                    <PaymentCardTitle>MONTH 5</PaymentCardTitle>
+                    <PaymentCardAmount>20%</PaymentCardAmount>
+                  </PaymentCard>
+                </PaymentScheduleCards>
               </Section>
             </>
           )}
