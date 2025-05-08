@@ -1,12 +1,12 @@
 import '../../App.css'
-import PolicyTradeIn from '../Policy/PolicyMiddle'
+import PolicyLayBy from '../Policy/PolicyMiddle'
 
-function Home() {
+function PolicyTradeIn() {
   return (
     <div>
-        <PolicyTradeIn/>
+        <PolicyLayBy/>
     </div>
   )
 }
 
-export default Home
+export default PolicyTradeIn

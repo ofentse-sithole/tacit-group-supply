@@ -57,7 +57,7 @@ function AppContent() {
         <Route path="/sale" element={<Sale />} />
         <Route path="/sale/:productId" element={<SalesProductDetails />} />
 
-        <Route path="/policy" element={<PolicyTradeIn />} />
+        <Route path="/products/policy" element={<PolicyTradeIn />} />
         {/* Admin routes */}
         <Route path="/admin/private/secure/login" element={<AdminLogins />} />
         <Route path="/admin/dashboard" element={<ProtectedRoute element={<AdminDashboard />} />} />
