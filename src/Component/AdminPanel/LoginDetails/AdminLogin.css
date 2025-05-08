@@ -34,6 +34,7 @@
     font-size: 24px;
     margin-bottom: 30px;
     font-weight: 600;
+    text-align: left;
   }
   
   .error-message {
@@ -78,7 +79,7 @@
   
   .login-button {
     width: 100%;
-    background-color: #14690b;
+    background-color: #210b69;
     color: white;
     border: none;
     border-radius: 4px;
@@ -90,11 +91,11 @@
   }
   
   .login-button:hover {
-    background-color: #20d114;
+    background-color: #1476d1;
   }
   
   .login-button:active {
-    background-color: #019101;
+    background-color: #015c91;
   }
   
   /* Add a subtle animation for error message */

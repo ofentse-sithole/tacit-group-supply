@@ -4,7 +4,7 @@
 :root {
     --mainColor: #030202;
     --mainColorLight: #5767aa;
-    --secondaryColor: #41e20f;
+    --secondaryColor: #5f62f3;
     --textColor: #ffffff;
     --transitionSpeed: 0.3s;
 }
@@ -95,7 +95,7 @@
 }
 
 .developer-link {
-    color: #149400;
+    color: #3d3fca;
     text-decoration: none;
     font-weight: bold;
   }

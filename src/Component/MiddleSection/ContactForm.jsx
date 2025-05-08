@@ -59,7 +59,7 @@ const Input = styled.input`
   }
 
   &:focus {
-    border-bottom-color: rgb(90, 230, 34);
+    border-bottom-color: #5f62f3;
   }
 `;
 
@@ -81,12 +81,12 @@ const TextArea = styled.textarea`
   }
 
   &:focus {
-    border-bottom-color: rgb(34, 230, 34);
+    border-bottom-color: #5f62f3;
   }
 `;
 
 const SubmitButton = styled.button`
-  background: rgb(15, 95, 8);
+  background:rgb(6, 10, 245);
   color: white;
   padding: 0.8rem 2rem;
   border: none;
@@ -95,7 +95,7 @@ const SubmitButton = styled.button`
   transition: background 0.3s;
 
   &:hover {
-    background: rgb(34, 206, 12);
+    background: #5f62f3;
   }
 `;
 

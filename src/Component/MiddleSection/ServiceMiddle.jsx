@@ -26,7 +26,7 @@ const Title = styled.h2`
   margin-bottom: 1rem;
 
   span.highlight {
-    color: rgb(38, 173, 4);
+    color:rgb(63, 66, 241);
   }
 
   span.normal {
@@ -56,7 +56,7 @@ const Card = styled.div`
   padding: 1.5rem;
   border-radius: 0.5rem;
   border: 1px solid #2d3748;
-  background-color: rgba(1, 117, 49, 0.5);
+  background-color: rgba(1, 17, 117, 0.5);
   transition: all 0.3s ease;
   display: flex;
   flex-direction: column;
@@ -64,7 +64,7 @@ const Card = styled.div`
   text-align: center;
 
   &:hover {
-    background-color: rgba(0, 187, 25, 0.8);
+    background-color: rgba(0, 87, 187, 0.8);
     transform: translateY(-5px);
   }
 `;
@@ -76,8 +76,8 @@ const IconWrapper = styled.div`
   align-items: center;
   justify-content: center;
   border-radius: 50%;
-  background-color: rgba(2, 36, 4, 0.86);
-  color: rgb(34, 117, 9);
+  background-color: rgba(15, 1, 61, 0.86);
+  color: rgb(9, 110, 117);
   margin-bottom: 1rem;
 `;
 
