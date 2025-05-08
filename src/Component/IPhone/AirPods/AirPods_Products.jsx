@@ -9,6 +9,11 @@ import third_Gen_AirPods from '../../../assets/AirPods/3rd_Gen_Airpods.jpeg';
 import fourth_Gen_AirPods from '../../../assets/AirPods/4th_Gen_Airpods.jpeg';
 import Pro_Gen_AirPods from '../../../assets/AirPods/Pro_Gen_Airpods.jpeg';
 
+import airpods_max_blue from '../../../assets/AirPods/airpods_max_blue.jpg'
+import airpods_max_red from '../../../assets/AirPods/airpods_max_red.jpg'
+import airpods_max_black from '../../../assets/AirPods/airpods_max_black.jpg'
+import airpods_max_white from '../../../assets/AirPods/airpods_max_white.jpg'
+
 // Styled Components
 // Styled Components (existing ones remain the same)
 const ShowcaseContainer = styled.div`
@@ -405,10 +410,13 @@ const phoneData = {
       variant: 'Max',
       title: 'AirPods',
       price: '6 500.00',
-      colors: ['#ffffff'],
-      colorNames: ['White'],
+      colors: ['#ffffff', '#0000FF', '#FF0000', '#000000'],
+      colorNames: ['White', 'Blue', 'Red', 'Black'],
       images: [
-        Pro_Gen_AirPods
+        airpods_max_white,
+        airpods_max_blue,
+        airpods_max_red,
+        airpods_max_black,
       ],
       id: '5-Max' // Adding IDs for routing
     },

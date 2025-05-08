@@ -6,8 +6,9 @@ const images = [
   "/herosliding/HeroSlide-2-removebg-preview.png",
   "/herosliding/HeroSlide-3-removebg-preview.png",
   "/herosliding/HeroSlide-4-removebg-preview.png",
-  "/herosliding/HeroSlide-5-removebg-preview.png",
-  "/herosliding/HeroSlide-6-removebg-preview.png",
+  "/herosliding/HeroSlide-9-removebg-preview.png",
+  "/herosliding/HeroSlide-8-removebg-preview.png",
+  "/herosliding/HeroSlide-10-removebg-preview.jpg",
   "/herosliding/HeroSlide-7-removebg-preview.png",
 ];
 

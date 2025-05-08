@@ -17,7 +17,7 @@ import Sale from './Component/pages/Sale';
 import SalesProductDetails from './Component/IPhone/Sales/SalesProducts_Details';
 import ScrollToTop from './Component/pages/ScrollTop';
 import AirPods from './Component/pages/AirPods';
-
+import PolicyTradeIn from './Component/pages/Policy';
 import AdminDashboard from './Component/AdminPanel/AdminDashboard';
 import { AuthProvider } from './Component/AdminPanel/LoginDetails/context/AdminAuth';
 import ProtectedRoute from './Component/AdminPanel/ProtectedRoute';
@@ -57,6 +57,7 @@ function AppContent() {
         <Route path="/sale" element={<Sale />} />
         <Route path="/sale/:productId" element={<SalesProductDetails />} />
 
+        <Route path="/policy" element={<PolicyTradeIn />} />
         {/* Admin routes */}
         <Route path="/admin/private/secure/login" element={<AdminLogins />} />
         <Route path="/admin/dashboard" element={<ProtectedRoute element={<AdminDashboard />} />} />

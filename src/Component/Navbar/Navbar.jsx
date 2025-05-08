@@ -86,6 +86,9 @@ function Navbar() {
               <Link to="/products/sale" onClick={closeNavbar} className="submenu-link">
               Sale
               </Link>
+              <Link to="/products/policy" onClick={closeNavbar} className="submenu-link">
+              Lay-By & Trade-In Policy
+              </Link>
             </div>
           </div>
         )}
@@ -109,7 +112,8 @@ function Navbar() {
             <Link to="/products/pre-owned">Pre-owned Devices</Link>
             <Link to="/products/new">Brand New Devices</Link>
             <Link to="/products/airpods">AirPods</Link>
-            <Link to="/sale" className="desktop-link">Sale</Link>
+            <Link to="/sale">Sale</Link>
+            <Link to="/products/policy">Lay-By & Trade-In Policy</Link>
           </div>
         </div>
         <Link to="/about" className="desktop-link">About Us</Link>
