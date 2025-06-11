@@ -24,7 +24,7 @@ const Footer = () => {
             © {new Date().getFullYear()} Tacit Supply Group Co. | All Rights Reserved | 
             <span> Designed & Developed by </span>
             <a 
-              href="https://www.erencedevelopers.com" 
+              href="https://www.erencedevelopers.co.za" 
               target="_blank" 
               rel="noopener noreferrer" 
               className="developer-link"
